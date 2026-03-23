@@ -42,6 +42,27 @@
   50% { transform: translateY(-12px); }
 }
 
+@keyframes revealRise {
+  0% { opacity: 0; transform: translateY(26px) scale(0.985); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes revealScale {
+  0% { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(79, 70, 229, 0); }
+  50% { box-shadow: 0 0 42px rgba(79, 70, 229, 0.28); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -128,10 +149,11 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 1rem;
   padding: 1.5rem;
-  transition: all 0.3s;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 .card:hover {
   border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 14px 40px rgba(10, 10, 15, 0.45);
 }
 
 .section-tag {
@@ -199,6 +221,49 @@ h1, h2, h3, h4, h5, h6 {
 .logo-clean {
   mix-blend-mode: multiply;
   filter: saturate(1.1) contrast(1.08);
+}
+
+.anim-reveal {
+  opacity: 0;
+  animation: revealRise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-pop {
+  opacity: 0;
+  animation: revealScale 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-delay-1 { animation-delay: 0.08s; }
+.anim-delay-2 { animation-delay: 0.16s; }
+.anim-delay-3 { animation-delay: 0.24s; }
+.anim-delay-4 { animation-delay: 0.32s; }
+.anim-delay-5 { animation-delay: 0.4s; }
+.anim-delay-6 { animation-delay: 0.48s; }
+
+.anim-glow {
+  animation: glowPulse 4.2s ease-in-out infinite;
+}
+
+.gradient-animate {
+  background-size: 220% 220%;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+.card-tilt:hover {
+  transform: translateY(-10px) scale(1.01) rotateX(1.25deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .anim-reveal,
+  .anim-pop {
+    opacity: 1;
+  }
 }
 
 /* Custom scrollbar */

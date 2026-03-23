@@ -23,7 +23,7 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden">
+      <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden anim-reveal">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-tag">Our Work</span>
@@ -37,11 +37,11 @@ export default function PortfolioPage() {
       </section>
 
       {/* Projects grid */}
-      <section className="py-16 bg-dark-900">
+      <section className="py-16 bg-dark-900 anim-reveal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <div key={project.title} className="card group hover:-translate-y-1 flex flex-col">
+            {projects.map((project, idx) => (
+              <div key={project.title} className={`card card-tilt group flex flex-col anim-reveal anim-delay-${(idx % 6) + 1}`}>
                 {/* Visual */}
                 <div className="h-44 rounded-xl overflow-hidden relative mb-5">
                   <Image
@@ -105,7 +105,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-dark-800/50">
+      <section className="py-20 bg-dark-800/50 anim-reveal">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
             Ready to build your project?

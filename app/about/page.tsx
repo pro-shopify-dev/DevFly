@@ -62,7 +62,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden">
+      <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden anim-reveal">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-tag">About DevFly</span>
@@ -76,15 +76,15 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-dark-800/50">
+      <section className="py-20 bg-dark-800/50 anim-reveal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10">
-          <div className="card">
+          <div className="card card-tilt anim-pop anim-delay-1">
             <h2 className="text-2xl font-black text-white mb-4">Our Mission</h2>
             <p className="text-gray-400 leading-relaxed text-lg">
               To help US startups and businesses build exceptional software — faster than they thought possible and at a price that makes sense. We believe great software should not require a $500k engineering hire or a bloated agency retainer.
             </p>
           </div>
-          <div className="card border-brand-500/30">
+          <div className="card card-tilt border-brand-500/30 anim-pop anim-delay-2">
             <h2 className="text-2xl font-black text-white mb-4">Our Vision</h2>
             <p className="text-gray-400 leading-relaxed text-lg">
               To become the go-to development partner for US startups at the product-building stage — known for shipping fast, communicating clearly, and delivering results that move businesses forward.
@@ -94,7 +94,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-dark-900">
+      <section className="py-20 bg-dark-900 anim-reveal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="section-tag">The Team</span>
@@ -103,7 +103,7 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <div className="card text-center">
+            <div className="card card-tilt text-center anim-pop anim-delay-1">
               <div className="w-24 h-24 rounded-2xl overflow-hidden mx-auto mb-4 relative">
                 <Image
                   src="/tony-brain.png"
@@ -118,7 +118,7 @@ export default function AboutPage() {
                 Full-stack engineer with 8+ years of experience building web applications and SaaS platforms. Specialises in React, Node.js, and cloud architecture. Leads all technical delivery at DevFly.
               </p>
             </div>
-            <div className="card text-center">
+            <div className="card card-tilt text-center anim-pop anim-delay-2">
               <div className="w-24 h-24 rounded-2xl mx-auto mb-4 bg-brand-600/15 border border-brand-500/20 flex items-center justify-center">
                 <Handshake className="w-10 h-10 text-brand-400" />
               </div>
@@ -138,7 +138,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why DevFly */}
-      <section className="py-20 bg-dark-800/50">
+      <section className="py-20 bg-dark-800/50 anim-reveal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="section-tag">Why DevFly</span>
@@ -161,7 +161,7 @@ export default function AboutPage() {
             {values.map((v) => {
               const Icon = v.icon
               return (
-                <div key={v.title} className="card">
+                <div key={v.title} className="card card-tilt anim-pop">
                   <div className="w-10 h-10 bg-brand-600/20 rounded-lg flex items-center justify-center mb-3">
                     <Icon className="w-5 h-5 text-brand-400" />
                   </div>
@@ -175,7 +175,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-dark-900">
+      <section className="py-20 bg-dark-900 anim-reveal">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="section-tag">Our Journey</span>
@@ -203,7 +203,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-dark-800/50">
+      <section className="py-20 bg-dark-800/50 anim-reveal">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
             Let&apos;s build something great together.

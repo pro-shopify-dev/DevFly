@@ -142,27 +142,27 @@ const trustLogos = ['TechFlow', 'GrowthBase', 'NovaSaaS', 'LaunchPad', 'PixelCor
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-dark-900 bg-hero-grid">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-dark-900 bg-hero-grid gradient-animate">
       {/* Gradient blobs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-500/15 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl anim-glow" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-500/15 rounded-full blur-3xl anim-glow anim-delay-2" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
         {/* Left */}
-        <div>
-          <div className="inline-flex items-center gap-2 bg-brand-600/15 border border-brand-500/30 rounded-full px-4 py-1.5 text-sm text-brand-400 mb-6">
+        <div className="anim-reveal">
+          <div className="inline-flex items-center gap-2 bg-brand-600/15 border border-brand-500/30 rounded-full px-4 py-1.5 text-sm text-brand-400 mb-6 anim-pop anim-delay-1">
             <Zap className="w-3.5 h-3.5" />
             Freelancer pricing · Agency quality
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] mb-6">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] mb-6 anim-reveal anim-delay-2">
             We Build<br />
             <span className="gradient-text">Software That</span><br />
             Moves Fast
           </h1>
-          <p className="text-xl text-gray-400 leading-relaxed mb-8 max-w-lg">
+          <p className="text-xl text-gray-400 leading-relaxed mb-8 max-w-lg anim-reveal anim-delay-3">
             Custom web apps, SaaS platforms, and startup MVPs for US businesses. We deliver production-ready software — on time, every time.
           </p>
-          <div className="flex flex-wrap gap-4 mb-10">
+          <div className="flex flex-wrap gap-4 mb-10 anim-reveal anim-delay-4">
             <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
               Book a Free Consultation <ArrowRight className="w-4 h-4" />
             </Link>
@@ -170,9 +170,9 @@ function HeroSection() {
               See Our Services
             </Link>
           </div>
-          <div className="flex flex-wrap gap-6">
-            {['50+ Projects delivered', 'US-based clients', '24h response time'].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-gray-400">
+          <div className="flex flex-wrap gap-6 anim-reveal anim-delay-5">
+            {['50+ Projects delivered', 'US-based clients', '24h response time'].map((item, idx) => (
+              <div key={item} className={`flex items-center gap-2 text-sm text-gray-400 anim-pop anim-delay-${idx + 1}`}>
                 <CheckCircle className="w-4 h-4 text-accent-400 shrink-0" />
                 {item}
               </div>
@@ -181,7 +181,7 @@ function HeroSection() {
         </div>
 
         {/* Right — Dashboard mockup */}
-        <div className="relative hidden lg:block">
+        <div className="relative hidden lg:block anim-reveal anim-delay-3">
           <div className="animate-float">
             <div className="relative bg-dark-700 rounded-2xl border border-white/10 shadow-2xl shadow-brand-900/50 overflow-hidden">
               {/* Browser bar */}
@@ -237,7 +237,7 @@ function HeroSection() {
             </div>
           </div>
           {/* Floating badge */}
-          <div className="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 shadow-xl">
+          <div className="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 shadow-xl anim-pop anim-delay-6">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-accent-400" />
               <div>
@@ -254,14 +254,14 @@ function HeroSection() {
 
 function TrustBar() {
   return (
-    <section className="border-y border-white/10 bg-dark-800/50 py-10">
+    <section className="border-y border-white/10 bg-dark-800/50 py-10 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-8">
           Trusted by startups and growing businesses
         </p>
         <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-          {trustLogos.map((name) => (
-            <div key={name} className="text-gray-500 font-bold text-lg hover:text-gray-300 transition-colors">
+          {trustLogos.map((name, idx) => (
+            <div key={name} className={`text-gray-500 font-bold text-lg hover:text-gray-300 transition-colors anim-pop anim-delay-${(idx % 6) + 1}`}>
               {name}
             </div>
           ))}
@@ -273,7 +273,7 @@ function TrustBar() {
 
 function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-dark-900">
+    <section id="services" className="py-24 bg-dark-900 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-tag">What We Do</span>
@@ -285,10 +285,10 @@ function ServicesSection() {
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((svc) => {
+          {services.map((svc, idx) => {
             const Icon = svc.icon
             return (
-              <div key={svc.title} className="card group hover:-translate-y-1 transition-all duration-300">
+              <div key={svc.title} className={`card card-tilt group transition-all duration-300 anim-reveal anim-delay-${(idx % 6) + 1}`}>
                 <div className="w-12 h-12 bg-brand-600/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-600/30 transition-colors">
                   <Icon className="w-6 h-6 text-brand-400" />
                 </div>
@@ -310,7 +310,7 @@ function ServicesSection() {
 
 function ProcessSection() {
   return (
-    <section className="py-24 bg-dark-800/50">
+    <section className="py-24 bg-dark-800/50 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-tag">How We Work</span>
@@ -322,7 +322,7 @@ function ProcessSection() {
           {processSteps.map((step, idx) => {
             const Icon = step.icon
             return (
-              <div key={step.num} className="relative text-center group">
+              <div key={step.num} className={`relative text-center group anim-reveal anim-delay-${(idx % 6) + 1}`}>
                 {/* Connector */}
                 {idx < processSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-8 left-[calc(50%+2rem)] right-[-50%] h-px bg-white/10" />
@@ -349,7 +349,7 @@ function ProcessSection() {
 
 function PortfolioSection() {
   return (
-    <section className="py-24 bg-dark-900">
+    <section className="py-24 bg-dark-900 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-tag">Our Work</span>
@@ -361,8 +361,8 @@ function PortfolioSection() {
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <div key={project.title} className="card group hover:-translate-y-1 overflow-hidden">
+          {projects.map((project, idx) => (
+            <div key={project.title} className={`card card-tilt group overflow-hidden anim-reveal anim-delay-${(idx % 6) + 1}`}>
               {/* Project visual */}
               <div className="h-44 rounded-xl overflow-hidden relative mb-5">
                 <Image
@@ -398,7 +398,7 @@ function PortfolioSection() {
 
 function TechStackSection() {
   return (
-    <section className="py-24 bg-dark-800/50">
+    <section className="py-24 bg-dark-800/50 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="section-tag">Tech Stack</span>
         <h2 className="section-title">
@@ -408,10 +408,10 @@ function TechStackSection() {
           We use modern technologies to build fast, reliable, and maintainable products.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          {techStack.map((tech) => (
+          {techStack.map((tech, idx) => (
             <div
               key={tech}
-              className="px-6 py-3 glass rounded-xl text-gray-300 font-semibold hover:text-white hover:border-brand-500/50 transition-all hover:-translate-y-0.5"
+              className={`px-6 py-3 glass rounded-xl text-gray-300 font-semibold hover:text-white hover:border-brand-500/50 transition-all hover:-translate-y-0.5 anim-pop anim-delay-${(idx % 6) + 1}`}
             >
               {tech}
             </div>
@@ -424,7 +424,7 @@ function TechStackSection() {
 
 function TestimonialsSection() {
   return (
-    <section className="py-24 bg-dark-900">
+    <section className="py-24 bg-dark-900 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-tag">Client Stories</span>
@@ -433,8 +433,8 @@ function TestimonialsSection() {
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <div key={t.name} className="card flex flex-col gap-4">
+          {testimonials.map((t, idx) => (
+            <div key={t.name} className={`card card-tilt flex flex-col gap-4 anim-reveal anim-delay-${(idx % 6) + 1}`}>
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
@@ -455,7 +455,7 @@ function TestimonialsSection() {
 
 function FinalCTASection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-brand-800 via-brand-700 to-dark-700 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-brand-800 via-brand-700 to-dark-700 relative overflow-hidden gradient-animate anim-reveal">
       <div className="absolute inset-0 bg-hero-grid opacity-20" />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="section-tag text-brand-300">Start Today</span>
@@ -480,7 +480,7 @@ function FinalCTASection() {
         </div>
 
         {/* Inline mini contact form */}
-        <div className="glass rounded-2xl p-6 md:p-8 text-left max-w-2xl mx-auto">
+        <div className="glass rounded-2xl p-6 md:p-8 text-left max-w-2xl mx-auto anim-pop anim-delay-3">
           <h3 className="text-lg font-bold text-white mb-5 text-center">Quick Inquiry</h3>
           <form className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
