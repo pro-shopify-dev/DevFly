@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { siteUrl } from '@/lib/site'
 import {
   Code2, Layers, Rocket, Server, Figma, ShoppingCart,
   CheckCircle, ArrowRight, ChevronRight,
@@ -120,9 +121,105 @@ const services = [
   },
 ]
 
+const servicesPageUrl = `${siteUrl}/services`
+
+const faqItems = [
+  {
+    question: 'How long does a typical project take?',
+    answer:
+      'Most MVP projects take 6 to 10 weeks. Larger SaaS or enterprise builds usually run in phased releases over several months.',
+  },
+  {
+    question: 'Do you work with US timezone teams?',
+    answer:
+      'Yes. We work with US-based founders and teams and keep communication aligned with US business hours.',
+  },
+  {
+    question: 'Can you build from Figma designs?',
+    answer:
+      'Yes. We can implement existing Figma designs with production-ready, responsive, and accessible front-end code.',
+  },
+  {
+    question: 'Do you provide post-launch support?',
+    answer:
+      'Yes. We provide post-launch support, bug fixes, optimization, and ongoing feature development retainers.',
+  },
+]
+
+const servicesListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'DevFly Software Development Services',
+  itemListElement: services.map((service, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Service',
+      name: service.title,
+      description: service.desc,
+      serviceType: service.title,
+      provider: {
+        '@type': 'Organization',
+        name: 'DevFly',
+        url: siteUrl,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      url: `${servicesPageUrl}#${service.id}`,
+    },
+  })),
+}
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Services',
+      item: servicesPageUrl,
+    },
+  ],
+}
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+}
+
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesListJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
@@ -202,6 +299,23 @@ export default function ServicesPage() {
               </div>
             )
           })}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 bg-dark-900 border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-black text-white text-center mb-10">
+            Services FAQ
+          </h2>
+          <div className="space-y-4">
+            {faqItems.map((item) => (
+              <div key={item.question} className="card">
+                <h3 className="text-lg font-semibold text-white mb-2">{item.question}</h3>
+                <p className="text-gray-400">{item.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

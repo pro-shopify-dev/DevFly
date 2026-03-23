@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://devfly.co'
+import { googleSiteVerification, siteUrl } from '@/lib/site'
 
 const organizationJsonLd = {
   '@context': 'https://schema.org',
@@ -24,9 +23,12 @@ const websiteJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   icons: {
-    icon: '/devfly-logo.svg',
-    shortcut: '/devfly-logo.svg',
-    apple: '/devfly-logo.svg',
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
+  verification: {
+    google: googleSiteVerification,
   },
   title: {
     default: 'DevFly — Modern Software Development for US Startups',

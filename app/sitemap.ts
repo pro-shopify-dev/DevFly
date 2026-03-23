@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { projects } from './portfolio/projects'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://devfly.co'
+import { siteUrl } from '@/lib/site'
 
 const staticRoutes = [
   '/',

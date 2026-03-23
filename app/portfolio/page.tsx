@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ExternalLink, Github } from 'lucide-react'
 import { projects } from './projects'
+import { siteUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -19,9 +20,60 @@ export const metadata: Metadata = {
   },
 }
 
+const portfolioPageUrl = `${siteUrl}/portfolio`
+
+const portfolioBreadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Portfolio',
+      item: portfolioPageUrl,
+    },
+  ],
+}
+
+const portfolioProjectsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'DevFly Portfolio',
+  url: portfolioPageUrl,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: projects.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'CreativeWork',
+        name: project.title,
+        description: project.desc,
+        image: project.image,
+        url: `${siteUrl}/portfolio/demo/${project.slug}`,
+      },
+    })),
+  },
+}
+
 export default function PortfolioPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioBreadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioProjectsJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden anim-reveal">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />

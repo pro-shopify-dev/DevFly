@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { siteUrl } from '@/lib/site'
 import {
   ArrowRight,
   CheckCircle,
@@ -137,6 +138,63 @@ const testimonials = [
 ]
 
 const trustLogos = ['TechFlow', 'GrowthBase', 'NovaSaaS', 'LaunchPad', 'PixelCore', 'DataSync']
+
+const homePageUrl = siteUrl
+
+const homeServicesJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'DevFly Featured Services',
+  itemListElement: services.map((service, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Service',
+      name: service.title,
+      description: service.desc,
+      provider: {
+        '@type': 'Organization',
+        name: 'DevFly',
+        url: siteUrl,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      url: `${siteUrl}/services`,
+    },
+  })),
+}
+
+const homeProjectsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'DevFly Featured Projects',
+  itemListElement: projects.map((project, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'CreativeWork',
+      name: project.title,
+      description: project.desc,
+      image: project.image,
+      url: `${siteUrl}/portfolio`,
+    },
+  })),
+}
+
+const homeBreadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: homePageUrl,
+    },
+  ],
+}
 
 // ─── SECTIONS ───────────────────────────────────────────────────────────────
 
@@ -515,6 +573,19 @@ function FinalCTASection() {
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeServicesJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeProjectsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeBreadcrumbJsonLd) }}
+      />
+
       <HeroSection />
       <TrustBar />
       <ServicesSection />
