@@ -23,6 +23,11 @@ const websiteJsonLd = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: '/devfly-logo.svg',
+    shortcut: '/devfly-logo.svg',
+    apple: '/devfly-logo.svg',
+  },
   title: {
     default: 'DevFly — Modern Software Development for US Startups',
     template: '%s | DevFly',
