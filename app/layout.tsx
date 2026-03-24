@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     shortcut: '/favicon.svg',
     apple: '/favicon.svg',
   },
+  other: {
+    'fo-verify': '1302ac94-5302-4d26-8169-66619a971b86',
+  },
   verification: {
     google: googleSiteVerification,
   },
