@@ -44,15 +44,42 @@ export default function ContactPage() {
     e.preventDefault()
     setLoading(true)
     setError('')
+
+    // Bots fill the hidden honeypot — silently pretend success.
+    if (formState.website) {
+      setSubmitted(true)
+      setLoading(false)
+      return
+    }
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+    if (!accessKey) {
+      setError('The contact form is not configured yet. Please email admin@codvoro.com directly.')
+      setLoading(false)
+      return
+    }
+
     try {
-      const res = await fetch('/api/contact', {
+      // Web3Forms free plan requires submitting from the browser (client-side).
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New project inquiry from ${formState.name}${formState.company ? ` (${formState.company})` : ''}`,
+          from_name: 'Codvoro Website',
+          name: formState.name,
+          email: formState.email,
+          company: formState.company || '—',
+          project_type: formState.projectType || '—',
+          budget: formState.budget || '—',
+          message: formState.details,
+          botcheck: '',
+        }),
       })
       const data = await res.json().catch(() => ({}))
-      if (!res.ok) {
-        throw new Error(data?.error || 'Something went wrong. Please try again.')
+      if (!res.ok || !data?.success) {
+        throw new Error(data?.message || 'Something went wrong. Please try again.')
       }
       setSubmitted(true)
     } catch (err) {
