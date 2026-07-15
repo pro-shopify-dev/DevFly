@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, CheckCircle, Users, Zap, Target, Heart, Handshake, Code2 } from 'lucide-react'
+import { ArrowRight, CheckCircle, Users, Zap, Target, Heart, Code2 } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -102,21 +102,12 @@ export default function AboutPage() {
               People Behind <span className="gradient-text">Codvoro</span>
             </h2>
             <p className="section-subtitle mx-auto mt-2">
-              A focused core, structured into the people who build your product and the partners who make sure it fits your business.
+              A focused core of senior engineers who architect, build, test, and ship your product end-to-end.
             </p>
           </div>
 
           {/* Development Team */}
-          <div className="mb-16">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-brand-600/10 flex items-center justify-center">
-                <Users className="w-5 h-5 text-brand-600" />
-              </div>
-              <h3 className="text-2xl font-black text-slate-900">Development Team</h3>
-            </div>
-            <p className="text-slate-600 text-sm mb-8 max-w-2xl">
-              Senior engineers who architect, build, test, and ship your product end-to-end.
-            </p>
+          <div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="card card-tilt anim-pop anim-delay-1">
                 <div className="flex items-center gap-4">
@@ -149,54 +140,6 @@ export default function AboutPage() {
                 </div>
                 <p className="text-slate-600 text-sm leading-relaxed mt-4">
                   For larger projects, we bring in vetted senior specialists from our trusted network — all pre-screened and held to the same standards as our core team, so quality never slips as scope grows.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Partners */}
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-accent-500/10 flex items-center justify-center">
-                <Handshake className="w-5 h-5 text-accent-600" />
-              </div>
-              <h3 className="text-2xl font-black text-slate-900">Partners</h3>
-            </div>
-            <p className="text-slate-600 text-sm mb-8 max-w-2xl">
-              Business and client partners who keep every engagement aligned with your goals.
-            </p>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="card card-tilt anim-pop anim-delay-1">
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-2xl overflow-hidden relative shrink-0">
-                    <Image
-                      src="/mena-yousef.jpg"
-                      alt="Mena Yousef — Client Partner"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900">Mena Yousef</h4>
-                    <p className="text-brand-600 text-sm font-semibold">Partner · Sales & Client Strategy</p>
-                  </div>
-                </div>
-                <p className="text-slate-600 text-sm leading-relaxed mt-4">
-                  Business development and client relations expert. Ensures every engagement starts with clear alignment on goals, scope, and expectations — and ends with a satisfied client.
-                </p>
-              </div>
-              <div className="card card-tilt anim-pop anim-delay-2">
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-2xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center shrink-0">
-                    <Target className="w-9 h-9 text-accent-600" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900">Growth & Delivery Partners</h4>
-                    <p className="text-brand-600 text-sm font-semibold">Strategy · Product · Accounts</p>
-                  </div>
-                </div>
-                <p className="text-slate-600 text-sm leading-relaxed mt-4">
-                  A trusted circle of product and growth partners who support scoping, roadmapping, and account management — so your project stays on strategy from kickoff to launch.
                 </p>
               </div>
             </div>

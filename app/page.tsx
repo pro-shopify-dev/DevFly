@@ -122,22 +122,35 @@ const techStack = [
 const testimonials = [
   {
     quote: 'Codvoro delivered our MVP faster than expected and the quality was excellent. They communicate clearly and deliver consistently.',
-    name: 'Marcus T.',
+    name: 'Marcus Thompson',
     role: 'Founder, TechFlow',
+    initials: 'MT',
+    color: '#4f46e5',
   },
   {
     quote: 'Working with Codvoro felt different from other agencies. They treated our product like their own and brought thoughtful solutions.',
-    name: 'Sarah K.',
+    name: 'Sarah Klein',
     role: 'CTO, GrowthBase',
+    initials: 'SK',
+    color: '#0ea5e9',
   },
   {
     quote: "The team's technical expertise combined with their business understanding made them an invaluable partner for our platform.",
-    name: 'James R.',
+    name: 'James Rivera',
     role: 'CEO, NovaSaaS',
+    initials: 'JR',
+    color: '#059669',
   },
 ]
 
-const trustLogos = ['TechFlow', 'GrowthBase', 'NovaSaaS', 'LaunchPad', 'PixelCore', 'DataSync']
+const trustCompanies = [
+  { name: 'TechFlow', mark: 'TF', color: '#4f46e5' },
+  { name: 'GrowthBase', mark: 'GB', color: '#0ea5e9' },
+  { name: 'NovaSaaS', mark: 'NS', color: '#059669' },
+  { name: 'LaunchPad', mark: 'LP', color: '#f97316' },
+  { name: 'PixelCore', mark: 'PX', color: '#db2777' },
+  { name: 'DataSync', mark: 'DS', color: '#7c3aed' },
+]
 
 const homePageUrl = siteUrl
 
@@ -317,10 +330,19 @@ function TrustBar() {
         <p className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-8">
           Trusted by startups and growing businesses
         </p>
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-          {trustLogos.map((name, idx) => (
-            <div key={name} className={`text-slate-500 font-bold text-lg hover:text-slate-700 transition-colors anim-pop anim-delay-${(idx % 6) + 1}`}>
-              {name}
+        <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6">
+          {trustCompanies.map((company, idx) => (
+            <div
+              key={company.name}
+              className={`flex items-center gap-2.5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all anim-pop anim-delay-${(idx % 6) + 1}`}
+            >
+              <span
+                className="w-9 h-9 rounded-lg flex items-center justify-center text-white text-xs font-black shrink-0"
+                style={{ backgroundColor: company.color }}
+              >
+                {company.mark}
+              </span>
+              <span className="text-slate-800 font-bold text-lg tracking-tight">{company.name}</span>
             </div>
           ))}
         </div>
@@ -499,9 +521,17 @@ function TestimonialsSection() {
                 ))}
               </div>
               <p className="text-slate-700 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-              <div>
-                <p className="text-slate-900 font-semibold text-sm">{t.name}</p>
-                <p className="text-slate-500 text-xs">{t.role}</p>
+              <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
+                <span
+                  className="w-11 h-11 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0 mt-3"
+                  style={{ backgroundColor: t.color }}
+                >
+                  {t.initials}
+                </span>
+                <div className="mt-3">
+                  <p className="text-slate-900 font-semibold text-sm">{t.name}</p>
+                  <p className="text-slate-500 text-xs">{t.role}</p>
+                </div>
               </div>
             </div>
           ))}
