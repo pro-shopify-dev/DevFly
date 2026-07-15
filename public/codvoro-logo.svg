@@ -1,0 +1,22 @@
+<svg width="820" height="180" viewBox="0 0 820 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Codvoro">
+  <defs>
+    <linearGradient id="cvBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Monogram: angular C + code brackets + blue V -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Angular C (opens to the right) -->
+    <path d="M150 44 L74 38 L36 90 L74 142 L148 136" stroke="#1B2740" stroke-width="26"/>
+    <!-- Code brackets < > -->
+    <path d="M100 68 L84 88 L100 108" stroke="#1B2740" stroke-width="11"/>
+    <path d="M116 68 L132 88 L116 108" stroke="#1B2740" stroke-width="11"/>
+    <!-- Blue V / check -->
+    <path d="M122 44 L178 150 L234 40" stroke="url(#cvBlue)" stroke-width="30"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="286" y="122" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="84" font-weight="800" letter-spacing="6" fill="#1B2740">COD<tspan fill="url(#cvBlue)">V</tspan>ORO</text>
+</svg>

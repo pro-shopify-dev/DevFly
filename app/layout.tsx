@@ -7,16 +7,22 @@ import { googleSiteVerification, siteUrl } from '@/lib/site'
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'DevFly',
+  name: 'Codvoro',
   url: siteUrl,
-  email: 'tony.brain@kandykoi.com',
-  logo: `${siteUrl}/devfly-logo.svg`,
+  logo: `${siteUrl}/codvoro-logo.svg`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+1-617-615-9749',
+    contactType: 'sales',
+    areaServed: 'US',
+    availableLanguage: 'English',
+  },
 }
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'DevFly',
+  name: 'Codvoro',
   url: siteUrl,
 }
 
@@ -34,11 +40,11 @@ export const metadata: Metadata = {
     google: googleSiteVerification,
   },
   title: {
-    default: 'DevFly — Modern Software Development for US Startups',
-    template: '%s | DevFly',
+    default: 'Codvoro — Modern Software Development for US Startups',
+    template: '%s | Codvoro',
   },
   description:
-    'DevFly builds custom web applications, SaaS platforms, and startup MVPs. Freelancer pricing, agency-quality delivery. Based in the US & serving growing businesses worldwide.',
+    'Codvoro builds custom web applications, SaaS platforms, and startup MVPs. Freelancer pricing, agency-quality delivery. Based in the US & serving growing businesses worldwide.',
   keywords: [
     'web development',
     'SaaS development',
@@ -65,17 +71,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'DevFly',
+    siteName: 'Codvoro',
     url: siteUrl,
-    title: 'DevFly — Modern Software Development for US Startups',
+    title: 'Codvoro — Modern Software Development for US Startups',
     description:
-      'DevFly builds custom web applications, SaaS platforms, and startup MVPs with freelancer pricing and agency-quality delivery.',
+      'Codvoro builds custom web applications, SaaS platforms, and startup MVPs with freelancer pricing and agency-quality delivery.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DevFly — Modern Software Development for US Startups',
+    title: 'Codvoro — Modern Software Development for US Startups',
     description:
-      'DevFly builds custom web applications, SaaS platforms, and startup MVPs with freelancer pricing and agency-quality delivery.',
+      'Codvoro builds custom web applications, SaaS platforms, and startup MVPs with freelancer pricing and agency-quality delivery.',
   },
 }
 

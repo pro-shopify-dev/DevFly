@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DevFly icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Codvoro icon">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0A1026" />
-      <stop offset="100%" stop-color="#1F2A5F" />
-    </linearGradient>
-    <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#7DE7FF" />
-      <stop offset="100%" stop-color="#5E7BFF" />
+    <linearGradient id="v" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#1D4ED8" />
     </linearGradient>
   </defs>
-  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#bg)" />
-  <path d="M20 18h12c8.8 0 16 7.2 16 16s-7.2 16-16 16H20V18zm12 24c4.4 0 8-3.6 8-8s-3.6-8-8-8h-4v16h4z" fill="white" />
-  <path d="M30 30l18-9-8 16-10-7z" fill="url(#wing)" />
+  <rect x="3" y="3" width="58" height="58" rx="16" fill="#1B2740" />
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Angular C -->
+    <path d="M35 19 L21 16 L14 32 L21 48 L34 45" stroke="#FFFFFF" stroke-width="6" />
+    <!-- Blue V / check -->
+    <path d="M30 18 L42 51 L54 16" stroke="url(#v)" stroke-width="7" />
+  </g>
 </svg>

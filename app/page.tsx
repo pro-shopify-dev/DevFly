@@ -21,12 +21,12 @@ import {
 export const metadata: Metadata = {
   title: 'Web App, SaaS & MVP Development Agency',
   description:
-    'DevFly builds custom web applications, SaaS platforms, and startup MVPs for US businesses. Next.js, React, Node.js, and AWS experts.',
+    'Codvoro builds custom web applications, SaaS platforms, and startup MVPs for US businesses. Next.js, React, Node.js, and AWS experts.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'DevFly — Web App, SaaS & MVP Development Agency',
+    title: 'Codvoro — Web App, SaaS & MVP Development Agency',
     description:
       'Custom web apps, SaaS products, and startup MVPs built fast with senior engineers.',
     url: '/',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DevFly — Web App, SaaS & MVP Development Agency',
+    title: 'Codvoro — Web App, SaaS & MVP Development Agency',
     description:
       'Custom web apps, SaaS products, and startup MVPs built fast with senior engineers.',
   },
@@ -121,12 +121,12 @@ const techStack = [
 
 const testimonials = [
   {
-    quote: 'DevFly delivered our MVP faster than expected and the quality was excellent. They communicate clearly and deliver consistently.',
+    quote: 'Codvoro delivered our MVP faster than expected and the quality was excellent. They communicate clearly and deliver consistently.',
     name: 'Marcus T.',
     role: 'Founder, TechFlow',
   },
   {
-    quote: 'Working with DevFly felt different from other agencies. They treated our product like their own and brought thoughtful solutions.',
+    quote: 'Working with Codvoro felt different from other agencies. They treated our product like their own and brought thoughtful solutions.',
     name: 'Sarah K.',
     role: 'CTO, GrowthBase',
   },
@@ -144,7 +144,7 @@ const homePageUrl = siteUrl
 const homeServicesJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'DevFly Featured Services',
+  name: 'Codvoro Featured Services',
   itemListElement: services.map((service, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -154,7 +154,7 @@ const homeServicesJsonLd = {
       description: service.desc,
       provider: {
         '@type': 'Organization',
-        name: 'DevFly',
+        name: 'Codvoro',
         url: siteUrl,
       },
       areaServed: {
@@ -169,7 +169,7 @@ const homeServicesJsonLd = {
 const homeProjectsJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'DevFly Featured Projects',
+  name: 'Codvoro Featured Projects',
   itemListElement: projects.map((project, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -200,7 +200,7 @@ const homeBreadcrumbJsonLd = {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-dark-900 bg-hero-grid gradient-animate">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-white bg-hero-grid gradient-animate">
       {/* Gradient blobs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl anim-glow" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-500/15 rounded-full blur-3xl anim-glow anim-delay-2" />
@@ -208,16 +208,16 @@ function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
         {/* Left */}
         <div className="anim-reveal">
-          <div className="inline-flex items-center gap-2 bg-brand-600/15 border border-brand-500/30 rounded-full px-4 py-1.5 text-sm text-brand-400 mb-6 anim-pop anim-delay-1">
+          <div className="inline-flex items-center gap-2 bg-brand-600/15 border border-brand-500/30 rounded-full px-4 py-1.5 text-sm text-brand-600 mb-6 anim-pop anim-delay-1">
             <Zap className="w-3.5 h-3.5" />
             Freelancer pricing · Agency quality
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] mb-6 anim-reveal anim-delay-2">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.08] mb-6 anim-reveal anim-delay-2">
             We Build<br />
             <span className="gradient-text">Software That</span><br />
             Moves Fast
           </h1>
-          <p className="text-xl text-gray-400 leading-relaxed mb-8 max-w-lg anim-reveal anim-delay-3">
+          <p className="text-xl text-slate-600 leading-relaxed mb-8 max-w-lg anim-reveal anim-delay-3">
             Custom web apps, SaaS platforms, and startup MVPs for US businesses. We deliver production-ready software — on time, every time.
           </p>
           <div className="flex flex-wrap gap-4 mb-10 anim-reveal anim-delay-4">
@@ -230,8 +230,8 @@ function HeroSection() {
           </div>
           <div className="flex flex-wrap gap-6 anim-reveal anim-delay-5">
             {['50+ Projects delivered', 'US-based clients', '24h response time'].map((item, idx) => (
-              <div key={item} className={`flex items-center gap-2 text-sm text-gray-400 anim-pop anim-delay-${idx + 1}`}>
-                <CheckCircle className="w-4 h-4 text-accent-400 shrink-0" />
+              <div key={item} className={`flex items-center gap-2 text-sm text-slate-600 anim-pop anim-delay-${idx + 1}`}>
+                <CheckCircle className="w-4 h-4 text-accent-600 shrink-0" />
                 {item}
               </div>
             ))}
@@ -241,16 +241,16 @@ function HeroSection() {
         {/* Right — Dashboard mockup */}
         <div className="relative hidden lg:block anim-reveal anim-delay-3">
           <div className="animate-float">
-            <div className="relative bg-dark-700 rounded-2xl border border-white/10 shadow-2xl shadow-brand-900/50 overflow-hidden">
+            <div className="relative bg-slate-50 rounded-2xl border border-slate-200 shadow-2xl shadow-brand-900/50 overflow-hidden">
               {/* Browser bar */}
-              <div className="bg-dark-600 px-4 py-3 flex items-center gap-2 border-b border-white/10">
+              <div className="bg-slate-100 px-4 py-3 flex items-center gap-2 border-b border-slate-200">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/70" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
-                <div className="flex-1 bg-dark-800 rounded px-3 py-1 text-xs text-gray-500 text-center">
-                  app.devfly.io/dashboard
+                <div className="flex-1 bg-slate-100 rounded px-3 py-1 text-xs text-slate-500 text-center">
+                  app.codvoro.io/dashboard
                 </div>
               </div>
               {/* Dashboard content */}
@@ -261,18 +261,18 @@ function HeroSection() {
                     { label: 'Users', val: '12,840', up: true },
                     { label: 'Churn', val: '1.2%', up: false },
                   ].map((stat) => (
-                    <div key={stat.label} className="bg-dark-800 rounded-xl p-3">
-                      <p className="text-xs text-gray-500 mb-1">{stat.label}</p>
-                      <p className="text-lg font-bold text-white">{stat.val}</p>
-                      <p className={`text-xs ${stat.up ? 'text-accent-400' : 'text-red-400'}`}>
+                    <div key={stat.label} className="bg-slate-100 rounded-xl p-3">
+                      <p className="text-xs text-slate-500 mb-1">{stat.label}</p>
+                      <p className="text-lg font-bold text-slate-900">{stat.val}</p>
+                      <p className={`text-xs ${stat.up ? 'text-accent-600' : 'text-red-400'}`}>
                         {stat.up ? '↑' : '↓'} {stat.up ? '+12%' : '-0.3%'}
                       </p>
                     </div>
                   ))}
                 </div>
                 {/* Fake chart */}
-                <div className="bg-dark-800 rounded-xl p-4 mb-4">
-                  <p className="text-xs text-gray-500 mb-3">Monthly Growth</p>
+                <div className="bg-slate-100 rounded-xl p-4 mb-4">
+                  <p className="text-xs text-slate-500 mb-3">Monthly Growth</p>
                   <div className="flex items-end gap-1.5 h-20">
                     {[30, 55, 45, 70, 60, 85, 75, 90, 80, 95, 88, 100].map((h, i) => (
                       <div
@@ -285,7 +285,7 @@ function HeroSection() {
                 </div>
                 <div className="space-y-2">
                   {['New subscription — Pro Plan', 'API call limit reached', 'Deploy succeeded ✓'].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-xs text-gray-400 bg-dark-800 rounded-lg px-3 py-2">
+                    <div key={item} className="flex items-center gap-2 text-xs text-slate-600 bg-slate-100 rounded-lg px-3 py-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-accent-400 shrink-0" />
                       {item}
                     </div>
@@ -297,10 +297,10 @@ function HeroSection() {
           {/* Floating badge */}
           <div className="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 shadow-xl anim-pop anim-delay-6">
             <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-accent-400" />
+              <CheckCircle className="w-5 h-5 text-accent-600" />
               <div>
-                <p className="text-xs font-semibold text-white">MVP Launched</p>
-                <p className="text-xs text-gray-400">8 weeks · On budget</p>
+                <p className="text-xs font-semibold text-slate-900">MVP Launched</p>
+                <p className="text-xs text-slate-600">8 weeks · On budget</p>
               </div>
             </div>
           </div>
@@ -312,14 +312,14 @@ function HeroSection() {
 
 function TrustBar() {
   return (
-    <section className="border-y border-white/10 bg-dark-800/50 py-10 anim-reveal">
+    <section className="border-y border-slate-200 bg-slate-50 py-10 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-8">
+        <p className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-8">
           Trusted by startups and growing businesses
         </p>
         <div className="flex flex-wrap justify-center gap-8 md:gap-12">
           {trustLogos.map((name, idx) => (
-            <div key={name} className={`text-gray-500 font-bold text-lg hover:text-gray-300 transition-colors anim-pop anim-delay-${(idx % 6) + 1}`}>
+            <div key={name} className={`text-slate-500 font-bold text-lg hover:text-slate-700 transition-colors anim-pop anim-delay-${(idx % 6) + 1}`}>
               {name}
             </div>
           ))}
@@ -331,7 +331,7 @@ function TrustBar() {
 
 function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-dark-900 anim-reveal">
+    <section id="services" className="py-24 bg-white anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-tag">What We Do</span>
@@ -348,10 +348,10 @@ function ServicesSection() {
             return (
               <div key={svc.title} className={`card card-tilt group transition-all duration-300 anim-reveal anim-delay-${(idx % 6) + 1}`}>
                 <div className="w-12 h-12 bg-brand-600/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-600/30 transition-colors">
-                  <Icon className="w-6 h-6 text-brand-400" />
+                  <Icon className="w-6 h-6 text-brand-600" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{svc.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{svc.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{svc.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{svc.desc}</p>
               </div>
             )
           })}
@@ -368,7 +368,7 @@ function ServicesSection() {
 
 function ProcessSection() {
   return (
-    <section className="py-24 bg-dark-800/50 anim-reveal">
+    <section className="py-24 bg-slate-50 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-tag">How We Work</span>
@@ -383,14 +383,14 @@ function ProcessSection() {
               <div key={step.num} className={`relative text-center group anim-reveal anim-delay-${(idx % 6) + 1}`}>
                 {/* Connector */}
                 {idx < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[calc(50%+2rem)] right-[-50%] h-px bg-white/10" />
+                  <div className="hidden lg:block absolute top-8 left-[calc(50%+2rem)] right-[-50%] h-px bg-slate-200" />
                 )}
                 <div className="w-16 h-16 bg-brand-600/20 border border-brand-500/30 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-600/40 transition-all">
-                  <Icon className="w-7 h-7 text-brand-400" />
+                  <Icon className="w-7 h-7 text-brand-600" />
                 </div>
-                <p className="text-xs font-bold text-brand-400 uppercase tracking-widest mb-1">{step.num}</p>
-                <h3 className="font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{step.desc}</p>
+                <p className="text-xs font-bold text-brand-600 uppercase tracking-widest mb-1">{step.num}</p>
+                <h3 className="font-bold text-slate-900 mb-2">{step.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{step.desc}</p>
               </div>
             )
           })}
@@ -407,7 +407,7 @@ function ProcessSection() {
 
 function PortfolioSection() {
   return (
-    <section className="py-24 bg-dark-900 anim-reveal">
+    <section className="py-24 bg-white anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-tag">Our Work</span>
@@ -432,11 +432,11 @@ function PortfolioSection() {
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-50`} />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{project.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.desc}</p>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{project.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed mb-4">{project.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="text-xs font-medium text-brand-300 bg-brand-600/15 border border-brand-500/20 px-2.5 py-1 rounded-full">
+                  <span key={tag} className="text-xs font-medium text-brand-700 bg-brand-600/15 border border-brand-500/20 px-2.5 py-1 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -456,7 +456,7 @@ function PortfolioSection() {
 
 function TechStackSection() {
   return (
-    <section className="py-24 bg-dark-800/50 anim-reveal">
+    <section className="py-24 bg-slate-50 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="section-tag">Tech Stack</span>
         <h2 className="section-title">
@@ -469,7 +469,7 @@ function TechStackSection() {
           {techStack.map((tech, idx) => (
             <div
               key={tech}
-              className={`px-6 py-3 glass rounded-xl text-gray-300 font-semibold hover:text-white hover:border-brand-500/50 transition-all hover:-translate-y-0.5 anim-pop anim-delay-${(idx % 6) + 1}`}
+              className={`px-6 py-3 glass rounded-xl text-slate-700 font-semibold hover:text-slate-900 hover:border-brand-500/50 transition-all hover:-translate-y-0.5 anim-pop anim-delay-${(idx % 6) + 1}`}
             >
               {tech}
             </div>
@@ -482,7 +482,7 @@ function TechStackSection() {
 
 function TestimonialsSection() {
   return (
-    <section className="py-24 bg-dark-900 anim-reveal">
+    <section className="py-24 bg-white anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="section-tag">Client Stories</span>
@@ -498,10 +498,10 @@ function TestimonialsSection() {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <p className="text-gray-300 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
+              <p className="text-slate-700 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
               <div>
-                <p className="text-white font-semibold text-sm">{t.name}</p>
-                <p className="text-gray-500 text-xs">{t.role}</p>
+                <p className="text-slate-900 font-semibold text-sm">{t.name}</p>
+                <p className="text-slate-500 text-xs">{t.role}</p>
               </div>
             </div>
           ))}
@@ -513,55 +513,28 @@ function TestimonialsSection() {
 
 function FinalCTASection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-brand-800 via-brand-700 to-dark-700 relative overflow-hidden gradient-animate anim-reveal">
-      <div className="absolute inset-0 bg-hero-grid opacity-20" />
+    <section className="py-24 bg-gradient-to-br from-brand-700 via-brand-600 to-brand-800 relative overflow-hidden gradient-animate anim-reveal">
+      <div className="absolute inset-0 bg-hero-grid opacity-10" />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="section-tag text-brand-300">Start Today</span>
+        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">Start Today</span>
         <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
           Ready to Start Your Project?
         </h2>
-        <p className="text-xl text-brand-200 mb-10">
-          Tell us about your idea and we will respond within 24 hours.
+        <p className="text-xl text-brand-100 mb-10 max-w-2xl mx-auto">
+          Tell us about your idea and we will respond within 24 hours. No obligation, no sales pressure.
         </p>
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link href="/contact" className="btn-secondary text-base px-8 py-3.5">
             Submit Your Project <ArrowRight className="w-4 h-4" />
           </Link>
           <a
             href="https://calendly.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary text-base px-8 py-3.5"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/40 px-8 py-3.5 text-base font-semibold text-white transition-all hover:bg-white/10"
           >
             Book a Call
           </a>
-        </div>
-
-        {/* Inline mini contact form */}
-        <div className="glass rounded-2xl p-6 md:p-8 text-left max-w-2xl mx-auto anim-pop anim-delay-3">
-          <h3 className="text-lg font-bold text-white mb-5 text-center">Quick Inquiry</h3>
-          <form className="space-y-4">
-            <div className="grid sm:grid-cols-2 gap-4">
-              <input type="text" placeholder="Your Name" className="input-field" required />
-              <input type="email" placeholder="Email Address" className="input-field" required />
-            </div>
-            <input type="text" placeholder="Company (optional)" className="input-field" />
-            <textarea
-              rows={3}
-              placeholder="Tell us about your project..."
-              className="input-field resize-none"
-              required
-            />
-            <button type="submit" className="btn-primary w-full justify-center">
-              Send Message <ArrowRight className="w-4 h-4" />
-            </button>
-          </form>
-          <p className="text-center text-xs text-gray-500 mt-4">
-            Or email us directly at{' '}
-            <a href="mailto:tony.brain@kandykoi.com" className="text-brand-400 hover:underline">
-              tony.brain@kandykoi.com
-            </a>
-          </p>
         </div>
       </div>
     </section>

@@ -29,7 +29,7 @@ export const projects: PortfolioProject[] = [
     outcome: 'Launched in 10 weeks. Reduced analytics costs by 70% and improved decision speed significantly.',
     tags: ['Next.js', 'Node.js', 'PostgreSQL', 'Redis', 'AWS'],
     color: 'from-brand-600 to-brand-800',
-    category_color: 'bg-brand-600/20 text-brand-400',
+    category_color: 'bg-brand-600/20 text-brand-600',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
     demoSummary: 'Interactive product analytics workspace with funnel, cohort, retention, and export tooling for growth teams.',
     problem: 'Teams were manually stitching data from multiple tools and spending too much time validating numbers before taking action.',

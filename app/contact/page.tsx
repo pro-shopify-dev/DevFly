@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { Mail, Calendar, CheckCircle, ArrowRight, Linkedin, Twitter, Send } from 'lucide-react'
+import { Phone, Mail, Calendar, CheckCircle, ArrowRight, Linkedin, Twitter, Send } from 'lucide-react'
 
 const projectTypes = [
   'Web Application',
@@ -30,28 +30,42 @@ export default function ContactPage() {
     projectType: '',
     budget: '',
     details: '',
+    website: '', // honeypot
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setFormState({ ...formState, [e.target.name]: e.target.value })
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    // Simulate async form submission
-    setTimeout(() => {
-      setLoading(false)
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) {
+        throw new Error(data?.error || 'Something went wrong. Please try again.')
+      }
       setSubmitted(true)
-    }, 1200)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
     <>
       {/* Hero */}
-      <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden">
+      <section className="py-24 bg-white bg-hero-grid relative overflow-hidden">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-tag">Get In Touch</span>
@@ -65,39 +79,54 @@ export default function ContactPage() {
       </section>
 
       {/* Contact options + form */}
-      <section className="py-16 bg-dark-900">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-10">
           {/* Left — contact info */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-black text-white mb-2">Contact DevFly</h2>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <h2 className="text-2xl font-black text-slate-900 mb-2">Contact Codvoro</h2>
+              <p className="text-slate-600 text-sm leading-relaxed">
                 Whether you have a detailed spec or just a rough idea, we are happy to talk. No obligation, no sales pressure.
               </p>
             </div>
 
+            {/* Phone */}
+            <div className="card">
+              <div className="w-10 h-10 bg-brand-600/10 rounded-xl flex items-center justify-center mb-3">
+                <Phone className="w-5 h-5 text-brand-600" />
+              </div>
+              <h3 className="font-bold text-slate-900 text-sm mb-1">Call Us</h3>
+              <a
+                href="tel:+16176159749"
+                className="text-brand-600 hover:text-brand-700 text-sm font-semibold transition-colors"
+              >
+                +1 (617) 615-9749
+              </a>
+              <p className="text-slate-500 text-xs mt-1">Mon–Fri, US business hours.</p>
+            </div>
+
             {/* Email */}
             <div className="card">
-              <div className="w-10 h-10 bg-brand-600/20 rounded-xl flex items-center justify-center mb-3">
-                <Mail className="w-5 h-5 text-brand-400" />
+              <div className="w-10 h-10 bg-brand-600/10 rounded-xl flex items-center justify-center mb-3">
+                <Mail className="w-5 h-5 text-brand-600" />
               </div>
-              <h3 className="font-bold text-white text-sm mb-1">Send an Email</h3>
+              <h3 className="font-bold text-slate-900 text-sm mb-1">Email Us</h3>
               <a
-                href="mailto:tony.brain@kandykoi.com"
-                className="text-brand-400 hover:text-brand-300 text-sm transition-colors break-all"
+                href="mailto:admin@codvoro.com"
+                className="text-brand-600 hover:text-brand-700 text-sm font-semibold transition-colors break-all"
               >
-                tony.brain@kandykoi.com
+                admin@codvoro.com
               </a>
-              <p className="text-gray-500 text-xs mt-1">We reply within 24 hours.</p>
+              <p className="text-slate-500 text-xs mt-1">We reply within 24 hours.</p>
             </div>
 
             {/* Book a call */}
             <div className="card">
               <div className="w-10 h-10 bg-accent-500/20 rounded-xl flex items-center justify-center mb-3">
-                <Calendar className="w-5 h-5 text-accent-400" />
+                <Calendar className="w-5 h-5 text-accent-600" />
               </div>
-              <h3 className="font-bold text-white text-sm mb-1">Book a Free Call</h3>
-              <p className="text-gray-400 text-xs mb-3">
+              <h3 className="font-bold text-slate-900 text-sm mb-1">Book a Free Call</h3>
+              <p className="text-slate-600 text-xs mb-3">
                 30-minute intro call to discuss your project, timeline, and budget.
               </p>
               <a
@@ -112,13 +141,13 @@ export default function ContactPage() {
 
             {/* Social */}
             <div>
-              <h3 className="text-sm font-semibold text-white mb-3">Follow Us</h3>
+              <h3 className="text-sm font-semibold text-slate-900 mb-3">Follow Us</h3>
               <div className="flex gap-3">
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-dark-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"
+                  className="w-10 h-10 bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 transition-all"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -127,7 +156,7 @@ export default function ContactPage() {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-dark-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"
+                  className="w-10 h-10 bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 transition-all"
                   aria-label="Twitter"
                 >
                   <Twitter className="w-4 h-4" />
@@ -137,7 +166,7 @@ export default function ContactPage() {
 
             {/* What to expect */}
             <div className="card bg-brand-600/10 border-brand-500/20">
-              <h3 className="font-bold text-white text-sm mb-3">What happens next?</h3>
+              <h3 className="font-bold text-slate-900 text-sm mb-3">What happens next?</h3>
               <ol className="space-y-2">
                 {[
                   'You submit this form',
@@ -145,7 +174,7 @@ export default function ContactPage() {
                   'We schedule a discovery call',
                   'We send a proposal within 48h',
                 ].map((step, i) => (
-                  <li key={step} className="flex items-start gap-2 text-xs text-gray-300">
+                  <li key={step} className="flex items-start gap-2 text-xs text-slate-700">
                     <span className="w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center text-white font-bold shrink-0 text-xs">
                       {i + 1}
                     </span>
@@ -161,14 +190,14 @@ export default function ContactPage() {
             {submitted ? (
               <div className="card h-full flex flex-col items-center justify-center text-center py-16 gap-4">
                 <div className="w-16 h-16 bg-accent-500/20 rounded-full flex items-center justify-center mb-2">
-                  <CheckCircle className="w-8 h-8 text-accent-400" />
+                  <CheckCircle className="w-8 h-8 text-accent-600" />
                 </div>
-                <h2 className="text-2xl font-black text-white">Message received!</h2>
-                <p className="text-gray-400 max-w-sm">
+                <h2 className="text-2xl font-black text-slate-900">Message received!</h2>
+                <p className="text-slate-600 max-w-sm">
                   Thanks for reaching out. We will review your message and get back to you within 24 hours.
                 </p>
                 <button
-                  onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', company: '', projectType: '', budget: '', details: '' }) }}
+                  onClick={() => { setSubmitted(false); setError(''); setFormState({ name: '', email: '', company: '', projectType: '', budget: '', details: '', website: '' }) }}
                   className="btn-outline mt-4"
                 >
                   Send another message
@@ -176,12 +205,23 @@ export default function ContactPage() {
               </div>
             ) : (
               <div className="card">
-                <h2 className="text-2xl font-black text-white mb-6">Submit Your Project</h2>
+                <h2 className="text-2xl font-black text-slate-900 mb-6">Submit Your Project</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Honeypot — hidden from real users, catches bots */}
+                  <input
+                    type="text"
+                    name="website"
+                    value={formState.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="hidden"
+                  />
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1.5">
-                        Name <span className="text-brand-400">*</span>
+                      <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1.5">
+                        Name <span className="text-brand-600">*</span>
                       </label>
                       <input
                         id="name"
@@ -196,8 +236,8 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1.5">
-                        Email <span className="text-brand-400">*</span>
+                      <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1.5">
+                        Email <span className="text-brand-600">*</span>
                       </label>
                       <input
                         id="email"
@@ -214,7 +254,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1.5">
+                    <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-1.5">
                       Company
                     </label>
                     <input
@@ -231,7 +271,7 @@ export default function ContactPage() {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="projectType" className="block text-sm font-medium text-gray-300 mb-1.5">
+                      <label htmlFor="projectType" className="block text-sm font-medium text-slate-700 mb-1.5">
                         Project Type
                       </label>
                       <select
@@ -248,7 +288,7 @@ export default function ContactPage() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-1.5">
+                      <label htmlFor="budget" className="block text-sm font-medium text-slate-700 mb-1.5">
                         Budget Range
                       </label>
                       <select
@@ -267,8 +307,8 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="details" className="block text-sm font-medium text-gray-300 mb-1.5">
-                      Project Details <span className="text-brand-400">*</span>
+                    <label htmlFor="details" className="block text-sm font-medium text-slate-700 mb-1.5">
+                      Project Details <span className="text-brand-600">*</span>
                     </label>
                     <textarea
                       id="details"
@@ -282,6 +322,12 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                      {error}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
                     disabled={loading}
@@ -294,9 +340,9 @@ export default function ContactPage() {
                     )}
                   </button>
 
-                  <p className="text-xs text-gray-500 text-center">
+                  <p className="text-xs text-slate-500 text-center">
                     By submitting, you agree to our{' '}
-                    <Link href="/privacy" className="text-brand-400 hover:underline">Privacy Policy</Link>.
+                    <Link href="/privacy" className="text-brand-600 hover:underline">Privacy Policy</Link>.
                     We will never share your data.
                   </p>
                 </form>

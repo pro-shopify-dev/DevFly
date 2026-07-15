@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Linkedin, Twitter, ArrowRight } from 'lucide-react'
+import { Phone, Mail, Linkedin, Twitter, ArrowRight } from 'lucide-react'
 
 const footerLinks = {
   Company: [
@@ -23,13 +23,13 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-800 border-t border-white/10">
+    <footer className="bg-slate-100 border-t border-slate-200">
       {/* CTA band */}
       <div className="bg-gradient-to-r from-brand-700 to-brand-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-xl font-bold text-white">Ready to launch your project?</p>
-            <p className="text-brand-200 mt-1">We respond within 24 hours.</p>
+            <p className="text-brand-100 mt-1">We respond within 24 hours.</p>
           </div>
           <Link href="/contact" className="btn-secondary shrink-0">
             Let&apos;s Talk <ArrowRight className="w-4 h-4" />
@@ -44,23 +44,30 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Image
-                src="/devfly-logo.svg"
-                alt="DevFly"
+                src="/codvoro-logo.svg"
+                alt="Codvoro"
                 width={180}
                 height={64}
                 className="h-11 w-auto logo-clean"
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+            <p className="text-slate-600 text-sm leading-relaxed max-w-xs">
               We build modern web applications, SaaS platforms, and startup MVPs for US businesses — with freelancer pricing and agency-quality delivery.
             </p>
-            <div className="flex items-center gap-3 mt-6">
+            <div className="flex flex-col gap-2 mt-6">
               <a
-                href="mailto:tony.brain@kandykoi.com"
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-brand-400 transition-colors"
+                href="tel:+16176159749"
+                className="flex items-center gap-2 text-sm text-slate-600 hover:text-brand-600 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                +1 (617) 615-9749
+              </a>
+              <a
+                href="mailto:admin@codvoro.com"
+                className="flex items-center gap-2 text-sm text-slate-600 hover:text-brand-600 transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                tony.brain@kandykoi.com
+                admin@codvoro.com
               </a>
             </div>
             <div className="flex gap-3 mt-4">
@@ -68,7 +75,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-dark-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"
+                className="w-9 h-9 bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -77,7 +84,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-dark-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"
+                className="w-9 h-9 bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 transition-all"
                 aria-label="Twitter"
               >
                 <Twitter className="w-4 h-4" />
@@ -88,13 +95,13 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([group, links]) => (
             <div key={group}>
-              <h4 className="text-white font-semibold text-sm mb-4">{group}</h4>
+              <h4 className="text-slate-900 font-semibold text-sm mb-4">{group}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-400 hover:text-brand-400 transition-colors"
+                      className="text-sm text-slate-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -106,15 +113,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} DevFly. All rights reserved.
+        <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-slate-500">
+            &copy; {new Date().getFullYear()} Codvoro. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+            <Link href="/privacy" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+            <Link href="/terms" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
               Terms of Service
             </Link>
           </div>

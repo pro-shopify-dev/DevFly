@@ -20,13 +20,13 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 glass">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 glass">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <Image
-            src="/devfly-logo.svg"
-            alt="DevFly"
+            src="/codvoro-logo.svg"
+            alt="Codvoro"
             width={180}
             height={64}
             priority
@@ -42,8 +42,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-white bg-white/10'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                    ? 'text-brand-700 bg-brand-50'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 {link.label}
@@ -61,7 +61,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+          className="md:hidden p-2 text-slate-600 hover:text-slate-900 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -71,7 +71,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden glass border-t border-white/10">
+        <div className="md:hidden glass border-t border-slate-200">
           <ul className="px-4 py-3 space-y-1">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -80,8 +80,8 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     pathname === link.href
-                      ? 'text-white bg-white/10'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      ? 'text-slate-900 bg-slate-200'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
                   {link.label}

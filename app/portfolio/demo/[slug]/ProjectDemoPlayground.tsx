@@ -50,7 +50,7 @@ function AnalyticsDashboardDemo() {
   return (
     <div className="card p-6 space-y-5">
       <div className="flex items-center justify-between gap-4">
-        <h3 className="text-xl font-bold text-white">Analytics Workspace</h3>
+        <h3 className="text-xl font-bold text-slate-900">Analytics Workspace</h3>
         <div className="flex gap-2">
           {ranges.map((item) => (
             <button
@@ -60,7 +60,7 @@ function AnalyticsDashboardDemo() {
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold border ${
                 range === item
                   ? 'bg-brand-600 border-brand-500 text-white'
-                  : 'bg-dark-700 border-white/10 text-gray-300 hover:text-white'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:text-slate-900'
               }`}
             >
               {item}
@@ -71,9 +71,9 @@ function AnalyticsDashboardDemo() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {metrics[range].map((metric) => (
-          <div key={metric.label} className="rounded-xl bg-dark-700 border border-white/10 p-3">
-            <p className="text-xs text-gray-400">{metric.label}</p>
-            <p className="text-lg font-bold text-white mt-1">{metric.value}</p>
+          <div key={metric.label} className="rounded-xl bg-slate-50 border border-slate-200 p-3">
+            <p className="text-xs text-slate-600">{metric.label}</p>
+            <p className="text-lg font-bold text-slate-900 mt-1">{metric.value}</p>
           </div>
         ))}
       </div>
@@ -95,16 +95,16 @@ function AnalyticsDashboardDemo() {
 
 function FunnelCard({ steps }: { steps: Array<{ step: string; value: number }> }) {
   return (
-    <div className="rounded-xl bg-dark-700 border border-white/10 p-4">
-      <p className="text-sm font-semibold text-white mb-3">Funnel Breakdown</p>
+    <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
+      <p className="text-sm font-semibold text-slate-900 mb-3">Funnel Breakdown</p>
       <div className="space-y-2">
         {steps.map((item) => (
           <div key={item.step}>
-            <div className="flex items-center justify-between text-xs text-gray-300 mb-1">
+            <div className="flex items-center justify-between text-xs text-slate-700 mb-1">
               <span>{item.step}</span>
               <span>{item.value}%</span>
             </div>
-            <div className="h-2 rounded-full bg-dark-900 overflow-hidden">
+            <div className="h-2 rounded-full bg-white overflow-hidden">
               <div className="h-full bg-gradient-to-r from-brand-500 to-accent-500" style={{ width: `${item.value}%` }} />
             </div>
           </div>
@@ -116,13 +116,13 @@ function FunnelCard({ steps }: { steps: Array<{ step: string; value: number }> }
 
 function RetentionCard({ values }: { values: number[] }) {
   return (
-    <div className="rounded-xl bg-dark-700 border border-white/10 p-4">
-      <p className="text-sm font-semibold text-white mb-3">7-Week Cohort Retention</p>
+    <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
+      <p className="text-sm font-semibold text-slate-900 mb-3">7-Week Cohort Retention</p>
       <div className="grid grid-cols-7 gap-2 items-end h-36">
         {values.map((value, idx) => (
           <div key={`${value}-${idx}`} className="flex flex-col items-center gap-2">
             <div className="w-full rounded-md bg-brand-600/70" style={{ height: `${value}%` }} />
-            <span className="text-[10px] text-gray-400">W{idx + 1}</span>
+            <span className="text-[10px] text-slate-600">W{idx + 1}</span>
           </div>
         ))}
       </div>
@@ -146,7 +146,7 @@ function MarketplaceDemo() {
 
   return (
     <div className="card p-6 space-y-5">
-      <h3 className="text-xl font-bold text-white">Marketplace Booking Flow</h3>
+      <h3 className="text-xl font-bold text-slate-900">Marketplace Booking Flow</h3>
       <div className="flex flex-wrap gap-2">
         {categories.map((item) => (
           <button
@@ -156,7 +156,7 @@ function MarketplaceDemo() {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold border ${
               category === item
                 ? 'bg-brand-600 border-brand-500 text-white'
-                : 'bg-dark-700 border-white/10 text-gray-300'
+                : 'bg-slate-50 border-slate-200 text-slate-700'
             }`}
           >
             {item}
@@ -172,12 +172,12 @@ function MarketplaceDemo() {
               type="button"
               onClick={() => setSelected(item.name)}
               className={`w-full text-left rounded-xl border p-4 transition-colors ${
-                selected === item.name ? 'border-brand-500 bg-brand-600/10' : 'border-white/10 bg-dark-700 hover:border-white/30'
+                selected === item.name ? 'border-brand-500 bg-brand-600/10' : 'border-slate-200 bg-slate-50 hover:border-slate-300'
               }`}
             >
-              <p className="text-sm font-semibold text-white">{item.name}</p>
-              <p className="text-xs text-gray-400 mt-1">{item.category}</p>
-              <div className="text-xs text-gray-300 mt-2 flex gap-4">
+              <p className="text-sm font-semibold text-slate-900">{item.name}</p>
+              <p className="text-xs text-slate-600 mt-1">{item.category}</p>
+              <div className="text-xs text-slate-700 mt-2 flex gap-4">
                 <span>{item.rate}</span>
                 <span>{item.score} rating</span>
               </div>
@@ -185,8 +185,8 @@ function MarketplaceDemo() {
           ))}
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-dark-700 p-4 space-y-3">
-          <p className="text-sm font-semibold text-white">Escrow Checkout</p>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-3">
+          <p className="text-sm font-semibold text-slate-900">Escrow Checkout</p>
           <Field label="Consultant" value={selected ?? 'Select consultant'} />
           <Field label="Session Package" value="Strategy Sprint - 3 sessions" />
           <Field label="Total" value="$1,050" />
@@ -206,10 +206,10 @@ function HealthcareSchedulingDemo() {
 
   return (
     <div className="card p-6 space-y-5">
-      <h3 className="text-xl font-bold text-white">Clinic Scheduling Center</h3>
+      <h3 className="text-xl font-bold text-slate-900">Clinic Scheduling Center</h3>
       <div className="grid lg:grid-cols-[1.2fr_1fr] gap-4">
-        <div className="rounded-xl border border-white/10 bg-dark-700 p-4">
-          <p className="text-sm font-semibold text-white mb-3">Dr. Patel - Cardiology</p>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-sm font-semibold text-slate-900 mb-3">Dr. Patel - Cardiology</p>
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
             {slots.map((slot) => (
               <button
@@ -219,7 +219,7 @@ function HealthcareSchedulingDemo() {
                 className={`text-xs rounded-md py-2 border ${
                   selectedSlot === slot
                     ? 'bg-brand-600 border-brand-500 text-white'
-                    : 'bg-dark-800 border-white/10 text-gray-300'
+                    : 'bg-slate-100 border-slate-200 text-slate-700'
                 }`}
               >
                 {slot}
@@ -228,11 +228,11 @@ function HealthcareSchedulingDemo() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-dark-700 p-4 space-y-3">
-          <p className="text-sm font-semibold text-white">Patient Intake</p>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-3">
+          <p className="text-sm font-semibold text-slate-900">Patient Intake</p>
           <Field label="Patient" value="Jordan Smith" />
           <Field label="Appointment" value={`Apr 08, ${selectedSlot}`} />
-          <label className="flex items-center gap-2 text-xs text-gray-300">
+          <label className="flex items-center gap-2 text-xs text-slate-700">
             <input
               type="checkbox"
               checked={reminder}
@@ -266,14 +266,14 @@ function EcommerceDemo() {
 
   return (
     <div className="card p-6 space-y-5">
-      <h3 className="text-xl font-bold text-white">Headless Storefront Demo</h3>
+      <h3 className="text-xl font-bold text-slate-900">Headless Storefront Demo</h3>
       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-4">
         <div className="grid sm:grid-cols-2 gap-3">
           {products.map((product) => (
-            <div key={product.id} className="rounded-xl border border-white/10 bg-dark-700 p-4">
-              <p className="text-sm font-semibold text-white">{product.name}</p>
-              <p className="text-xs text-gray-400 mt-1">Fast-loading PDP variant</p>
-              <p className="text-sm text-accent-400 mt-3">${product.price}</p>
+            <div key={product.id} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-sm font-semibold text-slate-900">{product.name}</p>
+              <p className="text-xs text-slate-600 mt-1">Fast-loading PDP variant</p>
+              <p className="text-sm text-accent-600 mt-3">${product.price}</p>
               <button
                 type="button"
                 onClick={() => setCart((prev) => ({ ...prev, [product.id]: (prev[product.id] ?? 0) + 1 }))}
@@ -285,8 +285,8 @@ function EcommerceDemo() {
           ))}
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-dark-700 p-4 space-y-3">
-          <p className="text-sm font-semibold text-white">Cart Snapshot</p>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-3">
+          <p className="text-sm font-semibold text-slate-900">Cart Snapshot</p>
           {products.map((product) => {
             const qty = cart[product.id] ?? 0
             if (!qty) {
@@ -294,16 +294,16 @@ function EcommerceDemo() {
             }
 
             return (
-              <div key={product.id} className="flex items-center justify-between text-xs text-gray-300">
+              <div key={product.id} className="flex items-center justify-between text-xs text-slate-700">
                 <span>{product.name} x{qty}</span>
                 <span>${qty * product.price}</span>
               </div>
             )
           })}
-          <div className="h-px bg-white/10" />
+          <div className="h-px bg-slate-200" />
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-300">Estimated Total</span>
-            <span className="text-white font-semibold">${total}</span>
+            <span className="text-slate-700">Estimated Total</span>
+            <span className="text-slate-900 font-semibold">${total}</span>
           </div>
           <button type="button" className="btn-primary text-sm w-full justify-center" disabled={total === 0}>
             Continue To Checkout
@@ -332,12 +332,12 @@ function ProposalAutomationDemo() {
 
   return (
     <div className="card p-6 space-y-5">
-      <h3 className="text-xl font-bold text-white">Proposal Automation Workspace</h3>
+      <h3 className="text-xl font-bold text-slate-900">Proposal Automation Workspace</h3>
       <div className="grid lg:grid-cols-2 gap-4">
-        <div className="rounded-xl border border-white/10 bg-dark-700 p-4 space-y-3">
-          <p className="text-sm font-semibold text-white">Document Blocks</p>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-3">
+          <p className="text-sm font-semibold text-slate-900">Document Blocks</p>
           {blocks.map((block) => (
-            <label key={block} className="flex items-center justify-between text-sm text-gray-300 rounded-lg border border-white/10 px-3 py-2">
+            <label key={block} className="flex items-center justify-between text-sm text-slate-700 rounded-lg border border-slate-200 px-3 py-2">
               <span>{block}</span>
               <input
                 type="checkbox"
@@ -349,8 +349,8 @@ function ProposalAutomationDemo() {
           ))}
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-dark-700 p-4 space-y-3">
-          <p className="text-sm font-semibold text-white">Plan Selector</p>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-3">
+          <p className="text-sm font-semibold text-slate-900">Plan Selector</p>
           {pricing.map((plan) => (
             <button
               key={plan.tier}
@@ -358,8 +358,8 @@ function ProposalAutomationDemo() {
               onClick={() => setSelectedTier(plan.tier)}
               className={`w-full text-left rounded-lg border px-3 py-2 text-sm ${
                 selectedTier === plan.tier
-                  ? 'border-brand-500 bg-brand-600/10 text-white'
-                  : 'border-white/10 text-gray-300'
+                  ? 'border-brand-500 bg-brand-600/10 text-slate-900'
+                  : 'border-slate-200 text-slate-700'
               }`}
             >
               {plan.tier} - ${plan.amount}
@@ -397,7 +397,7 @@ function CollaborationDemo() {
 
   return (
     <div className="card p-6 space-y-5">
-      <h3 className="text-xl font-bold text-white">Real-Time Team Board</h3>
+      <h3 className="text-xl font-bold text-slate-900">Real-Time Team Board</h3>
       <div className="grid md:grid-cols-3 gap-3">
         <KanbanColumn title="Todo" items={todo} />
         <KanbanColumn title="In Progress" items={doing} />
@@ -417,17 +417,17 @@ function CollaborationDemo() {
 
 function KanbanColumn({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-xl border border-white/10 bg-dark-700 p-3 min-h-36">
-      <p className="text-xs uppercase tracking-wide text-gray-400 mb-2">{title}</p>
+    <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 min-h-36">
+      <p className="text-xs uppercase tracking-wide text-slate-600 mb-2">{title}</p>
       <div className="space-y-2">
         {items.length ? (
           items.map((item) => (
-            <div key={item} className="rounded-lg border border-white/10 bg-dark-800 px-3 py-2 text-sm text-gray-200">
+            <div key={item} className="rounded-lg border border-slate-200 bg-slate-100 px-3 py-2 text-sm text-slate-800">
               {item}
             </div>
           ))
         ) : (
-          <p className="text-xs text-gray-500">No tasks in this column.</p>
+          <p className="text-xs text-slate-500">No tasks in this column.</p>
         )}
       </div>
     </div>
@@ -436,9 +436,9 @@ function KanbanColumn({ title, items }: { title: string; items: string[] }) {
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-dark-800 px-3 py-2">
-      <p className="text-[10px] uppercase tracking-wide text-gray-500">{label}</p>
-      <p className="text-xs text-gray-200 mt-1">{value}</p>
+    <div className="rounded-lg border border-slate-200 bg-slate-100 px-3 py-2">
+      <p className="text-[10px] uppercase tracking-wide text-slate-500">{label}</p>
+      <p className="text-xs text-slate-800 mt-1">{value}</p>
     </div>
   )
 }

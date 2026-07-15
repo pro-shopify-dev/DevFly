@@ -8,14 +8,14 @@ import {
 
 export const metadata: Metadata = {
   title: 'Our Process',
-  description: 'DevFly\'s proven development process — from discovery to launch. Transparent, iterative, and built for predictable delivery.',
+  description: 'Codvoro\'s proven development process — from discovery to launch. Transparent, iterative, and built for predictable delivery.',
   alternates: {
     canonical: '/process',
   },
   openGraph: {
-    title: 'DevFly Development Process',
+    title: 'Codvoro Development Process',
     description:
-      'See how DevFly plans, designs, builds, tests, and launches software projects with transparent delivery.',
+      'See how Codvoro plans, designs, builds, tests, and launches software projects with transparent delivery.',
     url: '/process',
     type: 'website',
   },
@@ -138,7 +138,7 @@ export default function ProcessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden">
+      <section className="py-24 bg-white bg-hero-grid relative overflow-hidden">
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-tag">How We Work</span>
@@ -152,7 +152,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Process phases */}
-      <section className="py-16 bg-dark-900">
+      <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           {phases.map((phase, idx) => {
             const Icon = phase.icon
@@ -167,7 +167,7 @@ export default function ProcessPage() {
                   <div className={`h-48 rounded-2xl bg-gradient-to-br ${phase.color} flex items-center justify-center relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-hero-grid opacity-30" />
                     <Icon className="relative w-20 h-20 text-white/25" strokeWidth={1} />
-                    <div className="absolute bottom-4 right-4 glass rounded-lg px-3 py-1.5">
+                    <div className="absolute bottom-4 right-4 bg-slate-900/70 backdrop-blur rounded-lg px-3 py-1.5">
                       <span className="text-xs font-semibold text-white">{phase.duration}</span>
                     </div>
                   </div>
@@ -176,25 +176,25 @@ export default function ProcessPage() {
                 {/* Content */}
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-4xl font-black text-white/10">{phase.num}</span>
+                    <span className="text-4xl font-black text-slate-900/10">{phase.num}</span>
                     <div className="w-10 h-10 bg-brand-600/20 rounded-xl flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-brand-400" />
+                      <Icon className="w-5 h-5 text-brand-600" />
                     </div>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-black text-white mb-1">{phase.title}</h2>
-                  <p className="text-brand-400 font-semibold mb-3">{phase.tagline}</p>
-                  <p className="text-gray-400 leading-relaxed mb-5 text-sm">{phase.desc}</p>
+                  <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-1">{phase.title}</h2>
+                  <p className="text-brand-600 font-semibold mb-3">{phase.tagline}</p>
+                  <p className="text-slate-600 leading-relaxed mb-5 text-sm">{phase.desc}</p>
                   <ul className="space-y-2 mb-5">
                     {phase.activities.map((act) => (
-                      <li key={act} className="flex items-start gap-2 text-sm text-gray-300">
-                        <CheckCircle className="w-4 h-4 text-accent-400 shrink-0 mt-0.5" />
+                      <li key={act} className="flex items-start gap-2 text-sm text-slate-700">
+                        <CheckCircle className="w-4 h-4 text-accent-600 shrink-0 mt-0.5" />
                         {act}
                       </li>
                     ))}
                   </ul>
-                  <div className="bg-dark-600 rounded-xl px-4 py-3 text-sm">
-                    <span className="text-gray-500 font-medium">Deliverable: </span>
-                    <span className="text-gray-300">{phase.deliverable}</span>
+                  <div className="bg-slate-100 rounded-xl px-4 py-3 text-sm">
+                    <span className="text-slate-500 font-medium">Deliverable: </span>
+                    <span className="text-slate-700">{phase.deliverable}</span>
                   </div>
                 </div>
               </div>
@@ -204,7 +204,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Engineering principles */}
-      <section className="py-20 bg-dark-800/50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="section-tag">Engineering Standards</span>
@@ -218,10 +218,10 @@ export default function ProcessPage() {
               return (
                 <div key={p.title} className="card text-center">
                   <div className="w-10 h-10 bg-brand-600/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Icon className="w-5 h-5 text-brand-400" />
+                    <Icon className="w-5 h-5 text-brand-600" />
                   </div>
-                  <h3 className="font-bold text-white text-sm mb-2">{p.title}</h3>
-                  <p className="text-gray-400 text-xs leading-relaxed">{p.desc}</p>
+                  <h3 className="font-bold text-slate-900 text-sm mb-2">{p.title}</h3>
+                  <p className="text-slate-600 text-xs leading-relaxed">{p.desc}</p>
                 </div>
               )
             })}
@@ -230,12 +230,12 @@ export default function ProcessPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-dark-900">
+      <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
             Want to walk through the process together?
           </h2>
-          <p className="text-gray-400 mb-8">
+          <p className="text-slate-600 mb-8">
             Book a free 30-minute call and we will walk you through exactly how we would approach your project.
           </p>
           <Link href="/contact" className="btn-primary text-base px-8 py-3.5">

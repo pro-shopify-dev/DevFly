@@ -9,14 +9,14 @@ import {
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Custom web applications, SaaS platforms, startup MVPs, e-commerce, API development, and UI/UX implementation by DevFly.',
+  description: 'Custom web applications, SaaS platforms, startup MVPs, e-commerce, API development, and UI/UX implementation by Codvoro.',
   alternates: {
     canonical: '/services',
   },
   openGraph: {
-    title: 'DevFly Services',
+    title: 'Codvoro Services',
     description:
-      'Explore DevFly software development services: custom web apps, SaaS, startup MVPs, APIs, and e-commerce builds.',
+      'Explore Codvoro software development services: custom web apps, SaaS, startup MVPs, APIs, and e-commerce builds.',
     url: '/services',
     type: 'website',
   },
@@ -149,7 +149,7 @@ const faqItems = [
 const servicesListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'DevFly Software Development Services',
+  name: 'Codvoro Software Development Services',
   itemListElement: services.map((service, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -160,7 +160,7 @@ const servicesListJsonLd = {
       serviceType: service.title,
       provider: {
         '@type': 'Organization',
-        name: 'DevFly',
+        name: 'Codvoro',
         url: siteUrl,
       },
       areaServed: {
@@ -221,7 +221,7 @@ export default function ServicesPage() {
       />
 
       {/* Hero */}
-      <section className="py-24 bg-dark-900 bg-hero-grid relative overflow-hidden">
+      <section className="py-24 bg-white bg-hero-grid relative overflow-hidden">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-tag">What We Build</span>
@@ -243,7 +243,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services */}
-      <section className="py-16 bg-dark-900">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {services.map((svc, idx) => {
             const Icon = svc.icon
@@ -265,11 +265,11 @@ export default function ServicesPage() {
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${svc.color} opacity-50`} />
                   <div className="absolute bottom-6 left-6 right-6">
-                    <div className="glass rounded-xl p-4">
-                      <p className="text-xs text-gray-300 font-medium mb-2">Technologies</p>
+                    <div className="bg-slate-900/60 backdrop-blur rounded-xl p-4 border border-white/10">
+                      <p className="text-xs text-slate-200 font-medium mb-2">Technologies</p>
                       <div className="flex flex-wrap gap-2">
                         {svc.tech.map((t) => (
-                          <span key={t} className="text-xs bg-white/20 text-white px-2 py-0.5 rounded-md font-medium">{t}</span>
+                          <span key={t} className="text-xs bg-white/15 text-white px-2 py-0.5 rounded-md font-medium">{t}</span>
                         ))}
                       </div>
                     </div>
@@ -279,15 +279,15 @@ export default function ServicesPage() {
                 {/* Content */}
                 <div>
                   <div className="w-12 h-12 bg-brand-600/20 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-brand-400" />
+                    <Icon className="w-6 h-6 text-brand-600" />
                   </div>
-                  <h2 className="text-3xl font-black text-white mb-2">{svc.title}</h2>
-                  <p className="text-brand-400 font-semibold mb-4">{svc.tagline}</p>
-                  <p className="text-gray-400 leading-relaxed mb-6">{svc.desc}</p>
+                  <h2 className="text-3xl font-black text-slate-900 mb-2">{svc.title}</h2>
+                  <p className="text-brand-600 font-semibold mb-4">{svc.tagline}</p>
+                  <p className="text-slate-600 leading-relaxed mb-6">{svc.desc}</p>
                   <ul className="space-y-2 mb-6">
                     {svc.useCases.map((uc) => (
-                      <li key={uc} className="flex items-center gap-2 text-sm text-gray-300">
-                        <CheckCircle className="w-4 h-4 text-accent-400 shrink-0" />
+                      <li key={uc} className="flex items-center gap-2 text-sm text-slate-700">
+                        <CheckCircle className="w-4 h-4 text-accent-600 shrink-0" />
                         {uc}
                       </li>
                     ))}
@@ -303,16 +303,16 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-dark-900 border-t border-white/10">
+      <section className="py-16 bg-white border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-black text-white text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 text-center mb-10">
             Services FAQ
           </h2>
           <div className="space-y-4">
             {faqItems.map((item) => (
               <div key={item.question} className="card">
-                <h3 className="text-lg font-semibold text-white mb-2">{item.question}</h3>
-                <p className="text-gray-400">{item.answer}</p>
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.question}</h3>
+                <p className="text-slate-600">{item.answer}</p>
               </div>
             ))}
           </div>
@@ -320,12 +320,12 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-dark-800/50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
             Not sure which service fits your project?
           </h2>
-          <p className="text-gray-400 mb-8">
+          <p className="text-slate-600 mb-8">
             Book a free 30-minute consultation and we will map out the right approach for you.
           </p>
           <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
