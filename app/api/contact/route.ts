@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 })
   }
 
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY?.trim()
 
   // Delivery goes to the inbox registered with the Web3Forms access key (admin@codvoro.com).
   // The destination is configured server-side and never exposed to the browser.
@@ -90,9 +90,15 @@ export async function POST(request: Request) {
     const data = await res.json().catch(() => ({}))
 
     if (!res.ok || !data?.success) {
-      console.error('[contact] Web3Forms delivery failed:', data)
+      console.error('[contact] Web3Forms delivery failed:', res.status, data)
+      // Surface the upstream reason (e.g. "Invalid Access Key") so misconfig is obvious.
+      const reason = typeof data?.message === 'string' ? data.message : ''
       return NextResponse.json(
-        { error: 'We could not send your message right now. Please try again shortly.' },
+        {
+          error: reason
+            ? `We could not send your message: ${reason}`
+            : 'We could not send your message right now. Please try again shortly.',
+        },
         { status: 502 },
       )
     }
