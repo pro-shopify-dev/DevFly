@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { siteUrl } from '@/lib/site'
+import { techBrands } from '@/components/BrandLogos'
 import {
   ArrowRight,
   CheckCircle,
@@ -141,15 +142,6 @@ const testimonials = [
     initials: 'JR',
     color: '#059669',
   },
-]
-
-const trustCompanies = [
-  { name: 'TechFlow', mark: 'TF', color: '#4f46e5' },
-  { name: 'GrowthBase', mark: 'GB', color: '#0ea5e9' },
-  { name: 'NovaSaaS', mark: 'NS', color: '#059669' },
-  { name: 'LaunchPad', mark: 'LP', color: '#f97316' },
-  { name: 'PixelCore', mark: 'PX', color: '#db2777' },
-  { name: 'DataSync', mark: 'DS', color: '#7c3aed' },
 ]
 
 const homePageUrl = siteUrl
@@ -328,21 +320,16 @@ function TrustBar() {
     <section className="border-y border-slate-200 bg-slate-50 py-10 anim-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-8">
-          Trusted by startups and growing businesses
+          Platforms &amp; technologies we build with
         </p>
         <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6">
-          {trustCompanies.map((company, idx) => (
+          {techBrands.map((brand, idx) => (
             <div
-              key={company.name}
-              className={`flex items-center gap-2.5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all anim-pop anim-delay-${(idx % 6) + 1}`}
+              key={brand.name}
+              className={`flex items-center gap-2.5 opacity-90 hover:opacity-100 hover:-translate-y-0.5 transition-all anim-pop anim-delay-${(idx % 6) + 1}`}
             >
-              <span
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-white text-xs font-black shrink-0"
-                style={{ backgroundColor: company.color }}
-              >
-                {company.mark}
-              </span>
-              <span className="text-slate-800 font-bold text-lg tracking-tight">{company.name}</span>
+              {brand.logo}
+              <span className="text-slate-800 font-bold text-lg tracking-tight">{brand.name}</span>
             </div>
           ))}
         </div>
