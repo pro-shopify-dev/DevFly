@@ -3,12 +3,12 @@
   "/robots.txt/route": "app/robots.txt/route.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/page": "app/page.js",
-  "/portfolio/demo/[slug]/page": "app/portfolio/demo/[slug]/page.js",
-  "/terms/page": "app/terms/page.js",
-  "/portfolio/page": "app/portfolio/page.js",
   "/privacy/page": "app/privacy/page.js",
-  "/about/page": "app/about/page.js",
+  "/portfolio/page": "app/portfolio/page.js",
   "/process/page": "app/process/page.js",
+  "/portfolio/demo/[slug]/page": "app/portfolio/demo/[slug]/page.js",
+  "/about/page": "app/about/page.js",
   "/services/page": "app/services/page.js",
+  "/terms/page": "app/terms/page.js",
   "/contact/page": "app/contact/page.js"
 }

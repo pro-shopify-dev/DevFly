@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, CheckCircle, Users, Zap, Target, Heart, Code2 } from 'lucide-react'
+import { ArrowRight, CheckCircle, Users, Zap, Target, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -108,38 +108,50 @@ export default function AboutPage() {
 
           {/* Development Team */}
           <div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="card card-tilt anim-pop anim-delay-1">
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-2xl overflow-hidden relative shrink-0">
-                    <Image
-                      src="/tony-brain.png"
-                      alt="Tony Brain — Technical Lead"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900">Tony Brain</h4>
-                    <p className="text-brand-600 text-sm font-semibold">Technical Lead & Co-founder</p>
-                  </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="card card-tilt text-center anim-pop anim-delay-1">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
+                  <Image
+                    src="/tony-brain.png"
+                    alt="Tony Brain — Founder and Technical Lead"
+                    fill
+                    className="object-cover object-top"
+                  />
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed mt-4">
+                <h4 className="text-xl font-bold text-slate-900">Tony Brain</h4>
+                <p className="text-brand-600 text-sm font-semibold mb-3">Founder and Technical Lead</p>
+                <p className="text-slate-600 text-sm leading-relaxed">
                   Full-stack engineer with 8+ years of experience building web applications and SaaS platforms. Specialises in React, Node.js, and cloud architecture. Leads all technical delivery at Codvoro.
                 </p>
               </div>
-              <div className="card card-tilt anim-pop anim-delay-2">
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-2xl bg-brand-600/10 border border-brand-500/20 flex items-center justify-center shrink-0">
-                    <Code2 className="w-9 h-9 text-brand-600" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900">Senior Specialist Network</h4>
-                    <p className="text-brand-600 text-sm font-semibold">Frontend · Backend · Design · DevOps</p>
-                  </div>
+              <div className="card card-tilt text-center anim-pop anim-delay-2">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
+                  <Image
+                    src="/david-chen.jpg"
+                    alt="David Chen — AI and Full-Stack Developer"
+                    fill
+                    className="object-cover object-top"
+                  />
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed mt-4">
-                  For larger projects, we bring in vetted senior specialists from our trusted network — all pre-screened and held to the same standards as our core team, so quality never slips as scope grows.
+                <h4 className="text-xl font-bold text-slate-900">David Chen</h4>
+                <p className="text-brand-600 text-sm font-semibold mb-3">AI and Full-Stack Developer</p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  AI and full-stack engineer specialising in LLM-powered features, robust backend systems, and cloud infrastructure. Owns AI integrations, API architecture, and DevOps — from model pipelines to CI/CD and production deployments.
+                </p>
+              </div>
+              <div className="card card-tilt text-center anim-pop anim-delay-3">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
+                  <Image
+                    src="/dorian-hsu.png"
+                    alt="Dorian Hsu — Frontend & Platforms Developer"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900">Dorian Hsu</h4>
+                <p className="text-brand-600 text-sm font-semibold mb-3">Frontend, Shopify &amp; SaaS Developer</p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Frontend specialist and platform expert. Crafts pixel-perfect, responsive interfaces and ships fast on Shopify themes, WordPress &amp; Elementor, and modern SaaS platforms — turning designs into polished, conversion-ready storefronts and web apps.
                 </p>
               </div>
             </div>
