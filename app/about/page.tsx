@@ -108,7 +108,7 @@ export default function AboutPage() {
 
           {/* Development Team */}
           <div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="card card-tilt text-center anim-pop anim-delay-1">
                 <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
                   <Image
@@ -152,6 +152,21 @@ export default function AboutPage() {
                 <p className="text-brand-600 text-sm font-semibold mb-3">Frontend, Shopify &amp; SaaS Developer</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Frontend specialist and platform expert. Crafts pixel-perfect, responsive interfaces and ships fast on Shopify themes, WordPress &amp; Elementor, and modern SaaS platforms — turning designs into polished, conversion-ready storefronts and web apps.
+                </p>
+              </div>
+              <div className="card card-tilt text-center anim-pop anim-delay-4">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
+                  <Image
+                    src="/marinko-mijatovik.png"
+                    alt="Marinko Mijatovic — Frontend and Shopify Full-Stack Developer"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900">Marinko Mijatovic</h4>
+                <p className="text-brand-600 text-sm font-semibold mb-3">Frontend &amp; Shopify Full-Stack Developer</p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Full-stack developer with deep Shopify expertise. Builds high-converting custom themes and storefronts end-to-end — from responsive frontend interfaces to the backend integrations, apps, and checkout flows that power them.
                 </p>
               </div>
             </div>
