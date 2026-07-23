@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { siteUrl } from '@/lib/site'
 import { techBrands } from '@/components/BrandLogos'
+import HeroVideo from '@/components/HeroVideo'
 import {
   ArrowRight,
   CheckCircle,
@@ -255,48 +256,11 @@ function HeroSection() {
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
                 <div className="flex-1 bg-slate-100 rounded px-3 py-1 text-xs text-slate-500 text-center">
-                  app.codvoro.io/dashboard
+                  codvoro.com/showreel
                 </div>
               </div>
-              {/* Dashboard content */}
-              <div className="p-6">
-                <div className="grid grid-cols-3 gap-3 mb-4">
-                  {[
-                    { label: 'Revenue', val: '$48,290', up: true },
-                    { label: 'Users', val: '12,840', up: true },
-                    { label: 'Churn', val: '1.2%', up: false },
-                  ].map((stat) => (
-                    <div key={stat.label} className="bg-slate-100 rounded-xl p-3">
-                      <p className="text-xs text-slate-500 mb-1">{stat.label}</p>
-                      <p className="text-lg font-bold text-slate-900">{stat.val}</p>
-                      <p className={`text-xs ${stat.up ? 'text-accent-600' : 'text-red-400'}`}>
-                        {stat.up ? '↑' : '↓'} {stat.up ? '+12%' : '-0.3%'}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                {/* Fake chart */}
-                <div className="bg-slate-100 rounded-xl p-4 mb-4">
-                  <p className="text-xs text-slate-500 mb-3">Monthly Growth</p>
-                  <div className="flex items-end gap-1.5 h-20">
-                    {[30, 55, 45, 70, 60, 85, 75, 90, 80, 95, 88, 100].map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 rounded-t bg-gradient-to-t from-brand-700 to-brand-400 opacity-80"
-                        style={{ height: `${h}%` }}
-                      />
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  {['New subscription — Pro Plan', 'API call limit reached', 'Deploy succeeded ✓'].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-xs text-slate-600 bg-slate-100 rounded-lg px-3 py-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent-400 shrink-0" />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {/* Showreel */}
+              <HeroVideo src="/showreel.mp4" label="Codvoro showreel" />
             </div>
           </div>
           {/* Floating badge */}
@@ -489,6 +453,57 @@ function TechStackSection() {
   )
 }
 
+function VideoShowcaseSection() {
+  const videos = [
+    {
+      src: '/team.mp4',
+      title: 'Meet the Team',
+      desc: 'The senior engineers who design, build, and ship your product.',
+    },
+    {
+      src: '/stock-footage.mp4',
+      title: 'How We Build',
+      desc: 'A look at our process — from architecture to production launch.',
+    },
+  ]
+
+  return (
+    <section className="py-24 bg-slate-50 anim-reveal">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <span className="section-tag">Inside Codvoro</span>
+          <h2 className="section-title">
+            See Us <span className="gradient-text">In Action</span>
+          </h2>
+          <p className="section-subtitle">
+            A closer look at the team and the process behind every project we deliver.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {videos.map((video, idx) => (
+            <div
+              key={video.src}
+              className={`card p-0 overflow-hidden anim-reveal anim-delay-${(idx % 6) + 1}`}
+            >
+              <video
+                src={video.src}
+                className="w-full aspect-video object-cover bg-slate-900"
+                controls
+                playsInline
+                preload="metadata"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-1">{video.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{video.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function TestimonialsSection() {
   return (
     <section className="py-24 bg-white anim-reveal">
@@ -582,6 +597,7 @@ export default function HomePage() {
       <ProcessSection />
       <PortfolioSection />
       <TechStackSection />
+      <VideoShowcaseSection />
       <TestimonialsSection />
       <FinalCTASection />
     </>
