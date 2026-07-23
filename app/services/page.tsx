@@ -6,6 +6,7 @@ import {
   Code2, Layers, Rocket, Server, Figma, ShoppingCart,
   CheckCircle, ArrowRight, ChevronRight,
 } from 'lucide-react'
+import VideoHero from '@/components/VideoHero'
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -221,26 +222,25 @@ export default function ServicesPage() {
       />
 
       {/* Hero */}
-      <section className="py-24 bg-white bg-hero-grid relative overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="section-tag">What We Build</span>
-          <h1 className="section-title text-5xl lg:text-6xl">
-            Services Engineered for <span className="gradient-text">Real Products</span>
-          </h1>
-          <p className="section-subtitle mx-auto text-lg mt-4">
-            We cover the full software lifecycle — from idea to production — with a small, senior team that owns your project end-to-end.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link href="/contact" className="btn-primary">
-              Start a Project <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/portfolio" className="btn-secondary">
-              See Our Work
-            </Link>
-          </div>
+      <VideoHero src="/stock-footage.mp4">
+        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
+          What We Build
+        </span>
+        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
+          Services Engineered for <span className="gradient-text-light">Real Products</span>
+        </h1>
+        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+          We cover the full software lifecycle — from idea to production — with a small, senior team that owns your project end-to-end.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <Link href="/contact" className="btn-primary">
+            Start a Project <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link href="/portfolio" className="btn-secondary">
+            See Our Work
+          </Link>
         </div>
-      </section>
+      </VideoHero>
 
       {/* Services */}
       <section className="py-16 bg-white">

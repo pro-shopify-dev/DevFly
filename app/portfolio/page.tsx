@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ExternalLink, Github } from 'lucide-react'
+import VideoHero from '@/components/VideoHero'
 import { projects } from './projects'
 import { siteUrl } from '@/lib/site'
 
@@ -75,18 +76,17 @@ export default function PortfolioPage() {
       />
 
       {/* Hero */}
-      <section className="py-24 bg-white bg-hero-grid relative overflow-hidden anim-reveal">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="section-tag">Our Work</span>
-          <h1 className="section-title text-5xl lg:text-6xl">
-            Projects That <span className="gradient-text">Drive Real Outcomes</span>
-          </h1>
-          <p className="section-subtitle mx-auto mt-4">
-            We don&apos;t just write code — we solve business problems. Every project has a challenge, a solution, and a measured result.
-          </p>
-        </div>
-      </section>
+      <VideoHero src="/showreel.mp4">
+        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
+          Our Work
+        </span>
+        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
+          Projects That <span className="gradient-text-light">Drive Real Outcomes</span>
+        </h1>
+        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+          We don&apos;t just write code — we solve business problems. Every project has a challenge, a solution, and a measured result.
+        </p>
+      </VideoHero>
 
       {/* Projects grid */}
       <section className="py-16 bg-white anim-reveal">

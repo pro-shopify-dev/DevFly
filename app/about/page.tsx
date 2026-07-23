@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, CheckCircle, Users, Zap, Target, Heart } from 'lucide-react'
+import VideoHero from '@/components/VideoHero'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -62,18 +63,17 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24 bg-white bg-hero-grid relative overflow-hidden anim-reveal">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="section-tag">About Codvoro</span>
-          <h1 className="section-title text-5xl lg:text-6xl">
-            Small Team. <span className="gradient-text">Big Delivery.</span>
-          </h1>
-          <p className="section-subtitle mx-auto mt-4 text-lg">
-            Codvoro is a high-expertise software development team building web applications, SaaS platforms, and startup MVPs for US businesses. We combine the cost-efficiency of freelancers with the accountability and quality of a top-tier agency.
-          </p>
-        </div>
-      </section>
+      <VideoHero src="/team.mp4">
+        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
+          About Codvoro
+        </span>
+        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
+          Small Team. <span className="gradient-text-light">Big Delivery.</span>
+        </h1>
+        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+          Codvoro is a high-expertise software development team building web applications, SaaS platforms, and startup MVPs for US businesses. We combine the cost-efficiency of freelancers with the accountability and quality of a top-tier agency.
+        </p>
+      </VideoHero>
 
       {/* Mission & Vision */}
       <section className="py-20 bg-slate-50 anim-reveal">
