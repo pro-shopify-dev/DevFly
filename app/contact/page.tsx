@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Phone, Mail, Calendar, CheckCircle, ArrowRight, Linkedin, Twitter, Send } from 'lucide-react'
+import VideoHero from '@/components/VideoHero'
 
 const projectTypes = [
   'Web Application',
@@ -92,18 +93,17 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24 bg-white bg-hero-grid relative overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="section-tag">Get In Touch</span>
-          <h1 className="section-title text-5xl lg:text-6xl">
-            Let&apos;s Build Something <span className="gradient-text">Together</span>
-          </h1>
-          <p className="section-subtitle mx-auto mt-4 text-lg">
-            Tell us about your project. We read every message and respond within 24 hours.
-          </p>
-        </div>
-      </section>
+      <VideoHero src="/contact.mp4">
+        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
+          Get In Touch
+        </span>
+        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
+          Let&apos;s Build Something <span className="gradient-text-light">Together</span>
+        </h1>
+        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+          Tell us about your project. We read every message and respond within 24 hours.
+        </p>
+      </VideoHero>
 
       {/* Contact options + form */}
       <section className="py-16 bg-white">

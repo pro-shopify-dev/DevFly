@@ -5,6 +5,7 @@ import {
   MessageSquare, FileSearch, GitBranch, TestTube, Server, HeartHandshake,
   CheckCircle,
 } from 'lucide-react'
+import VideoHero from '@/components/VideoHero'
 
 export const metadata: Metadata = {
   title: 'Our Process',
@@ -138,18 +139,17 @@ export default function ProcessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24 bg-white bg-hero-grid relative overflow-hidden">
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="section-tag">How We Work</span>
-          <h1 className="section-title text-5xl lg:text-6xl">
-            A Process Built for <span className="gradient-text">Predictability</span>
-          </h1>
-          <p className="section-subtitle mx-auto mt-4 text-lg">
-            We follow a structured, transparent process that gives you full visibility and confidence at every stage — from first conversation to live product.
-          </p>
-        </div>
-      </section>
+      <VideoHero src="/process.mp4">
+        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
+          How We Work
+        </span>
+        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
+          A Process Built for <span className="gradient-text-light">Predictability</span>
+        </h1>
+        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+          We follow a structured, transparent process that gives you full visibility and confidence at every stage — from first conversation to live product.
+        </p>
+      </VideoHero>
 
       {/* Process phases */}
       <section className="py-16 bg-white">

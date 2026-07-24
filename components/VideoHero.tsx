@@ -7,6 +7,10 @@ type VideoHeroProps = {
   src: string
   /** Hero header content rendered on top of the video. */
   children: ReactNode
+  /** Tailwind min-height class. Defaults to inner-page height. */
+  minHeightClass?: string
+  /** Max width of the content column. */
+  contentWidthClass?: string
 }
 
 /**
@@ -17,7 +21,12 @@ type VideoHeroProps = {
  * Autoplay is skipped when the user prefers reduced motion; the poster frame
  * still renders, so the hero never looks broken.
  */
-export default function VideoHero({ src, children }: VideoHeroProps) {
+export default function VideoHero({
+  src,
+  children,
+  minHeightClass = 'min-h-[62vh]',
+  contentWidthClass = 'max-w-4xl',
+}: VideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -34,7 +43,7 @@ export default function VideoHero({ src, children }: VideoHeroProps) {
   }, [])
 
   return (
-    <section className="relative w-full min-h-[62vh] flex items-center overflow-hidden bg-slate-900">
+    <section className={`relative w-full ${minHeightClass} flex items-center overflow-hidden bg-slate-900`}>
       <video
         ref={videoRef}
         src={src}
@@ -50,7 +59,7 @@ export default function VideoHero({ src, children }: VideoHeroProps) {
       <div className="absolute inset-0 bg-slate-900/70" />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-slate-900/85" />
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <div className={`relative z-10 w-full ${contentWidthClass} mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center`}>
         {children}
       </div>
     </section>

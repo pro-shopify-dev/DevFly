@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { siteUrl } from '@/lib/site'
 import { techBrands } from '@/components/BrandLogos'
+import VideoHero from '@/components/VideoHero'
 import {
   ArrowRight,
   CheckCircle,
@@ -205,113 +206,34 @@ const homeBreadcrumbJsonLd = {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-white bg-hero-grid gradient-animate">
-      {/* Gradient blobs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl anim-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-500/15 rounded-full blur-3xl anim-glow anim-delay-2" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left */}
-        <div className="anim-reveal">
-          <div className="inline-flex items-center gap-2 bg-brand-600/15 border border-brand-500/30 rounded-full px-4 py-1.5 text-sm text-brand-600 mb-6 anim-pop anim-delay-1">
-            <Zap className="w-3.5 h-3.5" />
-            Freelancer pricing · Agency quality
-          </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.08] mb-6 anim-reveal anim-delay-2">
-            We Build<br />
-            <span className="gradient-text">Software That</span><br />
-            Moves Fast
-          </h1>
-          <p className="text-xl text-slate-600 leading-relaxed mb-8 max-w-lg anim-reveal anim-delay-3">
-            Custom web apps, SaaS platforms, and startup MVPs for US businesses. We deliver production-ready software — on time, every time.
-          </p>
-          <div className="flex flex-wrap gap-4 mb-10 anim-reveal anim-delay-4">
-            <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
-              Book a Free Consultation <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/services" className="btn-secondary text-base px-8 py-3.5">
-              See Our Services
-            </Link>
-          </div>
-          <div className="flex flex-wrap gap-6 anim-reveal anim-delay-5">
-            {['50+ Projects delivered', 'US-based clients', '24h response time'].map((item, idx) => (
-              <div key={item} className={`flex items-center gap-2 text-sm text-slate-600 anim-pop anim-delay-${idx + 1}`}>
-                <CheckCircle className="w-4 h-4 text-accent-600 shrink-0" />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right — Dashboard mockup */}
-        <div className="relative hidden lg:block anim-reveal anim-delay-3">
-          <div className="animate-float">
-            <div className="relative bg-slate-50 rounded-2xl border border-slate-200 shadow-2xl shadow-brand-900/50 overflow-hidden">
-              {/* Browser bar */}
-              <div className="bg-slate-100 px-4 py-3 flex items-center gap-2 border-b border-slate-200">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                </div>
-                <div className="flex-1 bg-slate-100 rounded px-3 py-1 text-xs text-slate-500 text-center">
-                  app.codvoro.io/dashboard
-                </div>
-              </div>
-              {/* Dashboard content */}
-              <div className="p-6">
-                <div className="grid grid-cols-3 gap-3 mb-4">
-                  {[
-                    { label: 'Revenue', val: '$48,290', up: true },
-                    { label: 'Users', val: '12,840', up: true },
-                    { label: 'Churn', val: '1.2%', up: false },
-                  ].map((stat) => (
-                    <div key={stat.label} className="bg-slate-100 rounded-xl p-3">
-                      <p className="text-xs text-slate-500 mb-1">{stat.label}</p>
-                      <p className="text-lg font-bold text-slate-900">{stat.val}</p>
-                      <p className={`text-xs ${stat.up ? 'text-accent-600' : 'text-red-400'}`}>
-                        {stat.up ? '↑' : '↓'} {stat.up ? '+12%' : '-0.3%'}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                {/* Fake chart */}
-                <div className="bg-slate-100 rounded-xl p-4 mb-4">
-                  <p className="text-xs text-slate-500 mb-3">Monthly Growth</p>
-                  <div className="flex items-end gap-1.5 h-20">
-                    {[30, 55, 45, 70, 60, 85, 75, 90, 80, 95, 88, 100].map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 rounded-t bg-gradient-to-t from-brand-700 to-brand-400 opacity-80"
-                        style={{ height: `${h}%` }}
-                      />
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  {['New subscription — Pro Plan', 'API call limit reached', 'Deploy succeeded ✓'].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-xs text-slate-600 bg-slate-100 rounded-lg px-3 py-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent-400 shrink-0" />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Floating badge */}
-          <div className="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 shadow-xl anim-pop anim-delay-6">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-accent-600" />
-              <div>
-                <p className="text-xs font-semibold text-slate-900">MVP Launched</p>
-                <p className="text-xs text-slate-600">8 weeks · On budget</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <VideoHero src="/hero.mp4" minHeightClass="min-h-[88vh]" contentWidthClass="max-w-5xl">
+      <div className="inline-flex items-center gap-2 bg-white/10 border border-white/25 rounded-full px-4 py-1.5 text-sm text-brand-100 mb-6 anim-pop anim-delay-1">
+        <Zap className="w-3.5 h-3.5" />
+        Freelancer pricing · Agency quality
       </div>
-    </section>
+      <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] mb-6 anim-reveal anim-delay-2">
+        We Build <span className="gradient-text-light">Software That</span> Moves Fast
+      </h1>
+      <p className="text-xl text-slate-200 leading-relaxed mb-8 max-w-2xl mx-auto anim-reveal anim-delay-3">
+        Custom web apps, SaaS platforms, and startup MVPs for US businesses. We deliver production-ready software — on time, every time.
+      </p>
+      <div className="flex flex-wrap justify-center gap-4 mb-10 anim-reveal anim-delay-4">
+        <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
+          Book a Free Consultation <ArrowRight className="w-4 h-4" />
+        </Link>
+        <Link href="/services" className="btn-secondary text-base px-8 py-3.5">
+          See Our Services
+        </Link>
+      </div>
+      <div className="flex flex-wrap justify-center gap-6 anim-reveal anim-delay-5">
+        {['50+ Projects delivered', 'US-based clients', '24h response time'].map((item, idx) => (
+          <div key={item} className={`flex items-center gap-2 text-sm text-slate-200 anim-pop anim-delay-${idx + 1}`}>
+            <CheckCircle className="w-4 h-4 text-accent-400 shrink-0" />
+            {item}
+          </div>
+        ))}
+      </div>
+    </VideoHero>
   )
 }
 
