@@ -98,33 +98,21 @@ h1, h2, h3, h4, h5, h6 {
 @layer components {
 
 /* ── Layout containers ──────────────────────────────────────────────────────
-   Wide, generously guttered columns. The site should feel like a publication
-   spread, not a centred app shell. */
+   Fluid full-width, NOT a centred fixed column. There is deliberately no
+   max-width: content spans the whole viewport minus a proportional gutter, so
+   the page never collapses into a narrow strip with dead space either side.
+   Line length is controlled per-element (.measure, max-w-*), not by the shell. */
 
 .container-wide {
   width: 100%;
-  max-width: 1560px;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
+  padding-inline: clamp(1.25rem, 3.5vw, 4.5rem);
 }
 
+/* Reading-width column for long prose. Left-aligned, never centred. */
 .container-mid {
   width: 100%;
-  max-width: 1180px;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
-}
-
-@media (min-width: 640px) {
-  .container-wide,
-  .container-mid { padding-inline: 2rem; }
-}
-@media (min-width: 1024px) {
-  .container-wide { padding-inline: 3.5rem; }
-  .container-mid { padding-inline: 3rem; }
-}
-@media (min-width: 1536px) {
-  .container-wide { padding-inline: 5rem; }
+  max-width: 78rem;
+  padding-inline: clamp(1.25rem, 3.5vw, 4.5rem);
 }
 
 /* Left-aligned reading column — never auto-centred */
