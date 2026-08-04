@@ -93,134 +93,129 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <VideoHero src="/contact.mp4">
-        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
-          Get In Touch
-        </span>
-        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
-          Let&apos;s Build Something <span className="gradient-text-light">Together</span>
+      <VideoHero src="/contact.mp4" minHeightClass="min-h-[55vh]">
+        <span className="section-tag section-tag-light">Get In Touch</span>
+        <h1 className="text-[2.5rem] lg:text-6xl font-extrabold text-white leading-[1.05] tracking-[-0.033em] mb-6">
+          Let&apos;s build something <span className="gradient-text-light">together</span>
         </h1>
-        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-slate-300 leading-relaxed max-w-2xl">
           Tell us about your project. We read every message and respond within 24 hours.
         </p>
       </VideoHero>
 
       {/* Contact options + form */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-10">
+      <section className="section-pad-sm bg-white">
+        <div className="container-wide grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] gap-12 lg:gap-20">
           {/* Left — contact info */}
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-2xl font-black text-slate-900 mb-2">Contact Codvoro</h2>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Whether you have a detailed spec or just a rough idea, we are happy to talk. No obligation, no sales pressure.
-              </p>
-            </div>
+          <div>
+            <span className="section-tag">Contact Codvoro</span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Talk to the people who will build it
+            </h2>
+            <p className="text-slate-600 leading-relaxed mb-10">
+              Whether you have a detailed spec or just a rough idea, we are happy to talk. No obligation, no sales pressure.
+            </p>
 
-            {/* Phone */}
-            <div className="card">
-              <div className="w-10 h-10 bg-brand-600/10 rounded-xl flex items-center justify-center mb-3">
-                <Phone className="w-5 h-5 text-brand-600" />
+            <dl className="border-t border-slate-200">
+              <div className="flex items-start gap-4 py-5 border-b border-slate-200">
+                <Phone className="w-5 h-5 text-brand-600 shrink-0 mt-1" strokeWidth={1.75} />
+                <div>
+                  <dt className="text-[0.6875rem] font-bold text-slate-500 uppercase tracking-[0.14em] mb-1">Call us</dt>
+                  <dd>
+                    <a href="tel:+16176159749" className="text-lg font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                      +1 (617) 615-9749
+                    </a>
+                    <p className="text-slate-500 text-sm mt-0.5">Mon–Fri, US business hours.</p>
+                  </dd>
+                </div>
               </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-1">Call Us</h3>
-              <a
-                href="tel:+16176159749"
-                className="text-brand-600 hover:text-brand-700 text-sm font-semibold transition-colors"
-              >
-                +1 (617) 615-9749
-              </a>
-              <p className="text-slate-500 text-xs mt-1">Mon–Fri, US business hours.</p>
-            </div>
 
-            {/* Email */}
-            <div className="card">
-              <div className="w-10 h-10 bg-brand-600/10 rounded-xl flex items-center justify-center mb-3">
-                <Mail className="w-5 h-5 text-brand-600" />
+              <div className="flex items-start gap-4 py-5 border-b border-slate-200">
+                <Mail className="w-5 h-5 text-brand-600 shrink-0 mt-1" strokeWidth={1.75} />
+                <div className="min-w-0">
+                  <dt className="text-[0.6875rem] font-bold text-slate-500 uppercase tracking-[0.14em] mb-1">Email us</dt>
+                  <dd>
+                    <a href="mailto:admin@codvoro.com" className="text-lg font-semibold text-slate-900 hover:text-brand-600 transition-colors break-all">
+                      admin@codvoro.com
+                    </a>
+                    <p className="text-slate-500 text-sm mt-0.5">We reply within 24 hours.</p>
+                  </dd>
+                </div>
               </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-1">Email Us</h3>
-              <a
-                href="mailto:admin@codvoro.com"
-                className="text-brand-600 hover:text-brand-700 text-sm font-semibold transition-colors break-all"
-              >
-                admin@codvoro.com
-              </a>
-              <p className="text-slate-500 text-xs mt-1">We reply within 24 hours.</p>
-            </div>
 
-            {/* Book a call */}
-            <div className="card">
-              <div className="w-10 h-10 bg-accent-500/20 rounded-xl flex items-center justify-center mb-3">
-                <Calendar className="w-5 h-5 text-accent-600" />
+              <div className="flex items-start gap-4 py-5 border-b border-slate-200">
+                <Calendar className="w-5 h-5 text-accent-600 shrink-0 mt-1" strokeWidth={1.75} />
+                <div>
+                  <dt className="text-[0.6875rem] font-bold text-slate-500 uppercase tracking-[0.14em] mb-1">Book a free call</dt>
+                  <dd>
+                    <p className="text-slate-600 text-[0.9375rem] mb-3">
+                      30-minute intro call to discuss your project, timeline, and budget.
+                    </p>
+                    <a
+                      href="https://calendly.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-arrow text-[0.9375rem]"
+                    >
+                      Open Calendly <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </dd>
+                </div>
               </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-1">Book a Free Call</h3>
-              <p className="text-slate-600 text-xs mb-3">
-                30-minute intro call to discuss your project, timeline, and budget.
-              </p>
-              <a
-                href="https://calendly.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline text-xs py-2 px-4"
-              >
-                Open Calendly <ArrowRight className="w-3 h-3" />
-              </a>
-            </div>
-
-            {/* Social */}
-            <div>
-              <h3 className="text-sm font-semibold text-slate-900 mb-3">Follow Us</h3>
-              <div className="flex gap-3">
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 transition-all"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 transition-all"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
+            </dl>
 
             {/* What to expect */}
-            <div className="card bg-brand-600/10 border-brand-500/20">
-              <h3 className="font-bold text-slate-900 text-sm mb-3">What happens next?</h3>
-              <ol className="space-y-2">
-                {[
-                  'You submit this form',
-                  'We review and reply within 24h',
-                  'We schedule a discovery call',
-                  'We send a proposal within 48h',
-                ].map((step, i) => (
-                  <li key={step} className="flex items-start gap-2 text-xs text-slate-700">
-                    <span className="w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center text-white font-bold shrink-0 text-xs">
-                      {i + 1}
-                    </span>
-                    {step}
-                  </li>
-                ))}
-              </ol>
+            <h3 className="text-[0.6875rem] font-bold text-slate-500 uppercase tracking-[0.14em] mt-10 mb-4">
+              What happens next
+            </h3>
+            <ol className="border-t border-slate-200">
+              {[
+                'You submit this form',
+                'We review and reply within 24h',
+                'We schedule a discovery call',
+                'We send a proposal within 48h',
+              ].map((step, i) => (
+                <li key={step} className="flex items-start gap-4 py-3.5 border-b border-slate-200 text-slate-700">
+                  <span className="text-sm font-bold text-brand-600 tabular-nums shrink-0 pt-0.5">
+                    0{i + 1}
+                  </span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+
+            {/* Social */}
+            <div className="flex gap-3 mt-10">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 border border-slate-200 rounded-[var(--radius)] flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 hover:border-brand-600 transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 border border-slate-200 rounded-[var(--radius)] flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 hover:border-brand-600 transition-all"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
           {/* Right — form */}
-          <div className="lg:col-span-2">
+          <div>
             {submitted ? (
-              <div className="card h-full flex flex-col items-center justify-center text-center py-16 gap-4">
-                <div className="w-16 h-16 bg-accent-500/20 rounded-full flex items-center justify-center mb-2">
-                  <CheckCircle className="w-8 h-8 text-accent-600" />
+              <div className="card h-full flex flex-col items-start justify-center py-16 gap-4 px-8 lg:px-12">
+                <div className="w-14 h-14 bg-accent-500/15 rounded-full flex items-center justify-center mb-2">
+                  <CheckCircle className="w-7 h-7 text-accent-600" />
                 </div>
-                <h2 className="text-2xl font-black text-slate-900">Message received!</h2>
-                <p className="text-slate-600 max-w-sm">
+                <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Message received</h2>
+                <p className="text-slate-600 max-w-md">
                   Thanks for reaching out. We will review your message and get back to you within 24 hours.
                 </p>
                 <button
@@ -231,8 +226,9 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <div className="card">
-                <h2 className="text-2xl font-black text-slate-900 mb-6">Submit Your Project</h2>
+              <div className="card p-8 lg:p-12">
+                <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">Submit your project</h2>
+                <p className="text-slate-600 mb-8">Fields marked with an asterisk are required.</p>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Honeypot — hidden from real users, catches bots */}
                   <input
@@ -367,7 +363,7 @@ export default function ContactPage() {
                     )}
                   </button>
 
-                  <p className="text-xs text-slate-500 text-center">
+                  <p className="text-xs text-slate-500">
                     By submitting, you agree to our{' '}
                     <Link href="/privacy" className="text-brand-600 hover:underline">Privacy Policy</Link>.
                     We will never share your data.

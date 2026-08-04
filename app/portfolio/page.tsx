@@ -77,96 +77,123 @@ export default function PortfolioPage() {
 
       {/* Hero */}
       <VideoHero src="/showreel.mp4">
-        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
-          Our Work
-        </span>
-        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
-          Projects That <span className="gradient-text-light">Drive Real Outcomes</span>
+        <span className="section-tag section-tag-light">Our Work</span>
+        <h1 className="text-[2.5rem] lg:text-6xl font-extrabold text-white leading-[1.05] tracking-[-0.033em] mb-6">
+          Projects that <span className="gradient-text-light">drive real outcomes</span>
         </h1>
-        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-slate-300 leading-relaxed max-w-2xl">
           We don&apos;t just write code — we solve business problems. Every project has a challenge, a solution, and a measured result.
         </p>
       </VideoHero>
 
       {/* Projects grid */}
-      <section className="py-16 bg-white anim-reveal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="section-pad bg-white anim-reveal">
+        <div className="container-wide">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">Case Studies</span>
+              <h2 className="section-title">
+                Selected <span className="gradient-text">client work</span>
+              </h2>
+            </div>
+            <div className="section-head-aside">
+              <p className="section-subtitle">
+                Each build below started as a business problem. Open a case study to see the
+                challenge, the approach we took, and what shipped.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
             {projects.map((project, idx) => (
-              <div key={project.title} className={`card card-tilt group flex flex-col anim-reveal anim-delay-${(idx % 6) + 1}`}>
+              <article
+                key={project.title}
+                className={`group flex flex-col anim-reveal anim-delay-${(idx % 6) + 1}`}
+              >
                 {/* Visual */}
-                <div className="h-44 rounded-xl overflow-hidden relative mb-5">
+                <Link
+                  href={`/portfolio/demo/${project.slug}`}
+                  className="aspect-[16/10] rounded-[var(--radius-lg)] overflow-hidden relative block bg-slate-100"
+                >
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-40`} />
-                </div>
+                </Link>
 
                 {/* Content */}
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full w-fit mb-3 ${project.category_color}`}>
-                  {project.category}
-                </span>
-                <h2 className="text-lg font-bold text-slate-900 mb-2">{project.title}</h2>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1">{project.desc}</p>
+                <div className="flex flex-col flex-1 border-t border-slate-900 mt-6 pt-6">
+                  <span className={`text-[0.6875rem] font-bold uppercase tracking-[0.14em] px-2.5 py-1 rounded-[var(--radius-sm)] w-fit mb-4 ${project.category_color}`}>
+                    {project.category}
+                  </span>
+                  <h3 className="text-2xl font-bold text-slate-900 tracking-tight mb-3">{project.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-6">{project.desc}</p>
 
-                <div className="bg-slate-100 rounded-xl p-4 mb-4 space-y-2">
-                  <div>
-                    <p className="text-xs font-semibold text-slate-500 uppercase mb-1">Challenge</p>
-                    <p className="text-xs text-slate-700 leading-relaxed">{project.challenge}</p>
+                  <dl className="border-t border-slate-200 mb-6 flex-1">
+                    <div className="py-4 border-b border-slate-200">
+                      <dt className="text-[0.6875rem] font-bold text-slate-500 uppercase tracking-[0.14em] mb-1.5">
+                        Challenge
+                      </dt>
+                      <dd className="text-[0.9375rem] text-slate-700 leading-relaxed">{project.challenge}</dd>
+                    </div>
+                    <div className="py-4 border-b border-slate-200">
+                      <dt className="text-[0.6875rem] font-bold text-accent-600 uppercase tracking-[0.14em] mb-1.5">
+                        Outcome
+                      </dt>
+                      <dd className="text-[0.9375rem] text-slate-700 leading-relaxed">{project.outcome}</dd>
+                    </div>
+                  </dl>
+
+                  <div className="flex flex-wrap gap-x-4 gap-y-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="text-[0.8125rem] font-semibold text-slate-500 uppercase tracking-wider">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold text-accent-600 uppercase mb-1">Outcome</p>
-                    <p className="text-xs text-slate-700 leading-relaxed">{project.outcome}</p>
+
+                  <div className="flex gap-6">
+                    <Link
+                      href={`/portfolio/demo/${project.slug}`}
+                      className="flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors"
+                      aria-label={`${project.title} demo`}
+                    >
+                      <ExternalLink className="w-4 h-4" /> View case study
+                    </Link>
+                    <a
+                      href={project.codeHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors"
+                      aria-label={`${project.title} source code`}
+                    >
+                      <Github className="w-4 h-4" /> Code
+                    </a>
                   </div>
                 </div>
-
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs font-medium text-brand-700 bg-brand-600/15 border border-brand-500/20 px-2 py-0.5 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-5">
-                  <a
-                    href={project.codeHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-slate-600 hover:text-slate-900 transition-colors py-1"
-                    aria-label={`${project.title} source code`}
-                  >
-                    <Github className="w-3.5 h-3.5" /> Code
-                  </a>
-                  <Link
-                    href={`/portfolio/demo/${project.slug}`}
-                    className="flex items-center gap-1.5 text-xs text-slate-600 hover:text-slate-900 transition-colors py-1"
-                    aria-label={`${project.title} demo`}
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" /> Demo
-                  </Link>
-                </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-slate-50 anim-reveal">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-            Ready to build your project?
-          </h2>
-          <p className="text-slate-600 mb-8 text-lg">
-            Let&apos;s talk about your vision. We&apos;ll help you scope, architect, and ship it.
-          </p>
-          <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
-            Contact Us to Build Your Project <ArrowRight className="w-4 h-4" />
+      <section className="bg-slate-950 anim-reveal">
+        <div className="container-wide section-pad-sm grid lg:grid-cols-[1.15fr_auto] gap-8 lg:gap-20 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              Ready to build your project?
+            </h2>
+            <p className="mt-4 text-slate-400 text-lg max-w-2xl">
+              Let&apos;s talk about your vision. We&apos;ll help you scope, architect, and ship it.
+            </p>
+          </div>
+          <Link href="/contact" className="btn-primary text-base shrink-0">
+            Contact Us <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

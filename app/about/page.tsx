@@ -51,6 +51,37 @@ const differentiators = [
   'US-timezone availability and fluent English communication',
 ]
 
+const team = [
+  {
+    name: 'Tony Brain',
+    role: 'Founder and Technical Lead',
+    image: '/tony-brain.png',
+    alt: 'Tony Brain — Founder and Technical Lead',
+    bio: 'Full-stack engineer with 8+ years of experience building web applications and SaaS platforms. Specialises in React, Node.js, and cloud architecture. Leads all technical delivery at Codvoro.',
+  },
+  {
+    name: 'David Chen',
+    role: 'AI and Full-Stack Developer',
+    image: '/david-chen.jpg',
+    alt: 'David Chen — AI and Full-Stack Developer',
+    bio: 'AI and full-stack engineer specialising in LLM-powered features, robust backend systems, and cloud infrastructure. Owns AI integrations, API architecture, and DevOps — from model pipelines to CI/CD and production deployments.',
+  },
+  {
+    name: 'Dorian Hsu',
+    role: 'Frontend, Shopify & SaaS Developer',
+    image: '/dorian-hsu.png',
+    alt: 'Dorian Hsu — Frontend & Platforms Developer',
+    bio: 'Frontend specialist and platform expert. Crafts pixel-perfect, responsive interfaces and ships fast on Shopify themes, WordPress & Elementor, and modern SaaS platforms — turning designs into polished, conversion-ready storefronts and web apps.',
+  },
+  {
+    name: 'Marinko Mijatovic',
+    role: 'Frontend & Shopify Full-Stack Developer',
+    image: '/marinko-mijatovik.png',
+    alt: 'Marinko Mijatovic — Frontend and Shopify Full-Stack Developer',
+    bio: 'Full-stack developer with deep Shopify expertise. Builds high-converting custom themes and storefronts end-to-end — from responsive frontend interfaces to the backend integrations, apps, and checkout flows that power them.',
+  },
+]
+
 const timeline = [
   { year: '2018', event: 'Combined 10+ years of experience building software for top tech companies.' },
   { year: '2020', event: 'Started taking on freelance clients — first $500k in client project value.' },
@@ -64,29 +95,27 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <VideoHero src="/team.mp4">
-        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
-          About Codvoro
-        </span>
-        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
-          Small Team. <span className="gradient-text-light">Big Delivery.</span>
+        <span className="section-tag section-tag-light">About Codvoro</span>
+        <h1 className="text-[2.5rem] lg:text-6xl font-extrabold text-white leading-[1.05] tracking-[-0.033em] mb-6">
+          Small team. <span className="gradient-text-light">Big delivery.</span>
         </h1>
-        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-slate-300 leading-relaxed max-w-2xl">
           Codvoro is a high-expertise software development team building web applications, SaaS platforms, and startup MVPs for US businesses. We combine the cost-efficiency of freelancers with the accountability and quality of a top-tier agency.
         </p>
       </VideoHero>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-slate-50 anim-reveal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10">
-          <div className="card card-tilt anim-pop anim-delay-1">
-            <h2 className="text-2xl font-black text-slate-900 mb-4">Our Mission</h2>
-            <p className="text-slate-600 leading-relaxed text-lg">
+      <section className="section-pad-sm bg-slate-50 border-b border-slate-200 anim-reveal">
+        <div className="container-wide grid md:grid-cols-2 gap-10 lg:gap-20">
+          <div className="anim-pop anim-delay-1">
+            <span className="section-tag">Our Mission</span>
+            <p className="lede text-slate-700">
               To help US startups and businesses build exceptional software — faster than they thought possible and at a price that makes sense. We believe great software should not require a $500k engineering hire or a bloated agency retainer.
             </p>
           </div>
-          <div className="card card-tilt border-brand-500/30 anim-pop anim-delay-2">
-            <h2 className="text-2xl font-black text-slate-900 mb-4">Our Vision</h2>
-            <p className="text-slate-600 leading-relaxed text-lg">
+          <div className="anim-pop anim-delay-2 md:border-l md:border-slate-200 md:pl-10 lg:pl-20">
+            <span className="section-tag">Our Vision</span>
+            <p className="lede text-slate-700">
               To become the go-to development partner for US startups at the product-building stage — known for shipping fast, communicating clearly, and delivering results that move businesses forward.
             </p>
           </div>
@@ -94,116 +123,74 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-white anim-reveal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="section-tag">The Team</span>
-            <h2 className="section-title">
-              People Behind <span className="gradient-text">Codvoro</span>
-            </h2>
-            <p className="section-subtitle mx-auto mt-2">
-              A focused core of senior engineers who architect, build, test, and ship your product end-to-end.
-            </p>
+      <section className="section-pad bg-white anim-reveal">
+        <div className="container-wide">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">The Team</span>
+              <h2 className="section-title">
+                People behind <span className="gradient-text">Codvoro</span>
+              </h2>
+            </div>
+            <div className="section-head-aside">
+              <p className="section-subtitle">
+                A focused core of senior engineers who architect, build, test, and ship your product end-to-end.
+                No juniors, no handoffs, no account managers in between.
+              </p>
+            </div>
           </div>
 
-          {/* Development Team */}
-          <div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="card card-tilt text-center anim-pop anim-delay-1">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14">
+            {team.map((member, idx) => (
+              <div key={member.name} className={`anim-pop anim-delay-${idx + 1}`}>
+                <div className="aspect-[4/5] relative overflow-hidden rounded-[var(--radius-lg)] bg-slate-100 mb-6">
                   <Image
-                    src="/tony-brain.png"
-                    alt="Tony Brain — Founder and Technical Lead"
+                    src={member.image}
+                    alt={member.alt}
                     fill
                     className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900">Tony Brain</h4>
-                <p className="text-brand-600 text-sm font-semibold mb-3">Founder and Technical Lead</p>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Full-stack engineer with 8+ years of experience building web applications and SaaS platforms. Specialises in React, Node.js, and cloud architecture. Leads all technical delivery at Codvoro.
-                </p>
-              </div>
-              <div className="card card-tilt text-center anim-pop anim-delay-2">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
-                  <Image
-                    src="/david-chen.jpg"
-                    alt="David Chen — AI and Full-Stack Developer"
-                    fill
-                    className="object-cover object-top"
-                  />
+                <div className="border-t border-slate-900 pt-5">
+                  <h3 className="text-xl font-bold text-slate-900 tracking-tight">{member.name}</h3>
+                  <p className="text-brand-600 text-sm font-semibold mt-1 mb-4">{member.role}</p>
+                  <p className="text-slate-600 text-[0.9375rem] leading-relaxed">{member.bio}</p>
                 </div>
-                <h4 className="text-xl font-bold text-slate-900">David Chen</h4>
-                <p className="text-brand-600 text-sm font-semibold mb-3">AI and Full-Stack Developer</p>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  AI and full-stack engineer specialising in LLM-powered features, robust backend systems, and cloud infrastructure. Owns AI integrations, API architecture, and DevOps — from model pipelines to CI/CD and production deployments.
-                </p>
               </div>
-              <div className="card card-tilt text-center anim-pop anim-delay-3">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
-                  <Image
-                    src="/dorian-hsu.png"
-                    alt="Dorian Hsu — Frontend & Platforms Developer"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <h4 className="text-xl font-bold text-slate-900">Dorian Hsu</h4>
-                <p className="text-brand-600 text-sm font-semibold mb-3">Frontend, Shopify &amp; SaaS Developer</p>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Frontend specialist and platform expert. Crafts pixel-perfect, responsive interfaces and ships fast on Shopify themes, WordPress &amp; Elementor, and modern SaaS platforms — turning designs into polished, conversion-ready storefronts and web apps.
-                </p>
-              </div>
-              <div className="card card-tilt text-center anim-pop anim-delay-4">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden relative mx-auto mb-4">
-                  <Image
-                    src="/marinko-mijatovik.png"
-                    alt="Marinko Mijatovic — Frontend and Shopify Full-Stack Developer"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <h4 className="text-xl font-bold text-slate-900">Marinko Mijatovic</h4>
-                <p className="text-brand-600 text-sm font-semibold mb-3">Frontend &amp; Shopify Full-Stack Developer</p>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Full-stack developer with deep Shopify expertise. Builds high-converting custom themes and storefronts end-to-end — from responsive frontend interfaces to the backend integrations, apps, and checkout flows that power them.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Why Codvoro */}
-      <section className="py-20 bg-slate-50 anim-reveal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+      <section className="section-pad bg-slate-50 border-y border-slate-200 anim-reveal">
+        <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
             <span className="section-tag">Why Codvoro</span>
-            <h2 className="section-title text-4xl">
-              The Right Mix of <span className="gradient-text">Price & Quality</span>
+            <h2 className="section-title">
+              The right mix of <span className="gradient-text">price &amp; quality</span>
             </h2>
-            <p className="text-slate-600 leading-relaxed mb-6 text-lg">
+            <p className="lede mt-6 mb-8 max-w-xl">
               Most founders face a hard choice: hire an expensive agency and get bloated overhead, or hire individual freelancers and manage chaos. Codvoro is the third option.
             </p>
-            <ul className="space-y-3">
+            <ul className="border-t border-slate-300 max-w-xl">
               {differentiators.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-slate-700 text-sm">
+                <li key={item} className="flex items-start gap-3 text-slate-700 py-3.5 border-b border-slate-300">
                   <CheckCircle className="w-5 h-5 text-accent-600 shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 rule-grid bg-white">
             {values.map((v) => {
               const Icon = v.icon
               return (
-                <div key={v.title} className="card card-tilt anim-pop">
-                  <div className="w-10 h-10 bg-brand-600/20 rounded-lg flex items-center justify-center mb-3">
-                    <Icon className="w-5 h-5 text-brand-600" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-sm mb-1">{v.title}</h3>
-                  <p className="text-slate-600 text-xs leading-relaxed">{v.desc}</p>
+                <div key={v.title} className="rule-cell anim-pop">
+                  <Icon className="w-7 h-7 text-brand-600 mb-5" strokeWidth={1.5} />
+                  <h3 className="font-bold text-slate-900 text-lg tracking-tight mb-2">{v.title}</h3>
+                  <p className="text-slate-600 text-[0.9375rem] leading-relaxed">{v.desc}</p>
                 </div>
               )
             })}
@@ -212,43 +199,37 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-white anim-reveal">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+      <section className="section-pad bg-white anim-reveal">
+        <div className="container-wide grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-10 lg:gap-20">
+          <div>
             <span className="section-tag">Our Journey</span>
-            <h2 className="section-title text-4xl">
-              How We Got <span className="gradient-text">Here</span>
+            <h2 className="section-title">
+              How we got <span className="gradient-text">here</span>
             </h2>
           </div>
-          <div className="relative">
-            <div className="absolute left-[72px] top-3 bottom-3 w-px bg-slate-200" />
-            <div className="space-y-8">
-              {timeline.map((item) => (
-                <div key={item.year} className="flex gap-6 items-start">
-                  <div className="w-16 text-right shrink-0">
-                    <span className="text-brand-600 font-bold text-sm">{item.year}</span>
-                  </div>
-                  <div className="relative">
-                    <div className="absolute -left-[13px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-500 border-2 border-white ring-1 ring-slate-200" />
-                  </div>
-                  <p className="text-slate-700 text-sm leading-relaxed pt-px">{item.event}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ol className="border-t border-slate-200">
+            {timeline.map((item) => (
+              <li key={item.year} className="grid sm:grid-cols-[7rem_1fr] gap-2 sm:gap-8 py-6 border-b border-slate-200">
+                <span className="text-brand-600 font-bold tabular-nums text-lg">{item.year}</span>
+                <p className="text-slate-700 leading-relaxed">{item.event}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-slate-50 anim-reveal">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-            Let&apos;s build something great together.
-          </h2>
-          <p className="text-slate-600 mb-8">
-            We only take on projects we believe in. Tell us yours — we&apos;ll tell you honestly if we&apos;re the right fit.
-          </p>
-          <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
+      <section className="bg-slate-950 anim-reveal">
+        <div className="container-wide section-pad-sm grid lg:grid-cols-[1.15fr_auto] gap-8 lg:gap-20 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              Let&apos;s build something great together.
+            </h2>
+            <p className="mt-4 text-slate-400 text-lg max-w-2xl">
+              We only take on projects we believe in. Tell us yours — we&apos;ll tell you honestly if we&apos;re the right fit.
+            </p>
+          </div>
+          <Link href="/contact" className="btn-primary text-base shrink-0">
             Start a Conversation <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

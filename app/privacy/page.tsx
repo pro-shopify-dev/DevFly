@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 mb-8 transition-colors">
+    <section className="section-pad-sm bg-white">
+      <div className="container-wide">
+        <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900 mb-10 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </Link>
-        <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>
-        <div className="prose prose-invert prose-sm max-w-none text-slate-600 space-y-4">
-          <p>Last updated: March 15, 2026</p>
+        <h1 className="section-title pb-8 border-b border-slate-200 mb-10">Privacy Policy</h1>
+        <div className="measure text-slate-600 space-y-4 leading-relaxed">
+          <p className="text-sm text-slate-500">Last updated: March 15, 2026</p>
           <p>
             Codvoro (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your privacy. This policy describes how we collect, use, and safeguard your information when you use our website or contact us.
           </p>

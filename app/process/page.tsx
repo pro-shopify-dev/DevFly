@@ -140,61 +140,62 @@ export default function ProcessPage() {
     <>
       {/* Hero */}
       <VideoHero src="/process.mp4">
-        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
-          How We Work
-        </span>
-        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
-          A Process Built for <span className="gradient-text-light">Predictability</span>
+        <span className="section-tag section-tag-light">How We Work</span>
+        <h1 className="text-[2.5rem] lg:text-6xl font-extrabold text-white leading-[1.05] tracking-[-0.033em] mb-6">
+          A process built for <span className="gradient-text-light">predictability</span>
         </h1>
-        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-slate-300 leading-relaxed max-w-2xl">
           We follow a structured, transparent process that gives you full visibility and confidence at every stage — from first conversation to live product.
         </p>
       </VideoHero>
 
       {/* Process phases */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      <section className="bg-white">
+        <div className="container-wide">
           {phases.map((phase, idx) => {
             const Icon = phase.icon
             const isEven = idx % 2 === 0
             return (
               <div
                 key={phase.num}
-                className={`grid lg:grid-cols-2 gap-10 items-start ${!isEven ? 'lg:grid-flow-dense' : ''}`}
+                className="grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-10 lg:gap-20 items-start py-16 lg:py-20 border-b border-slate-200 last:border-0"
               >
                 {/* Visual */}
-                <div className={`${!isEven ? 'lg:col-start-2' : ''}`}>
-                  <div className={`h-48 rounded-2xl bg-gradient-to-br ${phase.color} flex items-center justify-center relative overflow-hidden`}>
+                <div className={isEven ? '' : 'lg:order-2'}>
+                  <div className={`h-64 lg:h-80 rounded-[var(--radius-lg)] bg-gradient-to-br ${phase.color} flex items-center justify-center relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-hero-grid opacity-30" />
-                    <Icon className="relative w-20 h-20 text-white/25" strokeWidth={1} />
-                    <div className="absolute bottom-4 right-4 bg-slate-900/70 backdrop-blur rounded-lg px-3 py-1.5">
-                      <span className="text-xs font-semibold text-white">{phase.duration}</span>
+                    <Icon className="relative w-24 h-24 text-white/25" strokeWidth={1} />
+                    <span className="absolute top-6 left-6 text-6xl font-extrabold text-white/20 tabular-nums leading-none">
+                      {phase.num}
+                    </span>
+                    <div className="absolute bottom-0 left-0 right-0 border-t border-white/20 bg-slate-950/40 px-6 py-3.5">
+                      <span className="text-[0.8125rem] font-semibold text-white uppercase tracking-[0.14em]">
+                        {phase.duration}
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-4xl font-black text-slate-900/10">{phase.num}</span>
-                    <div className="w-10 h-10 bg-brand-600/20 rounded-xl flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-brand-600" />
-                    </div>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-1">{phase.title}</h2>
-                  <p className="text-brand-600 font-semibold mb-3">{phase.tagline}</p>
-                  <p className="text-slate-600 leading-relaxed mb-5 text-sm">{phase.desc}</p>
-                  <ul className="space-y-2 mb-5">
+                <div className={isEven ? '' : 'lg:order-1'}>
+                  <h2 className="text-3xl lg:text-[2.5rem] font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-3">
+                    {phase.title}
+                  </h2>
+                  <p className="text-brand-600 font-semibold text-lg mb-5">{phase.tagline}</p>
+                  <p className="text-slate-600 leading-relaxed mb-8 max-w-2xl">{phase.desc}</p>
+                  <ul className="border-t border-slate-200 mb-8 max-w-2xl">
                     {phase.activities.map((act) => (
-                      <li key={act} className="flex items-start gap-2 text-sm text-slate-700">
-                        <CheckCircle className="w-4 h-4 text-accent-600 shrink-0 mt-0.5" />
+                      <li key={act} className="flex items-start gap-3 text-slate-700 py-3 border-b border-slate-200">
+                        <CheckCircle className="w-4 h-4 text-accent-600 shrink-0 mt-1.5" />
                         {act}
                       </li>
                     ))}
                   </ul>
-                  <div className="bg-slate-100 rounded-xl px-4 py-3 text-sm">
-                    <span className="text-slate-500 font-medium">Deliverable: </span>
-                    <span className="text-slate-700">{phase.deliverable}</span>
+                  <div className="border-l-2 border-brand-600 pl-5 max-w-2xl">
+                    <p className="text-[0.75rem] font-semibold text-slate-500 uppercase tracking-[0.16em] mb-1">
+                      Deliverable
+                    </p>
+                    <p className="text-slate-800">{phase.deliverable}</p>
                   </div>
                 </div>
               </div>
@@ -204,24 +205,30 @@ export default function ProcessPage() {
       </section>
 
       {/* Engineering principles */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="section-tag">Engineering Standards</span>
-            <h2 className="section-title text-4xl">
-              How We Write <span className="gradient-text">Production Code</span>
-            </h2>
+      <section className="section-pad bg-slate-50 border-t border-slate-200">
+        <div className="container-wide">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">Engineering Standards</span>
+              <h2 className="section-title">
+                How we write <span className="gradient-text">production code</span>
+              </h2>
+            </div>
+            <div className="section-head-aside">
+              <p className="section-subtitle">
+                The habits that keep a codebase healthy long after we hand it over — and that make your
+                project easy for any team to pick up.
+              </p>
+            </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 rule-grid bg-white">
             {principles.map((p) => {
               const Icon = p.icon
               return (
-                <div key={p.title} className="card text-center">
-                  <div className="w-10 h-10 bg-brand-600/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Icon className="w-5 h-5 text-brand-600" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-sm mb-2">{p.title}</h3>
-                  <p className="text-slate-600 text-xs leading-relaxed">{p.desc}</p>
+                <div key={p.title} className="rule-cell">
+                  <Icon className="w-7 h-7 text-brand-600 mb-5" strokeWidth={1.5} />
+                  <h3 className="font-bold text-slate-900 text-lg tracking-tight mb-2">{p.title}</h3>
+                  <p className="text-slate-600 text-[0.9375rem] leading-relaxed">{p.desc}</p>
                 </div>
               )
             })}
@@ -230,15 +237,17 @@ export default function ProcessPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-            Want to walk through the process together?
-          </h2>
-          <p className="text-slate-600 mb-8">
-            Book a free 30-minute call and we will walk you through exactly how we would approach your project.
-          </p>
-          <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
+      <section className="bg-slate-950">
+        <div className="container-wide section-pad-sm grid lg:grid-cols-[1.15fr_auto] gap-8 lg:gap-20 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              Want to walk through the process together?
+            </h2>
+            <p className="mt-4 text-slate-400 text-lg max-w-2xl">
+              Book a free 30-minute call and we will walk you through exactly how we would approach your project.
+            </p>
+          </div>
+          <Link href="/contact" className="btn-primary text-base shrink-0">
             Book a Free Consultation <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

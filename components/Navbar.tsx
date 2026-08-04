@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Phone, Mail, ArrowRight } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -20,30 +20,49 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 glass">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
+      {/* Utility bar — contact details up front, the way a firm's site opens */}
+      <div className="hidden lg:block bg-slate-900 text-slate-300">
+        <div className="container-wide h-10 flex items-center justify-between text-[0.8125rem]">
+          <p className="tracking-wide">
+            Senior software team for US startups — freelancer pricing, agency delivery.
+          </p>
+          <div className="flex items-center gap-7">
+            <a href="tel:+16176159749" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              +1 (617) 615-9749
+            </a>
+            <a href="mailto:admin@codvoro.com" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Mail className="w-3.5 h-3.5" />
+              admin@codvoro.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <nav className="container-wide h-16 lg:h-20 flex items-center justify-between gap-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
             src="/codvoro-logo.svg"
             alt="Codvoro"
             width={180}
             height={64}
             priority
-            className="h-11 w-auto logo-clean"
+            className="h-10 lg:h-12 w-auto logo-clean"
           />
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-8 lg:gap-10 ml-auto">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`relative py-2 text-[0.9375rem] font-semibold tracking-tight transition-colors after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:transition-colors ${
                   pathname === link.href
-                    ? 'text-brand-700 bg-brand-50'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    ? 'text-slate-900 after:bg-brand-600'
+                    : 'text-slate-600 hover:text-slate-900 after:bg-transparent hover:after:bg-slate-300'
                 }`}
               >
                 {link.label}
@@ -53,9 +72,9 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <Link href="/contact" className="btn-primary text-sm py-2">
-            Book a Free Call
+        <div className="hidden md:flex items-center shrink-0">
+          <Link href="/contact" className="btn-primary text-sm py-2.5 px-5">
+            Book a Free Call <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -71,30 +90,28 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden glass border-t border-slate-200">
-          <ul className="px-4 py-3 space-y-1">
+        <div className="md:hidden bg-white border-t border-slate-200">
+          <ul className="container-wide py-3">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="border-b border-slate-100 last:border-0">
                 <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    pathname === link.href
-                      ? 'text-slate-900 bg-slate-200'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  className={`block py-3 text-base font-semibold transition-colors ${
+                    pathname === link.href ? 'text-brand-700' : 'text-slate-700 hover:text-slate-900'
                   }`}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li className="pt-2">
+            <li className="pt-4 pb-2">
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="btn-primary text-sm py-2 w-full justify-center"
+                className="btn-primary text-sm w-full justify-center"
               >
-                Book a Free Call
+                Book a Free Call <ArrowRight className="w-4 h-4" />
               </Link>
             </li>
           </ul>

@@ -223,28 +223,49 @@ export default function ServicesPage() {
 
       {/* Hero */}
       <VideoHero src="/stock-footage.mp4">
-        <span className="inline-block text-sm font-semibold uppercase tracking-[0.1em] text-brand-200 mb-3">
-          What We Build
-        </span>
-        <h1 className="text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-4">
-          Services Engineered for <span className="gradient-text-light">Real Products</span>
+        <span className="section-tag section-tag-light">What We Build</span>
+        <h1 className="text-[2.5rem] lg:text-6xl font-extrabold text-white leading-[1.05] tracking-[-0.033em] mb-6">
+          Services engineered for <span className="gradient-text-light">real products</span>
         </h1>
-        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-slate-300 leading-relaxed max-w-2xl">
           We cover the full software lifecycle — from idea to production — with a small, senior team that owns your project end-to-end.
         </p>
-        <div className="flex flex-wrap justify-center gap-4 mt-8">
+        <div className="flex flex-wrap gap-4 mt-9">
           <Link href="/contact" className="btn-primary">
             Start a Project <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link href="/portfolio" className="btn-secondary">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-white/30 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
+          >
             See Our Work
           </Link>
         </div>
       </VideoHero>
 
+      {/* Service index — a quick, scannable list before the detail sections */}
+      <section className="bg-slate-50 border-b border-slate-200">
+        <div className="container-wide py-10 grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-16 items-center">
+          <p className="text-[0.8125rem] font-semibold text-slate-500 uppercase tracking-[0.16em] lg:border-r lg:border-slate-300 lg:pr-16">
+            Jump to
+          </p>
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            {services.map((svc) => (
+              <a
+                key={svc.id}
+                href={`#${svc.id}`}
+                className="text-[0.9375rem] font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >
+                {svc.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <section className="bg-white">
+        <div className="container-wide">
           {services.map((svc, idx) => {
             const Icon = svc.icon
             const isEven = idx % 2 === 0
@@ -252,10 +273,10 @@ export default function ServicesPage() {
               <div
                 id={svc.id}
                 key={svc.id}
-                className={`grid lg:grid-cols-2 gap-10 items-center scroll-mt-20 ${!isEven ? 'lg:[direction:rtl] [&>*]:[direction:ltr]' : ''}`}
+                className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center scroll-mt-32 py-16 lg:py-24 border-b border-slate-200 last:border-0"
               >
                 {/* Visual */}
-                <div className="h-64 lg:h-80 rounded-2xl overflow-hidden relative">
+                <div className={`relative h-72 lg:h-[30rem] overflow-hidden rounded-[var(--radius-lg)] ${!isEven ? 'lg:order-2' : ''}`}>
                   <Image
                     src={svc.image}
                     alt={svc.title}
@@ -264,36 +285,41 @@ export default function ServicesPage() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${svc.color} opacity-50`} />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="bg-slate-900/60 backdrop-blur rounded-xl p-4 border border-white/10">
-                      <p className="text-xs text-slate-200 font-medium mb-2">Technologies</p>
-                      <div className="flex flex-wrap gap-2">
-                        {svc.tech.map((t) => (
-                          <span key={t} className="text-xs bg-white/15 text-white px-2 py-0.5 rounded-md font-medium">{t}</span>
-                        ))}
-                      </div>
+                  <div className="absolute bottom-0 left-0 right-0 border-t border-white/20 bg-slate-950/55 backdrop-blur-sm px-6 py-5">
+                    <p className="text-[0.6875rem] text-slate-300 font-semibold uppercase tracking-[0.16em] mb-3">
+                      Technologies
+                    </p>
+                    <div className="flex flex-wrap gap-x-5 gap-y-2">
+                      {svc.tech.map((t) => (
+                        <span key={t} className="text-sm text-white font-semibold">{t}</span>
+                      ))}
                     </div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div>
-                  <div className="w-12 h-12 bg-brand-600/20 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-brand-600" />
+                <div className={!isEven ? 'lg:order-1' : ''}>
+                  <div className="flex items-center gap-4 mb-6">
+                    <Icon className="w-8 h-8 text-brand-600" strokeWidth={1.5} />
+                    <span className="text-sm font-semibold text-slate-300 tabular-nums">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
                   </div>
-                  <h2 className="text-3xl font-black text-slate-900 mb-2">{svc.title}</h2>
-                  <p className="text-brand-600 font-semibold mb-4">{svc.tagline}</p>
-                  <p className="text-slate-600 leading-relaxed mb-6">{svc.desc}</p>
-                  <ul className="space-y-2 mb-6">
+                  <h2 className="text-3xl lg:text-[2.5rem] font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-3">
+                    {svc.title}
+                  </h2>
+                  <p className="text-brand-600 font-semibold text-lg mb-5">{svc.tagline}</p>
+                  <p className="text-slate-600 leading-relaxed mb-8 max-w-xl">{svc.desc}</p>
+                  <ul className="border-t border-slate-200 mb-8 max-w-xl">
                     {svc.useCases.map((uc) => (
-                      <li key={uc} className="flex items-center gap-2 text-sm text-slate-700">
-                        <CheckCircle className="w-4 h-4 text-accent-600 shrink-0" />
+                      <li key={uc} className="flex items-start gap-3 text-slate-700 py-3 border-b border-slate-200">
+                        <CheckCircle className="w-4 h-4 text-accent-600 shrink-0 mt-1.5" />
                         {uc}
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact" className="btn-primary text-sm">
-                    Discuss This Service <ChevronRight className="w-4 h-4" />
+                  <Link href="/contact" className="link-arrow">
+                    Discuss this service <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -303,16 +329,20 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 text-center mb-10">
-            Services FAQ
-          </h2>
-          <div className="space-y-4">
+      <section className="section-pad bg-slate-50 border-t border-slate-200">
+        <div className="container-wide grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-10 lg:gap-20">
+          <div>
+            <span className="section-tag">Questions</span>
+            <h2 className="section-title">Services FAQ</h2>
+            <p className="section-subtitle mt-5">
+              Something not covered here? Ask us directly — we answer within a day.
+            </p>
+          </div>
+          <div className="border-t border-slate-200">
             {faqItems.map((item) => (
-              <div key={item.question} className="card">
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.question}</h3>
-                <p className="text-slate-600">{item.answer}</p>
+              <div key={item.question} className="py-7 border-b border-slate-200">
+                <h3 className="text-xl font-bold text-slate-900 tracking-tight mb-3">{item.question}</h3>
+                <p className="text-slate-600 leading-relaxed max-w-2xl">{item.answer}</p>
               </div>
             ))}
           </div>
@@ -320,15 +350,17 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-            Not sure which service fits your project?
-          </h2>
-          <p className="text-slate-600 mb-8">
-            Book a free 30-minute consultation and we will map out the right approach for you.
-          </p>
-          <Link href="/contact" className="btn-primary text-base px-8 py-3.5">
+      <section className="bg-slate-950">
+        <div className="container-wide section-pad-sm grid lg:grid-cols-[1.15fr_auto] gap-8 lg:gap-20 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              Not sure which service fits your project?
+            </h2>
+            <p className="mt-4 text-slate-400 text-lg max-w-2xl">
+              Book a free 30-minute consultation and we will map out the right approach for you.
+            </p>
+          </div>
+          <Link href="/contact" className="btn-primary text-base shrink-0">
             Book a Free Consultation <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

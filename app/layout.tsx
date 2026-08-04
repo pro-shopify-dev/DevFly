@@ -102,7 +102,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <Navbar />
-        <main className="pt-16">{children}</main>
+        <main className="pt-16 lg:pt-30">{children}</main>
         <Footer />
       </body>
     </html>
