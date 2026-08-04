@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { siteUrl } from '@/lib/site'
 import { techBrands } from '@/components/BrandLogos'
 import VideoHero from '@/components/VideoHero'
+import PartnerMarquee from '@/components/PartnerMarquee'
 import {
   ArrowRight,
   Code2,
@@ -113,11 +114,6 @@ const projects = [
     color: 'from-orange-700 to-brand-700',
     image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80',
   },
-]
-
-const techStack = [
-  'React', 'Next.js', 'Node.js', 'Laravel',
-  'Python', 'PostgreSQL', 'Firebase', 'AWS', 'Figma',
 ]
 
 const testimonials = [
@@ -250,29 +246,6 @@ function HeroSection() {
         </Link>
       </div>
     </VideoHero>
-  )
-}
-
-function TrustBar() {
-  return (
-    <section className="border-b border-slate-200 bg-slate-50 anim-reveal">
-      <div className="container-wide py-12 lg:py-14 grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-center">
-        <p className="text-[0.8125rem] font-semibold text-slate-500 uppercase tracking-[0.16em] lg:max-w-[13rem] lg:border-r lg:border-slate-300 lg:pr-16">
-          Platforms &amp; technologies we build with
-        </p>
-        <div className="flex flex-wrap items-center gap-x-10 lg:gap-x-14 gap-y-6">
-          {techBrands.map((brand, idx) => (
-            <div
-              key={brand.name}
-              className={`flex items-center gap-2.5 opacity-80 hover:opacity-100 transition-opacity anim-pop anim-delay-${(idx % 6) + 1}`}
-            >
-              {brand.logo}
-              <span className="text-slate-800 font-bold text-lg tracking-tight">{brand.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   )
 }
 
@@ -429,25 +402,26 @@ function PortfolioSection() {
 
 function TechStackSection() {
   return (
-    <section className="section-pad-sm bg-slate-950 anim-reveal">
+    <section className="section-pad-sm bg-slate-50 border-y border-slate-200 anim-reveal">
       <div className="container-wide grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] gap-10 lg:gap-20 items-start">
         <div>
-          <span className="section-tag section-tag-light">Tech Stack</span>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          <span className="section-tag">Tech Stack</span>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Modern tools for scalable products
           </h2>
-          <p className="mt-4 text-slate-400 leading-relaxed max-w-md">
+          <p className="mt-4 text-slate-600 leading-relaxed max-w-md">
             We keep the stack boring where it should be and modern where it counts — so your product
             stays fast, reliable, and cheap to maintain.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 rule-grid-dark">
-          {techStack.map((tech, idx) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 rule-grid bg-white">
+          {techBrands.map((brand, idx) => (
             <div
-              key={tech}
-              className={`px-6 py-5 text-slate-200 font-semibold tracking-tight transition-colors hover:bg-white/5 hover:text-white anim-pop anim-delay-${(idx % 6) + 1}`}
+              key={brand.name}
+              className={`flex items-center gap-3.5 px-6 py-6 transition-colors hover:bg-slate-50 anim-pop anim-delay-${(idx % 6) + 1}`}
             >
-              {tech}
+              <span className="shrink-0 flex items-center justify-center w-8">{brand.logo}</span>
+              <span className="text-slate-800 font-bold text-lg tracking-tight">{brand.name}</span>
             </div>
           ))}
         </div>
@@ -559,7 +533,7 @@ export default function HomePage() {
       />
 
       <HeroSection />
-      <TrustBar />
+      <PartnerMarquee />
       <ServicesSection />
       <ProcessSection />
       <PortfolioSection />

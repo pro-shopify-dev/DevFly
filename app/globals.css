@@ -397,7 +397,42 @@ h1, h2, h3, h4, h5, h6 {
   animation: gradientShift 8s ease-in-out infinite;
 }
 
+/* ── Scrolling logo strip ───────────────────────────────────────────────────
+   Two identical groups inside the track; sliding -50% moves exactly one group
+   width, so copy #2 lands where copy #1 started and the seam is invisible. */
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8rem, #000 calc(100% - 8rem), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8rem, #000 calc(100% - 8rem), transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 48s linear infinite;
+}
+
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+.marquee-group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: clamp(2.5rem, 4vw, 4.5rem);
+  padding-right: clamp(2.5rem, 4vw, 4.5rem);
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
 } /* end @layer components */
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 
 /* Unlayered so it outranks everything above */
 @media (prefers-reduced-motion: reduce) {
@@ -410,6 +445,14 @@ h1, h2, h3, h4, h5, h6 {
   .anim-reveal,
   .anim-pop {
     opacity: 1;
+  }
+
+  /* The track is frozen by the rule above, so let the strip be scrolled by hand
+     instead of clipping every logo past the fold. */
+  .marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }
 
