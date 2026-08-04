@@ -1,1 +1,34 @@
+# dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# next.js build output — Vercel rebuilds this on every deploy
+/.next/
+/out/
+/build
+dist/
+
+# testing
+/coverage
+
+# typescript incremental build cache
+*.tsbuildinfo
+
+# local env files — never commit secrets
+.env
+.env*.local
+
+# vercel
+.vercel
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem

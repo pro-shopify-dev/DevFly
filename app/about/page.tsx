@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, CheckCircle, Users, Zap, Target, Heart } from 'lucide-react'
 import VideoHero from '@/components/VideoHero'
 
@@ -51,37 +50,6 @@ const differentiators = [
   'US-timezone availability and fluent English communication',
 ]
 
-const team = [
-  {
-    name: 'Tony Brain',
-    role: 'Founder and Technical Lead',
-    image: '/tony-brain.png',
-    alt: 'Tony Brain — Founder and Technical Lead',
-    bio: 'Full-stack engineer with 8+ years of experience building web applications and SaaS platforms. Specialises in React, Node.js, and cloud architecture. Leads all technical delivery at Codvoro.',
-  },
-  {
-    name: 'David Chen',
-    role: 'AI and Full-Stack Developer',
-    image: '/david-chen.jpg',
-    alt: 'David Chen — AI and Full-Stack Developer',
-    bio: 'AI and full-stack engineer specialising in LLM-powered features, robust backend systems, and cloud infrastructure. Owns AI integrations, API architecture, and DevOps — from model pipelines to CI/CD and production deployments.',
-  },
-  {
-    name: 'Dorian Hsu',
-    role: 'Frontend, Shopify & SaaS Developer',
-    image: '/dorian-hsu.png',
-    alt: 'Dorian Hsu — Frontend & Platforms Developer',
-    bio: 'Frontend specialist and platform expert. Crafts pixel-perfect, responsive interfaces and ships fast on Shopify themes, WordPress & Elementor, and modern SaaS platforms — turning designs into polished, conversion-ready storefronts and web apps.',
-  },
-  {
-    name: 'Marinko Mijatovic',
-    role: 'Frontend & Shopify Full-Stack Developer',
-    image: '/marinko-mijatovik.png',
-    alt: 'Marinko Mijatovic — Frontend and Shopify Full-Stack Developer',
-    bio: 'Full-stack developer with deep Shopify expertise. Builds high-converting custom themes and storefronts end-to-end — from responsive frontend interfaces to the backend integrations, apps, and checkout flows that power them.',
-  },
-]
-
 const timeline = [
   { year: '2018', event: 'Combined 10+ years of experience building software for top tech companies.' },
   { year: '2020', event: 'Started taking on freelance clients — first $500k in client project value.' },
@@ -118,47 +86,6 @@ export default function AboutPage() {
             <p className="lede text-slate-700">
               To become the go-to development partner for US startups at the product-building stage — known for shipping fast, communicating clearly, and delivering results that move businesses forward.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="section-pad bg-white anim-reveal">
-        <div className="container-wide">
-          <div className="section-head">
-            <div>
-              <span className="section-tag">The Team</span>
-              <h2 className="section-title">
-                People behind <span className="gradient-text">Codvoro</span>
-              </h2>
-            </div>
-            <div className="section-head-aside">
-              <p className="section-subtitle">
-                A focused core of senior engineers who architect, build, test, and ship your product end-to-end.
-                No juniors, no handoffs, no account managers in between.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14">
-            {team.map((member, idx) => (
-              <div key={member.name} className={`anim-pop anim-delay-${idx + 1}`}>
-                <div className="aspect-[4/5] relative overflow-hidden rounded-[var(--radius-lg)] bg-slate-100 mb-6">
-                  <Image
-                    src={member.image}
-                    alt={member.alt}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                </div>
-                <div className="border-t border-slate-900 pt-5">
-                  <h3 className="text-xl font-bold text-slate-900 tracking-tight">{member.name}</h3>
-                  <p className="text-brand-600 text-sm font-semibold mt-1 mb-4">{member.role}</p>
-                  <p className="text-slate-600 text-[0.9375rem] leading-relaxed">{member.bio}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
