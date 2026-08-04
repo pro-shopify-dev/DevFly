@@ -147,15 +147,15 @@ export const techBrands: TechBrand[] = [
 ]
 
 /**
- * Monochrome marks for the scrolling partner strip. Every glyph is drawn with
- * `currentColor` so a single set works on light and dark bands alike, and the
- * whole row can fade from muted to full contrast on hover.
+ * Marks for the scrolling partner strip, each in its own brand colours.
+ * Sized for a ~26px optical height so the row reads as one even band despite
+ * the differing glyph shapes.
  */
 export const partnerBrands: TechBrand[] = [
   {
     name: 'GitHub',
     logo: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#181717" aria-hidden="true">
         <path d="M12 1.8a10.2 10.2 0 0 0-3.2 19.9c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.7c0 .3.2.6.7.5A10.2 10.2 0 0 0 12 1.8Z" />
       </svg>
     ),
@@ -164,8 +164,11 @@ export const partnerBrands: TechBrand[] = [
     name: 'Shopify',
     logo: (
       <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6.2 7.4h11.6l1 13.6H5.2z" fill="currentColor" />
-        <path d="M9.1 8.2V6.4a2.9 2.9 0 0 1 5.8 0v1.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M6.2 7.4h11.6l1 13.6H5.2z" fill="#95BF47" />
+        <path d="M9.1 8.2V6.4a2.9 2.9 0 0 1 5.8 0v1.8" fill="none" stroke="#5E8E3E" strokeWidth="1.5" />
+        <text x="12" y="18" textAnchor="middle" fontSize="8.5" fontWeight="800" fill="#fff" fontFamily="Arial, sans-serif">
+          S
+        </text>
       </svg>
     ),
   },
@@ -173,8 +176,8 @@ export const partnerBrands: TechBrand[] = [
     name: 'Stripe',
     logo: (
       <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="1.2" y="1.2" width="21.6" height="21.6" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-        <text x="12" y="17" textAnchor="middle" fontSize="13" fontWeight="800" fill="currentColor" fontFamily="Arial, sans-serif">
+        <rect width="24" height="24" rx="5" fill="#635BFF" />
+        <text x="12" y="17" textAnchor="middle" fontSize="13" fontWeight="800" fill="#fff" fontFamily="Arial, sans-serif">
           S
         </text>
       </svg>
@@ -184,18 +187,18 @@ export const partnerBrands: TechBrand[] = [
     name: 'AWS',
     logo: (
       <svg width="36" height="26" viewBox="0 0 34 24" aria-hidden="true">
-        <text x="17" y="12" textAnchor="middle" fontSize="10" fontWeight="800" fill="currentColor" fontFamily="Arial, sans-serif">
+        <text x="17" y="12" textAnchor="middle" fontSize="10" fontWeight="800" fill="#232F3E" fontFamily="Arial, sans-serif">
           aws
         </text>
-        <path d="M6 17c7 4 15 4 22 0" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M25.5 16l2.8 1-1.3 2.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6 17c7 4 15 4 22 0" fill="none" stroke="#FF9900" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M25.5 16l2.8 1-1.3 2.5" fill="none" stroke="#FF9900" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
     name: 'Google Cloud',
     logo: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#4285F4" aria-hidden="true">
         <path d="M21.3 12.2c0 5.1-3.5 8.7-8.7 8.7a8.9 8.9 0 1 1 0-17.8c2.4 0 4.4.9 6 2.3l-2.4 2.4a5.1 5.1 0 1 0-3.6 8.8 4.4 4.4 0 0 0 4.6-3.5h-4.6v-3.1h8.6c.1.4.1.8.1 1.2Z" />
       </svg>
     ),
@@ -203,7 +206,7 @@ export const partnerBrands: TechBrand[] = [
   {
     name: 'Vercel',
     logo: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#000000" aria-hidden="true">
         <path d="M12 3.2 22.6 21H1.4Z" />
       </svg>
     ),
@@ -211,19 +214,23 @@ export const partnerBrands: TechBrand[] = [
   {
     name: 'Figma',
     logo: (
-      <svg width="18" height="26" viewBox="0 0 16 24" fill="currentColor" aria-hidden="true">
-        <path d="M4 0h4v4H4a2 2 0 0 1 0-4Zm4 0h4a2 2 0 0 1 0 4H8Zm0 8h4a2 2 0 0 1 0 4H8ZM4 8h4v4H4a2 2 0 0 1 0-4Zm0 8h4v4a2 2 0 1 1-4 0Z" />
+      <svg width="18" height="26" viewBox="0 0 16 24" aria-hidden="true">
+        <path d="M4 0h4v4H4a2 2 0 0 1 0-4Z" fill="#F24E1E" />
+        <path d="M8 0h4a2 2 0 0 1 0 4H8Z" fill="#A259FF" />
+        <path d="M8 8h4a2 2 0 0 1 0 4H8Z" fill="#1ABCFE" />
+        <path d="M4 8h4v4H4a2 2 0 0 1 0-4Z" fill="#0ACF83" />
+        <path d="M4 16h4v4a2 2 0 1 1-4 0Z" fill="#FF7262" />
       </svg>
     ),
   },
   {
     name: 'Slack',
     logo: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <rect x="10.2" y="1.6" width="3.6" height="9.2" rx="1.8" />
-        <rect x="10.2" y="13.2" width="3.6" height="9.2" rx="1.8" />
-        <rect x="1.6" y="10.2" width="9.2" height="3.6" rx="1.8" />
-        <rect x="13.2" y="10.2" width="9.2" height="3.6" rx="1.8" />
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="10.2" y="1.6" width="3.6" height="9.2" rx="1.8" fill="#36C5F0" />
+        <rect x="13.2" y="10.2" width="9.2" height="3.6" rx="1.8" fill="#2EB67D" />
+        <rect x="10.2" y="13.2" width="3.6" height="9.2" rx="1.8" fill="#ECB22E" />
+        <rect x="1.6" y="10.2" width="9.2" height="3.6" rx="1.8" fill="#E01E5A" />
       </svg>
     ),
   },
@@ -231,8 +238,8 @@ export const partnerBrands: TechBrand[] = [
     name: 'Notion',
     logo: (
       <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="1.4" y="1.4" width="21.2" height="21.2" rx="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
-        <text x="12" y="17" textAnchor="middle" fontSize="13" fontWeight="700" fill="currentColor" fontFamily="Georgia, serif">
+        <rect x="1.4" y="1.4" width="21.2" height="21.2" rx="4" fill="#fff" stroke="#000" strokeWidth="1.8" />
+        <text x="12" y="17" textAnchor="middle" fontSize="13" fontWeight="700" fill="#000" fontFamily="Georgia, serif">
           N
         </text>
       </svg>
@@ -242,8 +249,8 @@ export const partnerBrands: TechBrand[] = [
     name: 'WordPress',
     logo: (
       <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="10.8" fill="none" stroke="currentColor" strokeWidth="1.6" />
-        <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="700" fill="currentColor" fontFamily="Georgia, serif">
+        <circle cx="12" cy="12" r="10.8" fill="none" stroke="#21759B" strokeWidth="1.6" />
+        <text x="12" y="16.5" textAnchor="middle" fontSize="12" fontWeight="700" fill="#21759B" fontFamily="Georgia, serif">
           W
         </text>
       </svg>
@@ -252,24 +259,27 @@ export const partnerBrands: TechBrand[] = [
   {
     name: 'Firebase',
     logo: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M4.3 18.3 7.7 3.6c.2-.9 1.4-1 1.8-.2l2.2 4.1 1.5-2.8c.4-.8 1.6-.7 1.8.2l2.7 13.4L12 22.3Z" />
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4.3 18.3 7.7 3.6c.2-.9 1.4-1 1.8-.2l2.2 4.1 1.5-2.8c.4-.8 1.6-.7 1.8.2l2.7 13.4z" fill="#FFA000" />
+        <path d="M4.3 18.3 9.5 3.4l2.2 4.2z" fill="#F57C00" />
+        <path d="M4.3 18.3 12 22.3l5.7-4z" fill="#FFCA28" />
       </svg>
     ),
   },
   {
     name: 'Cloudflare',
     logo: (
-      <svg width="30" height="26" viewBox="0 0 28 24" fill="currentColor" aria-hidden="true">
-        <path d="M20.4 17.5H5.6a4 4 0 0 1 .7-7.9 5.8 5.8 0 0 1 10.8-1.4 4.3 4.3 0 0 1 3.3 9.3Z" />
+      <svg width="30" height="26" viewBox="0 0 28 24" aria-hidden="true">
+        <path d="M20.4 17.5H5.6a4 4 0 0 1 .7-7.9 5.8 5.8 0 0 1 10.8-1.4 4.3 4.3 0 0 1 3.3 9.3Z" fill="#F38020" />
+        <path d="M20.6 9.7a4.3 4.3 0 0 1 1.7 7.8h-2.6a4.3 4.3 0 0 0 .9-7.8Z" fill="#FBAD41" />
       </svg>
     ),
   },
   {
     name: 'Twilio',
     logo: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <circle cx="12" cy="12" r="10.7" fill="none" stroke="currentColor" strokeWidth="2.2" />
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#F22F46" aria-hidden="true">
+        <circle cx="12" cy="12" r="10.7" fill="none" stroke="#F22F46" strokeWidth="2.2" />
         <circle cx="9.1" cy="9.1" r="2.1" />
         <circle cx="14.9" cy="9.1" r="2.1" />
         <circle cx="9.1" cy="14.9" r="2.1" />
@@ -280,7 +290,7 @@ export const partnerBrands: TechBrand[] = [
   {
     name: 'MongoDB',
     logo: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#47A248" aria-hidden="true">
         <path d="M12 1.6s5.2 4.4 5.2 10.2c0 4.4-2.8 7.1-4.4 7.8l-.3 3h-1l-.3-3c-1.6-.7-4.4-3.4-4.4-7.8C6.8 6 12 1.6 12 1.6Z" />
       </svg>
     ),
