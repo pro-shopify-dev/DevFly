@@ -1142,9 +1142,6 @@
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
-  .py-12 {
-    padding-block: calc(var(--spacing) * 12);
-  }
   .py-14 {
     padding-block: calc(var(--spacing) * 14);
   }
@@ -1469,10 +1466,6 @@
     transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-  .duration-300 {
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
   }
   .duration-700 {
     --tw-duration: 700ms;
@@ -2145,18 +2138,13 @@ h1, h2, h3, h4, h5, h6 {
     padding-block: clamp(3rem, 4.5vw, 5rem);
   }
   .section-head {
-    display: grid;
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
     margin-bottom: clamp(2.5rem, 4vw, 4rem);
     padding-bottom: clamp(1.75rem, 2.5vw, 2.5rem);
     border-bottom: 1px solid var(--rule);
-  }
-  @media (min-width: 1024px) {
-    .section-head {
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      gap: 4rem;
-      align-items: end;
-    }
   }
   .section-head-aside {
     display: flex;
@@ -2193,6 +2181,7 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.032em;
     line-height: 1.05;
     margin: 0;
+    max-width: 26ch;
   }
   .section-subtitle {
     font-size: clamp(1.0625rem, 1.1vw, 1.1875rem);
