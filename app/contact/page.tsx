@@ -1,13 +1,14 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { Phone, Mail, Calendar, CheckCircle, ArrowRight, Linkedin, Twitter, Send } from 'lucide-react'
+import { Phone, Mail, Calendar, CheckCircle, ArrowRight, Send } from 'lucide-react'
 import VideoHero from '@/components/VideoHero'
 
 const projectTypes = [
   'Web Application',
   'SaaS Platform',
   'Startup MVP',
+  'AI Solution / Automation',
   'E-Commerce Platform',
   'API / Backend System',
   'UI/UX Implementation',
@@ -184,27 +185,6 @@ export default function ContactPage() {
               ))}
             </ol>
 
-            {/* Social */}
-            <div className="flex gap-3 mt-10">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 border border-slate-200 rounded-[var(--radius)] flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 hover:border-brand-600 transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 border border-slate-200 rounded-[var(--radius)] flex items-center justify-center text-slate-600 hover:text-white hover:bg-brand-600 hover:border-brand-600 transition-all"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           {/* Right — form */}

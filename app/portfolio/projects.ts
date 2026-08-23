@@ -21,6 +21,34 @@ export type PortfolioProject = {
 
 export const projects: PortfolioProject[] = [
   {
+    slug: 'ai-knowledge-assistant',
+    title: 'AI Knowledge Assistant',
+    category: 'AI Solution',
+    desc: 'A secure, source-grounded assistant that searches internal policies, product documentation, and support history to give teams fast answers with citations.',
+    challenge: 'Support specialists were losing hours each week searching across disconnected documents and repeatedly escalating routine questions.',
+    outcome: 'Reduced average answer-research time from 18 minutes to under 2 minutes while keeping every response traceable to an approved source.',
+    tags: ['Next.js', 'Python', 'OpenAI', 'PostgreSQL', 'Vector Search'],
+    color: 'from-cyan-700 to-brand-800',
+    category_color: 'bg-cyan-600/20 text-cyan-700',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
+    demoSummary: 'Interactive AI workspace demonstrating cited answers, confidence signals, and a human-review workflow.',
+    problem: 'Knowledge was fragmented across policies, product guides, and resolved tickets, making consistent answers slow and difficult to verify.',
+    solution: [
+      'Built retrieval over approved sources with citations attached to every generated answer.',
+      'Added role-aware access controls so users only retrieve content they are permitted to see.',
+      'Created confidence thresholds and a review queue for questions that require human judgment.',
+    ],
+    metrics: [
+      { label: 'Research Time', value: '18m to <2m' },
+      { label: 'Answers With Sources', value: '100%' },
+      { label: 'Pilot Delivery', value: '7 weeks' },
+    ],
+    timeline: '7 weeks',
+    clientType: 'B2B support organization',
+    demoHref: '/portfolio/demo/ai-knowledge-assistant',
+    codeHref: 'https://github.com/tonybrain-dotcom',
+  },
+  {
     slug: 'saas-analytics-dashboard',
     title: 'SaaS Analytics Dashboard',
     category: 'SaaS Platform',

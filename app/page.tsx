@@ -18,12 +18,13 @@ import {
   Globe,
   Zap,
   Shield,
+  BrainCircuit,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Web App, SaaS & MVP Development Agency',
+  title: 'Web App, AI, SaaS & MVP Development Agency',
   description:
-    'Codvoro builds custom web applications, SaaS platforms, and startup MVPs for US businesses. Next.js, React, Node.js, and AWS experts.',
+    'Codvoro builds custom web applications, AI solutions, SaaS platforms, and startup MVPs for US businesses.',
   alternates: {
     canonical: '/',
   },
@@ -45,6 +46,11 @@ export const metadata: Metadata = {
 // ─── DATA ───────────────────────────────────────────────────────────────────
 
 const services = [
+  {
+    icon: BrainCircuit,
+    title: 'AI Solutions & Automation',
+    desc: 'Practical AI copilots, intelligent workflows, and retrieval systems connected to your business data.',
+  },
   {
     icon: Code2,
     title: 'Web Application Development',
@@ -86,6 +92,13 @@ const processSteps = [
 ]
 
 const projects = [
+  {
+    title: 'AI Knowledge Assistant',
+    desc: 'A secure, source-grounded assistant that helps support teams find answers across internal documentation in seconds.',
+    tags: ['Next.js', 'Python', 'OpenAI', 'PostgreSQL'],
+    color: 'from-cyan-700 to-brand-800',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
+  },
   {
     title: 'SaaS Analytics Dashboard',
     desc: 'A real-time analytics platform for e-commerce brands with custom reporting and data export.',
@@ -231,7 +244,7 @@ function HeroSection() {
         We build software <span className="gradient-text-light">that moves fast</span>
       </h1>
       <p className="text-lg lg:text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl anim-reveal anim-delay-3">
-        Custom web apps, SaaS platforms, and startup MVPs for US businesses. Production-ready
+        Custom web apps, AI solutions, SaaS platforms, and startup MVPs for US businesses. Production-ready
         software, delivered on time — by a small team of senior engineers.
       </p>
       <div className="flex flex-wrap gap-4 anim-reveal anim-delay-4">
@@ -537,7 +550,6 @@ export default function HomePage() {
       <ServicesSection />
       <ProcessSection />
       <PortfolioSection />
-      <TechStackSection />
       <TestimonialsSection />
       <FinalCTASection />
     </>

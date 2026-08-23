@@ -11,6 +11,7 @@ type ProjectDemoPlaygroundProps = {
 
 export default function ProjectDemoPlayground({ slug }: ProjectDemoPlaygroundProps) {
   const demos: Record<ProjectSlug, JSX.Element> = {
+    'ai-knowledge-assistant': <AIKnowledgeDemo />,
     'saas-analytics-dashboard': <AnalyticsDashboardDemo />,
     'two-sided-marketplace-mvp': <MarketplaceDemo />,
     'healthcare-scheduling-system': <HealthcareSchedulingDemo />,
@@ -20,6 +21,29 @@ export default function ProjectDemoPlayground({ slug }: ProjectDemoPlaygroundPro
   }
 
   return demos[slug]
+}
+
+function AIKnowledgeDemo() {
+  return (
+    <div className="card p-6 space-y-5">
+      <div className="flex items-center justify-between gap-4">
+        <h3 className="text-xl font-bold text-slate-900">Knowledge Assistant</h3>
+        <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full">3 sources verified</span>
+      </div>
+      <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+        What is our escalation process for priority support requests?
+      </div>
+      <div className="rounded-lg border border-brand-200 bg-brand-50 p-5">
+        <p className="text-sm leading-relaxed text-slate-800">Priority requests are acknowledged within 30 minutes, assigned to the on-call specialist, and escalated to the service lead if unresolved after two hours.</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {['Support policy §4.2', 'On-call handbook', 'SLA guide'].map((source) => (
+            <span key={source} className="text-xs font-semibold text-brand-700 bg-white border border-brand-200 px-2.5 py-1 rounded">{source}</span>
+          ))}
+        </div>
+      </div>
+      <p className="text-xs text-slate-500">Demo content only. Production answers are permission-aware and routed for review when confidence is low.</p>
+    </div>
+  )
 }
 
 function AnalyticsDashboardDemo() {

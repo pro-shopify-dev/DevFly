@@ -13,6 +13,15 @@ type DemoContent = {
 }
 
 export const demoContentBySlug: Record<PortfolioProject['slug'], DemoContent> = {
+  'ai-knowledge-assistant': {
+    intro: 'Support teams ask natural-language questions and receive concise answers grounded in approved internal sources.',
+    scenarios: [
+      { title: 'Cited Knowledge Search', summary: 'Search policies and product documentation with a source attached to every claim.', impact: 'Answers stay fast, consistent, and auditable.' },
+      { title: 'Access-Aware Retrieval', summary: 'Results respect team roles and document permissions before content reaches the model.', impact: 'Sensitive knowledge remains protected.' },
+      { title: 'Human Review Queue', summary: 'Low-confidence and high-risk questions route to a specialist for approval.', impact: 'Automation accelerates work without removing accountability.' },
+    ],
+    livePreviewLabel: 'AI Assistant Preview',
+  },
   'saas-analytics-dashboard': {
     intro:
       'Product teams can inspect funnel drop-off, retention cohorts, and campaign attribution in one analytics workspace.',

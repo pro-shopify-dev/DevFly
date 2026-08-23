@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, Linkedin, Twitter, ArrowRight } from 'lucide-react'
+import { Phone, Mail, ArrowRight } from 'lucide-react'
 
 const footerLinks = {
   Company: [
@@ -12,6 +12,7 @@ const footerLinks = {
     { label: 'Web Applications', href: '/services#web-apps' },
     { label: 'SaaS Platforms', href: '/services#saas' },
     { label: 'Startup MVP', href: '/services#mvp' },
+    { label: 'AI Solutions', href: '/services#ai' },
     { label: 'API & Backend', href: '/services#api' },
   ],
   Work: [
@@ -81,26 +82,6 @@ export default function Footer() {
               >
                 <Mail className="w-4 h-4 text-brand-400" />
                 admin@codvoro.com
-              </a>
-            </div>
-            <div className="flex gap-3 mt-8">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/15 rounded-[var(--radius)] flex items-center justify-center text-slate-300 hover:text-white hover:bg-brand-600 hover:border-brand-600 transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/15 rounded-[var(--radius)] flex items-center justify-center text-slate-300 hover:text-white hover:bg-brand-600 hover:border-brand-600 transition-all"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4" />
               </a>
             </div>
           </div>

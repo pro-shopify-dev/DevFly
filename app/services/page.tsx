@@ -5,12 +5,13 @@ import { siteUrl } from '@/lib/site'
 import {
   Code2, Layers, Rocket, Server, Figma, ShoppingCart,
   CheckCircle, ArrowRight, ChevronRight,
+  BrainCircuit,
 } from 'lucide-react'
 import VideoHero from '@/components/VideoHero'
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Custom web applications, SaaS platforms, startup MVPs, e-commerce, API development, and UI/UX implementation by Codvoro.',
+  description: 'Custom web applications, AI solutions, SaaS platforms, startup MVPs, e-commerce, API development, and UI/UX implementation by Codvoro.',
   alternates: {
     canonical: '/services',
   },
@@ -24,6 +25,17 @@ export const metadata: Metadata = {
 }
 
 const services = [
+  {
+    id: 'ai',
+    icon: BrainCircuit,
+    title: 'AI Solutions & Automation',
+    tagline: 'Useful AI built around your workflows and data.',
+    desc: 'We design and ship secure AI features that solve a defined business problem, from internal knowledge assistants to document processing and workflow automation. Every system includes clear guardrails, human review where it matters, and measurable success criteria.',
+    useCases: ['AI copilots and customer support assistants', 'Knowledge search with source-grounded answers', 'Document extraction, classification, and summarization', 'Automated workflows with human approval steps'],
+    tech: ['OpenAI', 'Python', 'Next.js', 'PostgreSQL', 'Vector Search'],
+    color: 'from-cyan-800 to-brand-900',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
+  },
   {
     id: 'web-apps',
     icon: Code2,
