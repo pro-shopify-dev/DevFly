@@ -93,18 +93,25 @@ const processSteps = [
 
 const projects = [
   {
-    title: 'AI Knowledge Assistant',
-    desc: 'A secure, source-grounded assistant that helps support teams find answers across internal documentation in seconds.',
-    tags: ['Next.js', 'Python', 'OpenAI', 'PostgreSQL'],
+    title: 'AI Workflow Automation Platform',
+    desc: 'A visual platform for building AI-powered workflows, connecting business tools, monitoring runs, and managing human approvals.',
+    tags: ['AI Automation', 'SaaS', 'Integrations', 'Analytics'],
     color: 'from-cyan-700 to-brand-800',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
+    image: '/Portfolio/ChatGPT Image Jun 15, 2026, 03_34_23 PM (4).png',
   },
   {
-    title: 'SaaS Analytics Dashboard',
-    desc: 'A real-time analytics platform for e-commerce brands with custom reporting and data export.',
-    tags: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
-    color: 'from-brand-600 to-brand-800',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    title: 'NovaBuild Business Website',
+    desc: 'A premium, conversion-focused website for a construction and design company with services, projects, editorial content, and lead generation.',
+    tags: ['Business Website', 'Responsive Design', 'UX/UI'],
+    color: 'from-slate-800 to-amber-700',
+    image: '/Portfolio/Business Site Portfolio/ChatGPT Image May 21, 2026, 12_43_00 PM (1).png',
+  },
+  {
+    title: 'Cognify AI Workspace',
+    desc: 'A unified AI SaaS workspace for intelligent chat, document analysis, image generation, automation, and cross-product analytics.',
+    tags: ['AI SaaS', 'Product Design', 'Document AI', 'Analytics'],
+    color: 'from-violet-800 to-slate-950',
+    image: '/Cognify/ChatGPT Image May 21, 2026, 09_22_45 PM.png',
   },
   {
     title: 'Startup Marketplace MVP',
@@ -121,11 +128,11 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
   },
   {
-    title: 'E-Commerce Platform',
-    desc: 'Headless commerce storefront with custom CMS, personalized recommendations, and checkout.',
-    tags: ['React', 'Node.js', 'Stripe', 'MongoDB'],
-    color: 'from-orange-700 to-brand-700',
-    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80',
+    title: 'Lumière Home E-Commerce',
+    desc: 'A premium home-goods storefront with editorial discovery, collection filtering, product variants, cart management, and brand storytelling.',
+    tags: ['E-Commerce', 'Storefront UX', 'Product Discovery', 'Cart Flow'],
+    color: 'from-stone-700 to-emerald-900',
+    image: '/Ecomerce/ChatGPT Image May 21, 2026, 10_54_58 AM (1).png',
   },
 ]
 
@@ -514,7 +521,7 @@ function FinalCTASection() {
             Submit Your Project <ArrowRight className="w-4 h-4" />
           </Link>
           <a
-            href="https://calendly.com"
+            href="https://calendly.com/admin-codvoro/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-white/40 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10"

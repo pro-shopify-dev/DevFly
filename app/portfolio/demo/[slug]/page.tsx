@@ -4,8 +4,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react'
 import { getProjectBySlug, projects } from '../../projects'
-import { demoContentBySlug } from '../demoContent'
-import ProjectDemoPlayground from './ProjectDemoPlayground'
+import PortfolioGalleryCarousel from '@/components/PortfolioGalleryCarousel'
 
 type DemoProjectPageProps = {
   params: {
@@ -27,16 +26,15 @@ export function generateMetadata({ params }: DemoProjectPageProps): Metadata {
   }
 
   return {
-    title: `${project.title} Demo`,
+    title: project.title,
     description: project.demoSummary,
   }
 }
 
 export default function DemoProjectPage({ params }: DemoProjectPageProps) {
   const project = getProjectBySlug(params.slug)
-  const demoContent = demoContentBySlug[params.slug]
 
-  if (!project || !demoContent) {
+  if (!project) {
     notFound()
   }
 
@@ -55,7 +53,7 @@ export default function DemoProjectPage({ params }: DemoProjectPageProps) {
                 {project.category}
               </span>
               <h1 className="section-title">{project.title}</h1>
-              <p className="lede mt-6 max-w-2xl">{demoContent.intro}</p>
+              <p className="lede mt-6 max-w-2xl">{project.demoSummary}</p>
 
               <dl className="grid sm:grid-cols-3 rule-grid mt-10">
                 {project.metrics.map((item) => (
@@ -70,14 +68,11 @@ export default function DemoProjectPage({ params }: DemoProjectPageProps) {
                 <Link href="/contact" className="btn-primary">
                   Build Something Similar <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a
-                  href={project.codeHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary"
-                >
-                  <Github className="w-4 h-4" /> Source Profile
-                </a>
+                {project.codeHref && (
+                  <a href={project.codeHref} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                    <Github className="w-4 h-4" /> Source Profile
+                  </a>
+                )}
               </div>
             </div>
 
@@ -149,47 +144,39 @@ export default function DemoProjectPage({ params }: DemoProjectPageProps) {
               <Link href="/contact" className="btn-primary">
                 Start Your Project <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href={project.codeHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
-                Explore Profile <ExternalLink className="w-4 h-4" />
-              </a>
+              {project.codeHref && (
+                <a href={project.codeHref} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                  Explore Profile <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-pad-sm bg-slate-50 border-y border-slate-200">
-        <div className="container-wide">
-          <span className="section-tag">Interactive Product Demo</span>
-          <ProjectDemoPlayground slug={project.slug} />
-
-          <div className="h-px bg-slate-200 my-14" />
-
-          <div className="grid lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] gap-10 lg:gap-20 items-start">
-            <div>
-              <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-3">Demo Flow</h2>
-              <p className="text-slate-600 leading-relaxed">{demoContent.livePreviewLabel}</p>
-              <Link href="/portfolio" className="link-arrow mt-6">
-                Explore more portfolio demos <ArrowRight className="w-4 h-4" />
-              </Link>
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="relative overflow-hidden bg-slate-950 border-y border-white/10">
+          <div className="absolute inset-0 bg-hero-grid opacity-[0.06]" />
+          <div className="absolute -top-40 -right-40 h-[34rem] w-[34rem] rounded-full bg-brand-600/20 blur-3xl" />
+          <div className="relative container-wide py-10 lg:py-12">
+            <div className="mx-auto max-w-6xl grid lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] gap-4 lg:gap-16 items-end mb-7">
+              <div>
+                <span className="section-tag section-tag-light">Inside the Product</span>
+                <h2 className="text-3xl lg:text-4xl font-extrabold text-white tracking-[-0.035em] leading-[1.04] max-w-3xl">
+                  Explore the product experience.
+                </h2>
+              </div>
+              <div className="lg:border-l lg:border-white/15 lg:pl-10">
+                <p className="text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                  Move through the workflow builder, execution monitoring, analytics, and integrations.
+                </p>
+              </div>
             </div>
-
-            <div className="grid md:grid-cols-3 rule-grid bg-white">
-              {demoContent.scenarios.map((scenario) => (
-                <article key={scenario.title} className="px-6 py-6">
-                  <p className="font-bold text-slate-900 tracking-tight mb-2">{scenario.title}</p>
-                  <p className="text-[0.9375rem] text-slate-600 leading-relaxed">{scenario.summary}</p>
-                  <p className="text-[0.6875rem] font-bold text-accent-600 mt-5 uppercase tracking-[0.14em]">{scenario.impact}</p>
-                </article>
-              ))}
-            </div>
+            <PortfolioGalleryCarousel items={project.gallery} />
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
     </>
   )
 }

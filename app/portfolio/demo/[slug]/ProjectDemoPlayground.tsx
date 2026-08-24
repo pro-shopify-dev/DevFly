@@ -12,11 +12,11 @@ type ProjectDemoPlaygroundProps = {
 export default function ProjectDemoPlayground({ slug }: ProjectDemoPlaygroundProps) {
   const demos: Record<ProjectSlug, JSX.Element> = {
     'ai-knowledge-assistant': <AIKnowledgeDemo />,
-    'saas-analytics-dashboard': <AnalyticsDashboardDemo />,
+    'saas-analytics-dashboard': <BusinessWebsiteDemo />,
     'two-sided-marketplace-mvp': <MarketplaceDemo />,
     'healthcare-scheduling-system': <HealthcareSchedulingDemo />,
     'headless-ecommerce-platform': <EcommerceDemo />,
-    'b2b-proposal-automation-saas': <ProposalAutomationDemo />,
+    'b2b-proposal-automation-saas': <CognifyWorkspaceDemo />,
     'real-time-collaboration-tool': <CollaborationDemo />,
   }
 
@@ -27,21 +27,80 @@ function AIKnowledgeDemo() {
   return (
     <div className="card p-6 space-y-5">
       <div className="flex items-center justify-between gap-4">
-        <h3 className="text-xl font-bold text-slate-900">Knowledge Assistant</h3>
-        <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full">3 sources verified</span>
+        <h3 className="text-xl font-bold text-slate-900">Employee Onboarding Workflow</h3>
+        <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full">Workflow live</span>
       </div>
       <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-        What is our escalation process for priority support requests?
+        AI-powered workflow from employee form submission to classification, data extraction, approval, and account provisioning.
       </div>
       <div className="rounded-lg border border-brand-200 bg-brand-50 p-5">
-        <p className="text-sm leading-relaxed text-slate-800">Priority requests are acknowledged within 30 minutes, assigned to the on-call specialist, and escalated to the service lead if unresolved after two hours.</p>
+        <p className="text-sm leading-relaxed text-slate-800">Every run remains visible and traceable, with human approval for high-priority or low-confidence decisions.</p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['Support policy §4.2', 'On-call handbook', 'SLA guide'].map((source) => (
+          {['AI classification', 'Conditional approval', 'CRM + Slack actions'].map((source) => (
             <span key={source} className="text-xs font-semibold text-brand-700 bg-white border border-brand-200 px-2.5 py-1 rounded">{source}</span>
           ))}
         </div>
       </div>
-      <p className="text-xs text-slate-500">Demo content only. Production answers are permission-aware and routed for review when confidence is low.</p>
+      <p className="text-xs text-slate-500">Representative product flow based on the delivered interface.</p>
+    </div>
+  )
+}
+
+function BusinessWebsiteDemo() {
+  const journey = [
+    { label: 'Discover', detail: 'Premium homepage and clear positioning' },
+    { label: 'Evaluate', detail: 'Services, company story, and project proof' },
+    { label: 'Trust', detail: 'Expert articles and visible experience' },
+    { label: 'Contact', detail: 'Qualified inquiry and direct call paths' },
+  ]
+
+  return (
+    <div className="card p-6 lg:p-8">
+      <div className="flex flex-wrap items-end justify-between gap-4 mb-7">
+        <div>
+          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-amber-600 mb-2">Customer Journey</p>
+          <h3 className="text-xl font-bold text-slate-900">From first visit to project inquiry</h3>
+        </div>
+        <span className="text-xs font-semibold text-slate-500">6 responsive page templates</span>
+      </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 rule-grid">
+        {journey.map((step, index) => (
+          <div key={step.label} className="rule-cell bg-white">
+            <span className="text-sm font-extrabold text-amber-600 tabular-nums">0{index + 1}</span>
+            <p className="font-bold text-slate-900 mt-4 mb-2">{step.label}</p>
+            <p className="text-sm text-slate-600 leading-relaxed">{step.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function CognifyWorkspaceDemo() {
+  const modules = [
+    { name: 'AI Chat', detail: 'Contextual conversations and prompt guidance', color: 'text-violet-700 bg-violet-50 border-violet-200' },
+    { name: 'Documents', detail: 'Upload, organize, search, and analyze files', color: 'text-blue-700 bg-blue-50 border-blue-200' },
+    { name: 'AI Images', detail: 'Controlled prompting and generated outputs', color: 'text-fuchsia-700 bg-fuchsia-50 border-fuchsia-200' },
+    { name: 'Analytics', detail: 'Usage, activity, and interaction insights', color: 'text-emerald-700 bg-emerald-50 border-emerald-200' },
+  ]
+
+  return (
+    <div className="card p-6 lg:p-8">
+      <div className="flex flex-wrap items-end justify-between gap-4 mb-7">
+        <div>
+          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-violet-600 mb-2">AI Product Suite</p>
+          <h3 className="text-xl font-bold text-slate-900">One workspace, multiple AI capabilities</h3>
+        </div>
+        <span className="text-xs font-semibold text-violet-700 bg-violet-50 border border-violet-200 px-3 py-1.5 rounded-full">Pro workspace</span>
+      </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {modules.map((module) => (
+          <div key={module.name} className={`rounded-[var(--radius)] border p-5 ${module.color}`}>
+            <p className="font-bold mb-2">{module.name}</p>
+            <p className="text-sm leading-relaxed text-slate-600">{module.detail}</p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

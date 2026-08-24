@@ -153,7 +153,7 @@ export default function ContactPage() {
                       30-minute intro call to discuss your project, timeline, and budget.
                     </p>
                     <a
-                      href="https://calendly.com"
+                      href="https://calendly.com/admin-codvoro/30min"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="link-arrow text-[0.9375rem]"

@@ -14,35 +14,35 @@ type DemoContent = {
 
 export const demoContentBySlug: Record<PortfolioProject['slug'], DemoContent> = {
   'ai-knowledge-assistant': {
-    intro: 'Support teams ask natural-language questions and receive concise answers grounded in approved internal sources.',
+    intro: 'FlowForge gives operations teams one place to build AI-powered workflows, connect business tools, monitor every run, and keep people in control of important decisions.',
     scenarios: [
-      { title: 'Cited Knowledge Search', summary: 'Search policies and product documentation with a source attached to every claim.', impact: 'Answers stay fast, consistent, and auditable.' },
-      { title: 'Access-Aware Retrieval', summary: 'Results respect team roles and document permissions before content reaches the model.', impact: 'Sensitive knowledge remains protected.' },
-      { title: 'Human Review Queue', summary: 'Low-confidence and high-risk questions route to a specialist for approval.', impact: 'Automation accelerates work without removing accountability.' },
+      { title: 'Visual AI Workflow Builder', summary: 'Compose triggers, AI classification, data extraction, conditions, approvals, and connected actions on one canvas.', impact: 'Complex automation stays understandable.' },
+      { title: 'Run Monitoring', summary: 'Inspect execution status, timings, task progress, and errors down to the individual workflow node.', impact: 'Teams can diagnose failures quickly.' },
+      { title: 'Connected Operations', summary: 'Manage CRM, messaging, productivity, email, and custom webhook integrations from a central workspace.', impact: 'Tools work together in one governed flow.' },
     ],
-    livePreviewLabel: 'AI Assistant Preview',
+    livePreviewLabel: 'AI workflow automation product preview',
   },
   'saas-analytics-dashboard': {
     intro:
-      'Product teams can inspect funnel drop-off, retention cohorts, and campaign attribution in one analytics workspace.',
+      'NovaBuild presents a complete business website journey—from first impression and service discovery to project proof, expert content, and a qualified inquiry.',
     scenarios: [
       {
-        title: 'Funnel Conversion Analyzer',
-        summary: 'Compare drop-off by acquisition channel and date range with side-by-side conversion steps.',
-        impact: 'Cut weekly reporting review from 3 hours to 40 minutes.',
+        title: 'Credibility First',
+        summary: 'Strong architectural imagery, company positioning, values, and project proof establish trust quickly.',
+        impact: 'A confident first impression for prospective clients.',
       },
       {
-        title: 'Cohort Retention Explorer',
-        summary: 'Track returning users by first purchase month to identify high-LTV segments quickly.',
-        impact: 'Improved retention decisions across growth and product teams.',
+        title: 'Clear Service Discovery',
+        summary: 'Commercial, residential, interior, renovation, management, and sustainability services are easy to scan.',
+        impact: 'Visitors find the right capability without friction.',
       },
       {
-        title: 'Export And Share',
-        summary: 'Generate CSV/PDF board-ready exports and share secure report links with stakeholders.',
-        impact: 'Faster executive alignment and fewer ad hoc data requests.',
+        title: 'Lead Generation',
+        summary: 'Calls, quote actions, contact details, service qualification, and inquiry forms create a direct conversion path.',
+        impact: 'Every major page supports the next customer action.',
       },
     ],
-    livePreviewLabel: 'Analytics Workspace Preview',
+    livePreviewLabel: 'Business website customer-journey preview',
   },
   'two-sided-marketplace-mvp': {
     intro:
@@ -112,25 +112,25 @@ export const demoContentBySlug: Record<PortfolioProject['slug'], DemoContent> = 
   },
   'b2b-proposal-automation-saas': {
     intro:
-      'Sales teams create polished proposals in minutes, collect signatures, and take first payments without tool switching.',
+      'Cognify brings conversational AI, document intelligence, image generation, knowledge tools, automation, and analytics into one consistent SaaS workspace.',
     scenarios: [
       {
-        title: 'Block-Based Proposal Builder',
-        summary: 'Drag-and-drop pricing, scope, and timeline blocks using reusable agency templates.',
-        impact: 'Proposal creation time dropped from hours to minutes.',
+        title: 'Unified AI Workspace',
+        summary: 'Move between chat, documents, image creation, knowledge, automation, and analytics through one clear product shell.',
+        impact: 'Multiple AI capabilities feel like one product.',
       },
       {
-        title: 'Signature + Payment Sequence',
-        summary: 'Trigger e-signature and deposit collection as one guided buyer action.',
-        impact: 'Faster move from signed deal to cash collection.',
+        title: 'Focused Creation Tools',
+        summary: 'Purpose-built interfaces give each AI workflow the controls and context it needs without unnecessary complexity.',
+        impact: 'Users can move from intent to output quickly.',
       },
       {
-        title: 'CRM Autofill',
-        summary: 'Auto-populate contact, company, and package metadata from CRM records.',
-        impact: 'Fewer manual errors and more consistent proposals.',
+        title: 'Product-Level Analytics',
+        summary: 'Track interactions, analyzed documents, generated images, automation activity, and common use cases centrally.',
+        impact: 'Usage and product value remain visible.',
       },
     ],
-    livePreviewLabel: 'Proposal Lifecycle Preview',
+    livePreviewLabel: 'Cognify AI workspace product preview',
   },
   'real-time-collaboration-tool': {
     intro:

@@ -164,15 +164,17 @@ export default function PortfolioPage() {
                     >
                       <ExternalLink className="w-4 h-4" /> View case study
                     </Link>
-                    <a
-                      href={project.codeHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors"
-                      aria-label={`${project.title} source code`}
-                    >
-                      <Github className="w-4 h-4" /> Code
-                    </a>
+                    {project.codeHref && (
+                      <a
+                        href={project.codeHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors"
+                        aria-label={`${project.title} source code`}
+                      >
+                        <Github className="w-4 h-4" /> Code
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>
