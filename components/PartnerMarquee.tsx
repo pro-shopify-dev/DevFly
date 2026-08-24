@@ -13,6 +13,12 @@ import { partnerBrands } from './BrandLogos'
 export default function PartnerMarquee() {
   return (
     <section className="border-b border-slate-200 bg-slate-50 py-10 lg:py-12 anim-reveal">
+      <div className="container-wide mb-7 flex items-center justify-between gap-6">
+        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-slate-500">
+          Technologies we build with
+        </p>
+        <p className="hidden sm:block text-xs font-semibold text-slate-400">20+ production tools</p>
+      </div>
       <div className="marquee">
         <div className="marquee-track">
           {[0, 1].map((copy) => (

@@ -1,4 +1,13 @@
 import type { ReactNode } from 'react'
+import {
+  SiAnthropic, SiCloudflare, SiDjango, SiDocker, SiFastapi, SiFigma,
+  SiFirebase, SiGithub, SiGithubactions, SiGooglecloud, SiGraphql,
+  SiHuggingface, SiKubernetes, SiLangchain, SiMistralai, SiMongodb,
+  SiNextdotjs, SiNodedotjs, SiOllama, SiPandas, SiPostgresql, SiPrisma,
+  SiPython, SiPytorch, SiReact, SiRedis, SiScikitlearn, SiShopify,
+  SiStripe, SiSupabase, SiTailwindcss, SiTensorflow, SiTypescript,
+  SiVercel, SiVite,
+} from 'react-icons/si'
 
 export type TechBrand = { name: string; logo: ReactNode }
 
@@ -151,7 +160,125 @@ export const techBrands: TechBrand[] = [
  * Sized for a ~26px optical height so the row reads as one even band despite
  * the differing glyph shapes.
  */
-export const partnerBrands: TechBrand[] = [
+const officialStackBrands: TechBrand[] = [
+  { name: 'Python', logo: <SiPython size={26} color="#3776AB" aria-hidden="true" /> },
+  { name: 'Anthropic', logo: <SiAnthropic size={26} color="#D97757" aria-hidden="true" /> },
+  { name: 'LangChain', logo: <SiLangchain size={26} color="#1C3C3C" aria-hidden="true" /> },
+  { name: 'Mistral AI', logo: <SiMistralai size={26} color="#F54D00" aria-hidden="true" /> },
+  { name: 'Hugging Face', logo: <SiHuggingface size={26} color="#FFD21E" aria-hidden="true" /> },
+  { name: 'Ollama', logo: <SiOllama size={26} color="#000000" aria-hidden="true" /> },
+  { name: 'PyTorch', logo: <SiPytorch size={26} color="#EE4C2C" aria-hidden="true" /> },
+  { name: 'TensorFlow', logo: <SiTensorflow size={26} color="#FF6F00" aria-hidden="true" /> },
+  { name: 'scikit-learn', logo: <SiScikitlearn size={26} color="#F7931E" aria-hidden="true" /> },
+  { name: 'Pandas', logo: <SiPandas size={26} color="#150458" aria-hidden="true" /> },
+  { name: 'FastAPI', logo: <SiFastapi size={26} color="#009688" aria-hidden="true" /> },
+  { name: 'Django', logo: <SiDjango size={26} color="#092E20" aria-hidden="true" /> },
+  { name: 'Next.js', logo: <SiNextdotjs size={26} color="#000000" aria-hidden="true" /> },
+  { name: 'React', logo: <SiReact size={27} color="#61DAFB" aria-hidden="true" /> },
+  { name: 'Node.js', logo: <SiNodedotjs size={26} color="#5FA04E" aria-hidden="true" /> },
+  { name: 'TypeScript', logo: <SiTypescript size={26} color="#3178C6" aria-hidden="true" /> },
+  { name: 'Tailwind CSS', logo: <SiTailwindcss size={27} color="#06B6D4" aria-hidden="true" /> },
+  { name: 'Vite', logo: <SiVite size={26} color="#646CFF" aria-hidden="true" /> },
+  { name: 'PostgreSQL', logo: <SiPostgresql size={26} color="#4169E1" aria-hidden="true" /> },
+  { name: 'MongoDB', logo: <SiMongodb size={26} color="#47A248" aria-hidden="true" /> },
+  { name: 'Redis', logo: <SiRedis size={26} color="#FF4438" aria-hidden="true" /> },
+  { name: 'Supabase', logo: <SiSupabase size={26} color="#3FCF8E" aria-hidden="true" /> },
+  { name: 'Prisma', logo: <SiPrisma size={26} color="#2D3748" aria-hidden="true" /> },
+  { name: 'GraphQL', logo: <SiGraphql size={26} color="#E10098" aria-hidden="true" /> },
+  { name: 'Docker', logo: <SiDocker size={28} color="#2496ED" aria-hidden="true" /> },
+  { name: 'Kubernetes', logo: <SiKubernetes size={27} color="#326CE5" aria-hidden="true" /> },
+  { name: 'GitHub', logo: <SiGithub size={26} color="#181717" aria-hidden="true" /> },
+  { name: 'GitHub Actions', logo: <SiGithubactions size={26} color="#2088FF" aria-hidden="true" /> },
+  { name: 'Google Cloud', logo: <SiGooglecloud size={27} color="#4285F4" aria-hidden="true" /> },
+  { name: 'Cloudflare', logo: <SiCloudflare size={28} color="#F38020" aria-hidden="true" /> },
+  { name: 'Vercel', logo: <SiVercel size={26} color="#000000" aria-hidden="true" /> },
+  { name: 'Firebase', logo: <SiFirebase size={26} color="#FFCA28" aria-hidden="true" /> },
+  { name: 'Shopify', logo: <SiShopify size={26} color="#7AB55C" aria-hidden="true" /> },
+  { name: 'Stripe', logo: <SiStripe size={27} color="#635BFF" aria-hidden="true" /> },
+  { name: 'Figma', logo: <SiFigma size={25} color="#F24E1E" aria-hidden="true" /> },
+]
+
+const legacyPartnerBrands: TechBrand[] = [
+  {
+    name: 'Python',
+    logo: (
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11.9 2c-2.6 0-4.5.9-4.5 3v2.3h4.6v.8H5.3C3.2 8.1 2 9.5 2 12s1.1 4 3.2 4h1.6v-2.5c0-2.1 1.7-3.7 3.8-3.7h3.7c1.8 0 3.2-1.4 3.2-3.2V5C17.5 3.1 15.4 2 11.9 2Z" fill="#3776AB" />
+        <path d="M12.1 22c2.6 0 4.5-.9 4.5-3v-2.3H12v-.8h6.7c2.1 0 3.3-1.4 3.3-3.9s-1.1-4-3.2-4h-1.6v2.5c0 2.1-1.7 3.7-3.8 3.7H9.7c-1.8 0-3.2 1.4-3.2 3.2V19c0 1.9 2.1 3 5.6 3Z" fill="#FFD43B" />
+      </svg>
+    ),
+  },
+  {
+    name: 'OpenAI',
+    logo: (
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="#10A37F" strokeWidth="2" />
+        <path d="m8.2 8.2 7.6 7.6m0-7.6-7.6 7.6M12 5.7v12.6M5.7 12h12.6" stroke="#10A37F" strokeWidth="1.25" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Anthropic',
+    logo: (
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <rect width="24" height="24" rx="5" fill="#D97757" />
+        <path d="m7 18 5-12 5 12m-8.2-4.2h6.4" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    name: 'LangChain',
+    logo: (
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9.5 8.3 7.8 6.6a3.3 3.3 0 0 0-4.7 4.7l2.6 2.6a3.3 3.3 0 0 0 4.7 0l1.3-1.3m2.8 3.1 1.7 1.7a3.3 3.3 0 0 0 4.7-4.7l-2.6-2.6a3.3 3.3 0 0 0-4.7 0l-1.3 1.3m-4 4.3 7.4-7.4" fill="none" stroke="#1C3C3C" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Next.js',
+    logo: (
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="#000" />
+        <path d="M8.5 7.5v9m0-9 7.2 9m-.2-9v6" fill="none" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    name: 'React',
+    logo: (
+      <svg width="28" height="26" viewBox="-11.5 -10.23 23 20.46" aria-hidden="true">
+        <circle r="2.05" fill="#61DAFB" />
+        <g stroke="#61DAFB" strokeWidth="1" fill="none"><ellipse rx="11" ry="4.2" /><ellipse rx="11" ry="4.2" transform="rotate(60)" /><ellipse rx="11" ry="4.2" transform="rotate(120)" /></g>
+      </svg>
+    ),
+  },
+  {
+    name: 'Node.js',
+    logo: (
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 1.5 21.5 7v10L12 22.5 2.5 17V7z" fill="#539E43" />
+        <text x="12" y="15.5" textAnchor="middle" fontSize="8" fontWeight="700" fill="#fff" fontFamily="Arial, sans-serif">N</text>
+      </svg>
+    ),
+  },
+  {
+    name: 'PostgreSQL',
+    logo: (
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10.5" fill="#336791" />
+        <text x="12" y="16.5" textAnchor="middle" fontSize="11" fontWeight="800" fill="#fff" fontFamily="Arial, sans-serif">P</text>
+      </svg>
+    ),
+  },
+  {
+    name: 'Docker',
+    logo: (
+      <svg width="30" height="26" viewBox="0 0 28 24" aria-hidden="true">
+        <path d="M3 12.2h20.5c-.4 5.2-4 8.2-9.8 8.2-5.2 0-8.7-2.4-10.7-8.2Z" fill="#2496ED" />
+        <path d="M5 9h3v3H5zm4 0h3v3H9zm4 0h3v3h-3zm-4-4h3v3H9zm4 0h3v3h-3zm4 4h3v3h-3z" fill="#2496ED" />
+      </svg>
+    ),
+  },
   {
     name: 'GitHub',
     logo: (
@@ -295,4 +422,11 @@ export const partnerBrands: TechBrand[] = [
       </svg>
     ),
   },
+]
+
+const officialNames = new Set(officialStackBrands.map((brand) => brand.name))
+
+export const partnerBrands: TechBrand[] = [
+  ...officialStackBrands,
+  ...legacyPartnerBrands.filter((brand) => !officialNames.has(brand.name)),
 ]
