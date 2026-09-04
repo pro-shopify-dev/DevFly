@@ -54,9 +54,11 @@ export const metadata: Metadata = {
     'Node.js',
     'software agency',
   ],
-  alternates: {
-    canonical: '/',
-  },
+  applicationName: 'Codvoro',
+  authors: [{ name: 'Codvoro', url: siteUrl }],
+  creator: 'Codvoro',
+  publisher: 'Codvoro',
+  category: 'technology',
   robots: {
     index: true,
     follow: true,
@@ -76,12 +78,14 @@ export const metadata: Metadata = {
     title: 'Codvoro — Modern Software Development for US Startups',
     description:
       'Codvoro builds custom web applications, SaaS platforms, and startup MVPs with freelancer pricing and agency-quality delivery.',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Codvoro software development agency' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Codvoro — Modern Software Development for US Startups',
     description:
       'Codvoro builds custom web applications, SaaS platforms, and startup MVPs with freelancer pricing and agency-quality delivery.',
+    images: ['/opengraph-image'],
   },
 }
 

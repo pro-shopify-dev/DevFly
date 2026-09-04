@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react'
 import { getProjectBySlug, projects } from '../../projects'
 import PortfolioGalleryCarousel from '@/components/PortfolioGalleryCarousel'
+import { siteUrl } from '@/lib/site'
 
 type DemoProjectPageProps = {
   params: {
@@ -28,6 +29,14 @@ export function generateMetadata({ params }: DemoProjectPageProps): Metadata {
   return {
     title: project.title,
     description: project.demoSummary,
+    alternates: { canonical: `/portfolio/demo/${project.slug}` },
+    openGraph: {
+      title: project.title,
+      description: project.demoSummary,
+      type: 'article',
+      url: `/portfolio/demo/${project.slug}`,
+      images: [{ url: project.image, alt: project.title }],
+    },
   }
 }
 
@@ -38,8 +47,17 @@ export default function DemoProjectPage({ params }: DemoProjectPageProps) {
     notFound()
   }
 
+  const projectJsonLd = {
+    '@context': 'https://schema.org', '@type': 'CreativeWork', name: project.title,
+    description: project.demoSummary,
+    image: project.image.startsWith('http') ? project.image : `${siteUrl}${project.image}`,
+    url: `${siteUrl}/portfolio/demo/${project.slug}`,
+    creator: { '@type': 'Organization', name: 'Codvoro', url: siteUrl },
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }} />
       <section className="pt-16 pb-14 bg-white bg-hero-grid relative overflow-hidden">
         <div className="absolute -top-24 right-0 w-[26rem] h-[26rem] bg-brand-500/10 rounded-full blur-3xl" />
         <div className="relative container-wide">

@@ -13,30 +13,24 @@ const staticRoutes = [
   '/blog',
   '/partner',
   '/partner/apply',
-  '/privacy',
-  '/terms',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
-
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${siteUrl}${route}`,
-    lastModified: now,
     changeFrequency: route === '/' ? 'weekly' : 'monthly',
     priority: route === '/' ? 1 : route === '/contact' || route === '/services' ? 0.9 : 0.8,
   }))
 
   const projectEntries: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${siteUrl}/portfolio/demo/${project.slug}`,
-    lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
 
   const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
+    lastModified: new Date(post.date) > new Date() ? new Date() : new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
