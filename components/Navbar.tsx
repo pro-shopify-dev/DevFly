@@ -10,6 +10,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
+  { href: '/blog', label: 'Insights' },
   { href: '/process', label: 'Process' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -60,7 +61,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 className={`relative py-2 text-[0.9375rem] font-semibold tracking-tight transition-colors after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:transition-colors ${
-                  pathname === link.href
+                  pathname === link.href || (link.href !== '/' && pathname.startsWith(`${link.href}/`))
                     ? 'text-slate-900 after:bg-brand-600'
                     : 'text-slate-600 hover:text-slate-900 after:bg-transparent hover:after:bg-slate-300'
                 }`}
@@ -98,7 +99,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className={`block py-3 text-base font-semibold transition-colors ${
-                    pathname === link.href ? 'text-brand-700' : 'text-slate-700 hover:text-slate-900'
+                  pathname === link.href || (link.href !== '/' && pathname.startsWith(`${link.href}/`)) ? 'text-brand-700' : 'text-slate-700 hover:text-slate-900'
                   }`}
                 >
                   {link.label}
