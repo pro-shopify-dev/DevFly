@@ -153,12 +153,12 @@ export default function ContactPage() {
                       30-minute intro call to discuss your project, timeline, and budget.
                     </p>
                     <a
-                      href="https://calendly.com/admin-codvoro/30min"
+                      href="https://outlook.office.com/book/DiscussabouttheProjectwithDaniel@codvoro.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="link-arrow text-[0.9375rem]"
                     >
-                      Open Calendly <ArrowRight className="w-4 h-4" />
+                      Open Booking Calendar <ArrowRight className="w-4 h-4" />
                     </a>
                   </dd>
                 </div>

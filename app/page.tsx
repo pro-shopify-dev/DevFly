@@ -521,7 +521,7 @@ function FinalCTASection() {
             Submit Your Project <ArrowRight className="w-4 h-4" />
           </Link>
           <a
-            href="https://calendly.com/admin-codvoro/30min"
+            href="https://outlook.office.com/book/DiscussabouttheProjectwithDaniel@codvoro.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-white/40 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10"
